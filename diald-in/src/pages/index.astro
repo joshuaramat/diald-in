@@ -32,10 +32,6 @@ import { BOOKING_URL } from '../utils/seo';
         <div class="hero__scroll-icon"></div>
         <span class="hero__scroll-text">Scroll Down</span>
       </div>
-      
-      <div class="hero__corner-badge">
-        <span>Top Rated</span>
-      </div>
     </section>
     
     <!-- About Section -->
@@ -61,7 +57,7 @@ import { BOOKING_URL } from '../utils/seo';
           <p class="cta__text">Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
           <div class="cta__buttons">
             <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-            <a href="#booking" class="btn btn-outline">Learn How Booking Works</a>
+            <a href="#booking" class="btn btn-outline btn-outline-primary">Learn How Booking Works</a>
           </div>
         </div>
       </div>
@@ -98,12 +94,14 @@ import { BOOKING_URL } from '../utils/seo';
   }
   
   .hero__title {
-    font-family: var(--font-accent);
+    font-family: var(--font-primary);
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     margin-bottom: var(--space-md);
     letter-spacing: 2px;
     line-height: 1.1;
     text-transform: uppercase;
+    color: var(--color-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
   
   .hero__subtitle {
@@ -181,19 +179,6 @@ import { BOOKING_URL } from '../utils/seo';
     letter-spacing: 1px;
     color: var(--color-light);
     text-transform: uppercase;
-  }
-  
-  .hero__corner-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: var(--color-accent);
-    color: var(--color-dark);
-    padding: 0.5rem 2rem;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    transform: translateY(-30%) rotate(45deg) translateX(30%);
-    z-index: 2;
   }
   
   @keyframes scrollDown {
@@ -275,5 +260,25 @@ import { BOOKING_URL } from '../utils/seo';
     .cta__buttons .btn {
       width: 100%;
     }
+  }
+
+  .btn-outline:hover, .btn-outline:focus {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+  }
+
+  .btn-outline-primary {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: 'Friz Quadrata', 'Trajan Pro', serif !important;
+    font-weight: 500;
+    transition: all var(--transition-medium);
+  }
+
+  .btn-outline-primary:hover, 
+  .btn-outline-primary:focus {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    text-decoration: none;
   }
 </style>

@@ -4,51 +4,47 @@
 ---
 
 <Fragment>
-  <!-- Font preloading for critical fonts -->
+  <!-- Direct stylesheet links instead of preloading for more reliable loading -->
   <link 
-    rel="preload" 
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" 
-    as="style" 
-    onload="this.onload=null;this.rel='stylesheet'"
+    rel="stylesheet" 
+    href="https://db.onlinewebfonts.com/c/1db29588408eadbd4406aae9238555eb?family=Friz+Quadrata"
   />
   <link 
-    rel="preload" 
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" 
-    as="style" 
-    onload="this.onload=null;this.rel='stylesheet'"
+    rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
   />
   <link 
-    rel="preload" 
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" 
-    as="style" 
-    onload="this.onload=null;this.rel='stylesheet'"
+    rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
   />
-  
-  <!-- Fallback for JS disabled browsers -->
-  <noscript>
-    <link 
-      rel="stylesheet" 
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;500;600;700&family=Bebas+Neue&display=swap"
-    />
-  </noscript>
   
   <!-- Font-display swap ensures text is visible while fonts are loading -->
   <style is:inline>
     /* Font loading optimization */
     @font-face {
-      font-family: 'Playfair Display';
+      font-family: 'Friz Quadrata';
       font-style: normal;
       font-weight: 400 700;
       font-display: swap;
-      src: local('Playfair Display'), local('PlayfairDisplay');
+      src: url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.eot');
+      src: url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.eot?#iefix') format('embedded-opentype'),
+           url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.woff2') format('woff2'),
+           url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.woff') format('woff'),
+           url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.ttf') format('truetype'),
+           url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.svg#Friz Quadrata') format('svg');
+    }
+    
+    /* Apply Friz Quadrata to headings directly */
+    h1, h2, h3, h4, h5, h6, .btn-outline-primary {
+      font-family: 'Friz Quadrata', 'Trajan Pro', serif !important;
     }
     
     @font-face {
-      font-family: 'Open Sans';
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 400 700;
       font-display: swap;
-      src: local('Open Sans'), local('OpenSans');
+      src: local('Montserrat'), local('Montserrat-Regular');
     }
     
     @font-face {

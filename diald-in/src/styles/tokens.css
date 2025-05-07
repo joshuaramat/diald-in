@@ -20,8 +20,8 @@
   --color-accent-rgb: 212, 168, 106;
 
   /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;  /* Elegant serif for headings */
-  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-primary: 'Friz Quadrata', 'Trajan Pro', serif;  /* Primary brand font */
+  --font-secondary: 'Montserrat', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;  /* Secondary font for body text */
   --font-accent: 'Bebas Neue', 'Impact', sans-serif;   /* For pricing, calls to action */
   
   /* Font Sizes - Using a modular scale */

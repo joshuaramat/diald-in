@@ -1,0 +1,186 @@
+---
+import { type ShopifyProduct, getProductUrl, formatPrice } from '../utils/shopify';
+
+interface Props {
+  product: ShopifyProduct;
+}
+
+const { product } = Astro.props;
+const productUrl = getProductUrl(product);
+const hasDiscount = product.compareAtPrice && product.compareAtPrice > product.price;
+---
+
+<div class="shop-product">
+  <div class="shop-product__image-container">
+    <a href={productUrl} class="shop-product__image-link" target="_blank" rel="noopener">
+      <img 
+        src={product.image} 
+        alt={product.title} 
+        class="shop-product__image" 
+        width="400" 
+        height="400"
+        loading="lazy"
+      />
+    </a>
+    {hasDiscount && (
+      <div class="shop-product__badge">Sale</div>
+    )}
+  </div>
+  
+  <div class="shop-product__content">
+    <h3 class="shop-product__title">
+      <a href={productUrl} target="_blank" rel="noopener">{product.title}</a>
+    </h3>
+    
+    <div class="shop-product__type">{product.productType}</div>
+    
+    <div class="shop-product__price-container">
+      <span class="shop-product__price">
+        {formatPrice(product.price)}
+      </span>
+      
+      {hasDiscount && (
+        <span class="shop-product__compare-price">
+          {formatPrice(product.compareAtPrice!)}
+        </span>
+      )}
+    </div>
+    
+    <a href={productUrl} class="shop-product__button" target="_blank" rel="noopener">
+      View Product
+    </a>
+  </div>
+</div>
+
+<style>
+  .shop-product {
+    background-color: var(--color-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .shop-product:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .shop-product__image-container {
+    position: relative;
+    padding-bottom: 100%; /* 1:1 aspect ratio */
+    overflow: hidden;
+    background-color: var(--color-light-gray);
+  }
+  
+  .shop-product__image-link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .shop-product__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-medium);
+  }
+  
+  .shop-product:hover .shop-product__image {
+    transform: scale(1.05);
+  }
+  
+  .shop-product__badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    z-index: 1;
+  }
+  
+  .shop-product__content {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .shop-product__title {
+    font-size: var(--text-xl);
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .shop-product__title a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .shop-product__title a:hover,
+  .shop-product__title a:focus {
+    color: var(--color-secondary);
+  }
+  
+  .shop-product__type {
+    font-size: var(--text-xs);
+    color: var(--color-gray);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .shop-product__price-container {
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+  
+  .shop-product__price {
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--color-secondary);
+  }
+  
+  .shop-product__compare-price {
+    font-size: var(--text-sm);
+    color: var(--color-gray);
+    text-decoration: line-through;
+  }
+  
+  .shop-product__button {
+    margin-top: auto;
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 500;
+    transition: background-color var(--transition-fast);
+    text-decoration: none;
+  }
+  
+  .shop-product__button:hover,
+  .shop-product__button:focus {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    text-decoration: none;
+  }
+</style> 

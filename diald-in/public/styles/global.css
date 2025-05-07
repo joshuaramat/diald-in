@@ -16,8 +16,8 @@
   --color-light-gray: #e9ecef;    /* Light gray for dividers */
 
   /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;  /* Elegant serif for headings */
-  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-primary: 'Friz Quadrata', 'Trajan Pro', serif;  /* Primary brand font */
+  --font-secondary: 'Montserrat', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;  /* Secondary font for body text */
   --font-accent: 'Bebas Neue', 'Impact', sans-serif;   /* For pricing, calls to action */
   
   /* Font Sizes - Using a modular scale */
@@ -74,7 +74,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-secondary);
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-dark);
@@ -92,7 +92,7 @@ img, picture, video, canvas, svg {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-primary);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5em;
