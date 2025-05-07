@@ -28,3 +28,14 @@ yarn-error.log*
 # OS specific
 .DS_Store
 Thumbs.db 
+
+# Error logs - Keep locally only
+logs/
+error-logs/
+*.error.md
+error_log.md
+error_log_*.md
+utils/errorLogger.js
+utils/errorViewer.js
+utils/errorHandler.js
+examples/errorHandlingExample.js 
