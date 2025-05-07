@@ -1,0 +1,181 @@
+---
+// Import necessary components and utilities
+import { generateSEOMetadata } from '../utils/seo';
+import type { SEOProps } from '../utils/seo';
+import FontLoader from '../components/FontLoader.astro';
+
+// Define the properties for the layout
+interface Props extends SEOProps {
+  bodyClass?: string;
+}
+
+// Destructure the properties
+const { 
+  title, 
+  description, 
+  canonical, 
+  image, 
+  noindex, 
+  nofollow,
+  bodyClass = '' 
+} = Astro.props;
+
+// Generate SEO metadata
+const seo = generateSEOMetadata({
+  title,
+  description,
+  canonical,
+  image,
+  noindex,
+  nofollow
+});
+---
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{seo.title}</title>
+    {seo.meta.map(meta => <meta {...meta} />)}
+    {seo.link.map(link => <link {...link} />)}
+    
+    <!-- Additional Social Meta Tags -->
+    <meta property="og:site_name" content="Diald In Barber Studio" />
+    <meta name="twitter:site" content="@dialdinbarber" />
+    <meta name="twitter:creator" content="@dialdinbarber" />
+    
+    <!-- JSON-LD Schema for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify(seo.jsonLd)} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2c3e50" />
+    <meta name="theme-color" content="#2c3e50" />
+    
+    <!-- Font loader component for optimized font loading -->
+    <FontLoader />
+    
+    <!-- Critical CSS -->
+    <style is:inline>
+      /* Critical CSS for above-the-fold content */
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-xl) var(--container-padding);
+        background-color: var(--color-primary);
+        color: var(--color-light);
+        position: relative;
+      }
+      
+      .hero__title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: var(--space-md);
+        font-weight: 700;
+      }
+      
+      .hero__subtitle {
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        margin-bottom: var(--space-lg);
+        max-width: 36rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero__cta {
+        margin-top: var(--space-md);
+      }
+      
+      .navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: var(--space-md) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+      }
+      
+      .navbar__logo {
+        font-family: var(--font-accent);
+        font-size: var(--text-xl);
+        color: var(--color-light);
+        text-decoration: none;
+      }
+      
+      .navbar__menu {
+        display: flex;
+        gap: var(--space-md);
+        list-style: none;
+      }
+      
+      .navbar__link {
+        color: var(--color-light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-fast);
+      }
+      
+      .navbar__link:hover {
+        color: var(--color-accent);
+      }
+    </style>
+    
+    <!-- Global CSS (non-critical) -->
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body class={bodyClass}>
+    <slot />
+    
+    <!-- JS is loaded at the end for performance -->
+    <script>
+      // Detect if JavaScript is enabled
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+      
+      // Add intersection observer for animations (loaded conditionally)
+      document.addEventListener('DOMContentLoaded', () => {
+        if ('IntersectionObserver' in window) {
+          const elements = document.querySelectorAll('.fade-in');
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          elements.forEach(el => observer.observe(el));
+        } else {
+          // Fallback for browsers that don't support Intersection Observer
+          document.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('visible');
+          });
+        }
+        
+        // Handle smooth scrolling for hero scroll indicator
+        const scrollIndicator = document.querySelector('.hero__scroll-indicator');
+        if (scrollIndicator) {
+          scrollIndicator.addEventListener('click', () => {
+            const aboutSection = document.querySelector('.about');
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ 
+                behavior: 'smooth' 
+              });
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html> 

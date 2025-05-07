@@ -1,0 +1,662 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { BOOKING_URL } from '../utils/seo';
+---
+
+<BaseLayout>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <Navbar isDark={true} isSticky={true} />
+      
+      <div class="container hero__container">
+        <h1 class="hero__title">DIALD IN BARBER STUDIO</h1>
+        <p class="hero__subtitle">Where great conversations meet even better cuts. Delivering precision grooming and expert styles in a clean, welcoming environment.</p>
+        <div class="hero__cta">
+          <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
+          <a href="/services" class="btn btn-outline">View Services</a>
+        </div>
+      </div>
+      
+      <div class="hero__scroll-indicator">
+        <div class="hero__scroll-icon"></div>
+        <span class="hero__scroll-text">Scroll Down</span>
+      </div>
+      
+      <div class="hero__corner-badge">
+        <span>Top Rated</span>
+      </div>
+    </section>
+    
+    <!-- About Section (Placeholder) -->
+    <section class="about section">
+      <div class="container">
+        <h2 class="section__title">About Us</h2>
+        <p class="section__subtitle">A modern barbershop with a classic touch</p>
+        
+        <div class="about__content">
+          <div class="about__text">
+            <p>At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Our experienced barbers specialize in modern fades, classic cuts, beard grooming, and custom styles tailored to each client's unique look.</p>
+            <p>Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
+            <div class="about__features">
+              <div class="about__feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Professional service</span>
+              </div>
+              <div class="about__feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Always punctual</span>
+              </div>
+              <div class="about__feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Customer satisfaction</span>
+              </div>
+            </div>
+            <a href="/about" class="btn btn-primary">Learn More</a>
+          </div>
+          <div class="about__image">
+            <img src="https://placehold.co/600x400" alt="Diald In Barber Studio interior" width="600" height="400" />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Preview Section -->
+    <section class="services section bg-light">
+      <div class="container">
+        <h2 class="section__title">Our Services</h2>
+        <p class="section__subtitle">Professional grooming services tailored to your unique style</p>
+        
+        <div class="services__grid">
+          <div class="service-card">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2s1.2 2.28 1.83 3.42c.63 1.14 2.7 5.21 2.8 5.43.12.21.34.65.05 1.21s-1.17 1.08-1.56 1.08c-.38 0-4.13-2.5-4.13-2.5s-1 1.73-1.44 3.07c-.47 1.34-1.68 5.14-1.73 5.29-.06.15-.15.46-.66.46-.51 0-.97-.4-1.12-.66-.15-.27-2.03-7.89-2.03-7.89s-2.36 1.95-3.81 1.64c-1.45-.31-1.76-1.61-1.78-1.86-.02-.25.05-.67.2-.86.16-.19 2.13-2.03 2.13-2.03L4.4 3.09c-.16-.24-.22-.56-.13-.86.09-.3.34-.49.61-.49h2.25s1.46-1.83 1.93-1.83c.47 0 6.94 2.09 6.94 2.09z"/></svg>
+            </div>
+            <h3 class="service-card__title">Modern Fades</h3>
+            <p class="service-card__description">Precision fades tailored to your style and face shape.</p>
+            <a href="/services#haircuts" class="service-card__link">Learn More</a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+            </div>
+            <h3 class="service-card__title">Beard Grooming</h3>
+            <p class="service-card__description">Expert beard shaping and maintenance for a polished look.</p>
+            <a href="/services#beard-trim" class="service-card__link">Learn More</a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16"></path><path d="M4 9h16"></path><path d="M12 14h8"></path><path d="M12 19h8"></path><rect x="4" y="12" width="4" height="9" rx="1"></rect></svg>
+            </div>
+            <h3 class="service-card__title">Weekly Lineups</h3>
+            <p class="service-card__description">Quick touch-ups to keep your style fresh between cuts.</p>
+            <a href="/services#lineup" class="service-card__link">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="services__cta">
+          <a href="/services" class="btn btn-primary">View All Services</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+      <div class="container">
+        <h2 class="section__title">Client Testimonials</h2>
+        <p class="section__subtitle">See why our clients keep coming back</p>
+        
+        <div class="testimonials__grid">
+          <div class="testimonial-card">
+            <div class="testimonial-card__rating">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "Best barbershop in town! The attention to detail is amazing and they always make sure I leave looking my best. Highly recommend!"
+            </blockquote>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__author-name">James T.</div>
+              <div class="testimonial-card__author-title">Regular Client</div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-card__rating">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "The barbers here are true professionals. Always punctual with appointments and deliver exactly what I ask for. Great conversations too!"
+            </blockquote>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__author-name">Michael R.</div>
+              <div class="testimonial-card__author-title">Weekly Client</div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-card__rating">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "First time getting a cut here and I was blown away. The atmosphere is great and they took their time to understand exactly what I wanted."
+            </blockquote>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__author-name">David L.</div>
+              <div class="testimonial-card__author-title">New Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products section bg-primary">
+      <div class="container">
+        <h2 class="section__title text-light">Premium Hair Products</h2>
+        <p class="section__subtitle text-light-muted">Style and maintain your look with our professional product line</p>
+        
+        <div class="products__content">
+          <div class="products__image">
+            <img src="https://placehold.co/500x300" alt="DAKRI Hair Products Collection" width="500" height="300" />
+          </div>
+          
+          <div class="products__text">
+            <h3 class="products__heading text-accent">DAKRI HAIR</h3>
+            <p class="products__description text-light">Based on the inspiration and motivation of two Bay Area Native barbers to make a difference in the hair care industry, DAKRI was created. We use only the highest quality ingredients for those who want to stay unique, confident, and bold.</p>
+            <div class="products__features">
+              <div class="products__feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Premium quality</span>
+              </div>
+              <div class="products__feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Salon-grade formulas</span>
+              </div>
+              <div class="products__feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>For all hair types</span>
+              </div>
+            </div>
+            <a href="https://dakrihair.com/" class="btn btn-accent" target="_blank" rel="noopener">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta section">
+      <div class="container">
+        <div class="cta__content">
+          <h2 class="cta__title">Ready for a Fresh Cut?</h2>
+          <p class="cta__text">Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
+          <div class="cta__buttons">
+            <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+            <a href="/contact" class="btn btn-outline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero styles */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--color-primary);
+    background-image: linear-gradient(to bottom, rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.95)), url('https://placehold.co/1920x1080');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-xl) var(--container-padding);
+    z-index: 2;
+  }
+  
+  .hero__title {
+    font-family: var(--font-accent);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: var(--space-md);
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  
+  .hero__subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-lg);
+    line-height: 1.5;
+  }
+  
+  .hero__cta {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+  
+  .hero__scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+  }
+  
+  .hero__scroll-icon {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--color-light);
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero__scroll-icon::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: var(--color-light);
+    border-radius: 50%;
+    animation: scrollDown 2s infinite;
+  }
+  
+  .hero__scroll-text {
+    font-size: var(--text-xs);
+    letter-spacing: 1px;
+    color: var(--color-light);
+    text-transform: uppercase;
+  }
+  
+  .hero__corner-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    padding: 0.5rem 2rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    transform: translateY(-30%) rotate(45deg) translateX(30%);
+    z-index: 2;
+  }
+  
+  @keyframes scrollDown {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    80% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero__cta {
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .hero__cta .btn {
+      width: 100%;
+    }
+  }
+  
+  /* Section styles */
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .section__title {
+    text-align: center;
+    margin-bottom: var(--space-xs);
+    position: relative;
+  }
+  
+  .section__title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin: var(--space-xs) auto var(--space-md);
+  }
+  
+  .section__subtitle {
+    text-align: center;
+    color: var(--color-gray);
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .bg-light {
+    background-color: var(--color-light-gray);
+  }
+  
+  .bg-primary {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+  }
+  
+  .text-light {
+    color: var(--color-light);
+  }
+  
+  .text-light-muted {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .text-accent {
+    color: var(--color-accent);
+  }
+  
+  /* About section */
+  .about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+  
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .about__features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+  }
+  
+  .about__feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+  
+  .about__feature svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  
+  .about__image img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+  
+  @media (max-width: 768px) {
+    .about__content {
+      grid-template-columns: 1fr;
+    }
+    
+    .about__image {
+      order: -1;
+      margin-bottom: var(--space-md);
+    }
+  }
+  
+  /* Services section */
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .service-card {
+    background-color: var(--color-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .service-card__icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 50%;
+    margin-bottom: var(--space-md);
+  }
+  
+  .service-card__title {
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-xl);
+  }
+  
+  .service-card__description {
+    color: var(--color-gray);
+    margin-bottom: var(--space-md);
+  }
+  
+  .service-card__link {
+    margin-top: auto;
+    font-weight: 600;
+  }
+  
+  .services__cta {
+    text-align: center;
+    margin-top: var(--space-lg);
+  }
+  
+  /* Testimonials section */
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+  
+  .testimonial-card {
+    background-color: var(--color-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .testimonial-card__rating {
+    display: flex;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent);
+  }
+  
+  .testimonial-card__quote {
+    font-size: var(--text-lg);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+    font-style: italic;
+    flex-grow: 1;
+  }
+  
+  .testimonial-card__author {
+    border-top: 1px solid var(--color-light-gray);
+    padding-top: var(--space-sm);
+  }
+  
+  .testimonial-card__author-name {
+    font-weight: 600;
+  }
+  
+  .testimonial-card__author-title {
+    font-size: var(--text-sm);
+    color: var(--color-gray);
+  }
+  
+  /* Products section */
+  .products__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+  
+  .products__image img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    width: 100%;
+  }
+  
+  .products__heading {
+    font-family: var(--font-accent);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 1px;
+  }
+  
+  .products__description {
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+  
+  .products__features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+  }
+  
+  .products__feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-light);
+  }
+  
+  .products__feature svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 992px) {
+    .products__content {
+      grid-template-columns: 1fr;
+    }
+    
+    .products__image {
+      order: -1;
+    }
+  }
+  
+  /* CTA section */
+  .cta {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    text-align: center;
+  }
+  
+  .cta__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md);
+  }
+  
+  .cta__title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+  }
+  
+  .cta__text {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta__buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+  
+  @media (max-width: 768px) {
+    .cta__buttons {
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    
+    .cta__buttons .btn {
+      width: 100%;
+    }
+  }
+</style>
