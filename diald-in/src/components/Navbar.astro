@@ -35,14 +35,14 @@ const { isDark = false, isSticky = false } = Astro.props;
       
       <ul id="main-menu" class="navbar__menu" role="menu">
         <li role="none"><a href="/" class="navbar__link" role="menuitem">Home</a></li>
-        <li role="none"><a href="/services" class="navbar__link" role="menuitem">Services</a></li>
-        <li role="none"><a href="/barbers" class="navbar__link" role="menuitem">Barbers</a></li>
-        <li role="none"><a href="/gallery" class="navbar__link" role="menuitem">Gallery</a></li>
-        <li role="none"><a href="/products" class="navbar__link" role="menuitem">Products</a></li>
-        <li role="none"><a href="/contact" class="navbar__link" role="menuitem">Contact</a></li>
+        <li role="none"><a href="#services" class="navbar__link" role="menuitem">Services</a></li>
+        <li role="none"><a href="#about" class="navbar__link" role="menuitem">About</a></li>
+        <li role="none"><a href="#booking" class="navbar__link" role="menuitem">Booking</a></li>
+        <li role="none"><a href="#testimonials" class="navbar__link" role="menuitem">Reviews</a></li>
         <li role="none" class="navbar__cta-wrapper">
           <a href={BOOKING_URL} class="navbar__link navbar__link--cta" role="menuitem" target="_blank" rel="noopener">
-            Book Now
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="navbar__cta-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Book Appointment
           </a>
         </li>
       </ul>
@@ -61,6 +61,21 @@ const { isDark = false, isSticky = false } = Astro.props;
         menu.classList.toggle('navbar__menu--active');
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', (!expanded).toString());
+      });
+    }
+    
+    // Close menu when clicking on links
+    const menuLinks = document.querySelectorAll('.navbar__link');
+    if (menuLinks.length > 0 && menu) {
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            menu.classList.remove('navbar__menu--active');
+            if (toggle) {
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
       });
     }
     
@@ -182,16 +197,19 @@ const { isDark = false, isSticky = false } = Astro.props;
   }
   
   .navbar__cta-wrapper {
-    margin-left: var(--space-sm);
+    margin-left: var(--space-md);
   }
   
   .navbar__link--cta {
-    background-color: var(--color-secondary);
-    color: var(--color-light);
+    background-color: var(--color-accent);
+    color: var(--color-dark);
     padding: 0.5rem 1.25rem;
     border-radius: var(--radius-md);
     font-weight: 600;
     transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
   }
   
   .navbar__link--cta::after {
@@ -200,10 +218,14 @@ const { isDark = false, isSticky = false } = Astro.props;
   
   .navbar__link--cta:hover,
   .navbar__link--cta:focus {
-    background-color: var(--color-accent);
-    color: var(--color-dark);
+    background-color: var(--color-secondary);
+    color: var(--color-light);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+  }
+
+  .navbar__cta-icon {
+    flex-shrink: 0;
   }
   
   .navbar__toggle {
@@ -307,7 +329,8 @@ const { isDark = false, isSticky = false } = Astro.props;
     
     .navbar__link--cta {
       text-align: center;
-      display: block;
+      display: flex;
+      justify-content: center;
       padding: var(--space-sm) var(--space-md);
     }
     

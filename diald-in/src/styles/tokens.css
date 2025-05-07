@@ -14,6 +14,11 @@
   --color-gray: #6c757d;          /* Medium gray for subtle elements */
   --color-light-gray: #e9ecef;    /* Light gray for dividers */
 
+  /* RGB Values for opacity/RGBA usage */
+  --color-primary-rgb: 44, 62, 80;
+  --color-secondary-rgb: 192, 57, 43;
+  --color-accent-rgb: 212, 168, 106;
+
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, serif;  /* Elegant serif for headings */
   --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;

@@ -1,0 +1,372 @@
+---
+import { BOOKING_URL } from '../utils/seo';
+
+// Barbers and services data
+const barbers = [
+  { name: "Barber Dan", specialty: "Custom fades and beard styling" },
+  { name: "VegaKutz", specialty: "Precision cuts and hair design" },
+  { name: "Blendedbyivan", specialty: "Classic cuts and modern styles" },
+  { name: "Dameblends", specialty: "Kids cuts and family-friendly styles" },
+  { name: "Josethebarber", specialty: "Beard expertise and skin fades" }
+];
+
+const services = [
+  { name: "Basic Haircut", time: "30 min", price: "$30+" },
+  { name: "Haircut and Beard", time: "45 min", price: "$45+" },
+  { name: "Kids Haircut (3-12 years old)", time: "30 min", price: "$25+" },
+  { name: "Beard Service", time: "20 min", price: "$20+" },
+  { name: "Beard Service with Hair Lineup", time: "30 min", price: "$30+" }
+];
+---
+
+<section class="booking section" id="booking">
+  <div class="container">
+    <h2 class="section__title">Book Your Appointment</h2>
+    <p class="section__subtitle">Schedule your next cut with our talented team</p>
+    
+    <div class="booking__content">
+      <div class="booking__info">
+        <div class="booking__process">
+          <h3 class="booking__heading">How It Works</h3>
+          <ol class="booking__steps">
+            <li class="booking__step">
+              <div class="booking__step-number">1</div>
+              <div class="booking__step-content">
+                <h4 class="booking__step-title">Choose Your Service</h4>
+                <p class="booking__step-description">Select from our range of professional haircuts, beard grooming, and styling services.</p>
+              </div>
+            </li>
+            <li class="booking__step">
+              <div class="booking__step-number">2</div>
+              <div class="booking__step-content">
+                <h4 class="booking__step-title">Select Your Barber</h4>
+                <p class="booking__step-description">Pick your preferred barber or choose the first available professional.</p>
+              </div>
+            </li>
+            <li class="booking__step">
+              <div class="booking__step-number">3</div>
+              <div class="booking__step-content">
+                <h4 class="booking__step-title">Choose Date & Time</h4>
+                <p class="booking__step-description">Find a convenient appointment slot that works with your schedule.</p>
+              </div>
+            </li>
+            <li class="booking__step">
+              <div class="booking__step-number">4</div>
+              <div class="booking__step-content">
+                <h4 class="booking__step-title">Confirm & You're Set</h4>
+                <p class="booking__step-description">Receive a confirmation and reminder for your upcoming appointment.</p>
+              </div>
+            </li>
+          </ol>
+          
+          <div class="booking__note">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <p>Walk-ins are welcome, but appointments are recommended to guarantee your preferred time slot and barber.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="booking__card">
+        <div class="booking__card-inner">
+          <h3 class="booking__card-title">Ready for a Fresh Cut?</h3>
+          
+          <div class="booking__services">
+            <h4 class="booking__section-title">Services</h4>
+            <ul class="booking__service-list">
+              {services.map(service => (
+                <li class="booking__service-item">
+                  <div class="booking__service-details">
+                    <span class="booking__service-name">{service.name}</span>
+                    <span class="booking__service-info">{service.time} · {service.price}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div class="booking__team">
+            <h4 class="booking__section-title">Our Team</h4>
+            <div class="booking__barber-list">
+              {barbers.map(barber => (
+                <div class="booking__barber-item">
+                  <div class="booking__barber-avatar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </div>
+                  <div class="booking__barber-info">
+                    <span class="booking__barber-name">{barber.name}</span>
+                    <span class="booking__barber-specialty">{barber.specialty}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <a href={BOOKING_URL} class="btn btn-primary booking__cta" target="_blank" rel="noopener">Book on Booksy</a>
+          
+          <p class="booking__card-footer">Powered by <img src="https://placehold.co/80x20/ffffff/000000?text=Booksy" alt="Booksy logo" width="80" height="20" /></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .booking {
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-light-gray);
+  }
+
+  .booking__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .booking__info {
+    background-color: var(--color-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .booking__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-lg);
+    color: var(--color-primary);
+    position: relative;
+  }
+
+  .booking__heading::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-accent);
+  }
+
+  .booking__steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step-counter;
+  }
+
+  .booking__step {
+    display: flex;
+    margin-bottom: var(--space-md);
+    align-items: flex-start;
+  }
+
+  .booking__step:last-child {
+    margin-bottom: 0;
+  }
+
+  .booking__step-number {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-right: var(--space-md);
+    flex-shrink: 0;
+  }
+
+  .booking__step-content {
+    flex-grow: 1;
+  }
+
+  .booking__step-title {
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    color: var(--color-primary);
+  }
+
+  .booking__step-description {
+    color: var(--color-gray);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .booking__note {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-lg);
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .booking__note svg {
+    color: var(--color-accent);
+    margin-right: var(--space-sm);
+    flex-shrink: 0;
+  }
+
+  .booking__note p {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+
+  .booking__card {
+    perspective: 1000px;
+    position: relative;
+  }
+
+  .booking__card-inner {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-medium);
+  }
+
+  .booking__card-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-lg);
+    color: var(--color-accent);
+    text-align: center;
+  }
+
+  .booking__section-title {
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-sm);
+    color: var(--color-light);
+    opacity: 0.9;
+  }
+
+  .booking__service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  .booking__service-item {
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .booking__service-item:last-child {
+    border-bottom: none;
+  }
+
+  .booking__service-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .booking__service-name {
+    font-weight: 500;
+  }
+
+  .booking__service-info {
+    font-size: var(--text-xs);
+    opacity: 0.8;
+  }
+
+  .booking__barber-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .booking__barber-item {
+    display: flex;
+    align-items: center;
+    padding: var(--space-xs);
+  }
+
+  .booking__barber-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--space-sm);
+  }
+
+  .booking__barber-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .booking__barber-name {
+    font-weight: 500;
+  }
+
+  .booking__barber-specialty {
+    font-size: var(--text-xs);
+    opacity: 0.8;
+  }
+
+  .booking__cta {
+    width: 100%;
+    padding: var(--space-md);
+    font-size: var(--text-lg);
+    margin-top: auto;
+    text-align: center;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    font-weight: 600;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  }
+
+  .booking__cta:hover, .booking__cta:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+  }
+
+  .booking__card-footer {
+    margin-top: var(--space-md);
+    text-align: center;
+    font-size: var(--text-xs);
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+  }
+
+  @media (max-width: 992px) {
+    .booking__content {
+      grid-template-columns: 1fr;
+    }
+
+    .booking__card {
+      margin-top: var(--space-md);
+    }
+
+    .booking__barber-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .booking__barber-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style> 

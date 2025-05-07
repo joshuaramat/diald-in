@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Services from '../components/Services.astro';
 import About from '../components/About.astro';
+import Booking from '../components/Booking.astro';
 import { BOOKING_URL } from '../utils/seo';
 ---
 
@@ -17,7 +18,10 @@ import { BOOKING_URL } from '../utils/seo';
         <h1 class="hero__title">DIALD IN BARBER STUDIO</h1>
         <p class="hero__subtitle">Where great conversations meet even better cuts. Delivering precision grooming and expert styles in a clean, welcoming environment.</p>
         <div class="hero__cta">
-          <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
+          <a href={BOOKING_URL} class="btn btn-primary hero__cta-primary" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__cta-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Book an Appointment
+          </a>
           <a href="#services" class="btn btn-outline">View Services</a>
         </div>
       </div>
@@ -38,8 +42,11 @@ import { BOOKING_URL } from '../utils/seo';
     <!-- Services Section -->
     <Services />
     
+    <!-- Booking Section -->
+    <Booking />
+    
     <!-- Testimonials Section -->
-    <section class="testimonials section">
+    <section class="testimonials section" id="testimonials">
       <div class="container">
         <h2 class="section__title">Client Testimonials</h2>
         <p class="section__subtitle">See why our clients keep coming back</p>
@@ -141,7 +148,7 @@ import { BOOKING_URL } from '../utils/seo';
           <p class="cta__text">Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
           <div class="cta__buttons">
             <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-            <a href="/contact" class="btn btn-outline">Contact Us</a>
+            <a href="#booking" class="btn btn-outline">Learn How Booking Works</a>
           </div>
         </div>
       </div>
@@ -199,6 +206,27 @@ import { BOOKING_URL } from '../utils/seo';
     display: flex;
     gap: var(--space-md);
     margin-top: var(--space-md);
+  }
+  
+  .hero__cta-primary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.75rem 1.5rem;
+    font-size: var(--text-lg);
+    box-shadow: var(--shadow-md);
+    transform: translateY(0);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  }
+  
+  .hero__cta-primary:hover, 
+  .hero__cta-primary:focus {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .hero__cta-icon {
+    flex-shrink: 0;
   }
   
   .hero__scroll-indicator {
