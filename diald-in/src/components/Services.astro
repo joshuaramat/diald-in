@@ -1,0 +1,206 @@
+---
+import { BOOKING_URL } from '../utils/seo';
+---
+
+<section class="services section">
+  <div class="container">
+    <h2 class="section__title">Our Services</h2>
+    <p class="section__subtitle">Premium grooming services tailored to your unique style</p>
+    
+    <div class="services__grid">
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2s1.2 2.28 1.83 3.42c.63 1.14 2.7 5.21 2.8 5.43.12.21.34.65.05 1.21s-1.17 1.08-1.56 1.08c-.38 0-4.13-2.5-4.13-2.5s-1 1.73-1.44 3.07c-.47 1.34-1.68 5.14-1.73 5.29-.06.15-.15.46-.66.46-.51 0-.97-.4-1.12-.66-.15-.27-2.03-7.89-2.03-7.89s-2.36 1.95-3.81 1.64c-1.45-.31-1.76-1.61-1.78-1.86-.02-.25.05-.67.2-.86.16-.19 2.13-2.03 2.13-2.03L4.4 3.09c-.16-.24-.22-.56-.13-.86.09-.3.34-.49.61-.49h2.25s1.46-1.83 1.93-1.83c.47 0 6.94 2.09 6.94 2.09z"/></svg>
+        </div>
+        <h3 class="service-card__title">Modern Fades</h3>
+        <p class="service-card__description">Precision fades tailored to your style and face shape, including tapers, drops, and skin fades.</p>
+        <a href={BOOKING_URL} class="service-card__link" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M3 10h18"></path><path d="M4 22h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"></path></svg>
+        </div>
+        <h3 class="service-card__title">Classic Cuts</h3>
+        <p class="service-card__description">Timeless styles from pompadours to crew cuts, executed with precision and attention to detail.</p>
+        <a href={BOOKING_URL} class="service-card__link" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 2v2"></path><path d="M15.5 2v2"></path><path d="M8.5 11v9"></path><path d="M15.5 11v9"></path><path d="M4 7h16"></path><path d="M6.5 7l.5-2.5.5 2.5"></path><path d="M12.5 7l.5-2.5.5 2.5"></path><path d="M16.5 7l1-2"></path><path d="M3 11h18"></path></svg>
+        </div>
+        <h3 class="service-card__title">Beard Grooming</h3>
+        <p class="service-card__description">Expert beard shaping, trimming, and maintenance to complement your haircut and facial features.</p>
+        <a href={BOOKING_URL} class="service-card__link" target="_blank" rel="noopener">Book Now</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8"></path><path d="M12 6v7"></path><path d="M8 22l2-2"></path><path d="M16 22l-2-2"></path><path d="M6 13a6 6 0 1 0 12 0"></path></svg>
+        </div>
+        <h3 class="service-card__title">Custom Styles</h3>
+        <p class="service-card__description">Unique, personalized cuts and designs that express your individuality and stand out from the crowd.</p>
+        <a href={BOOKING_URL} class="service-card__link" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </div>
+    
+    <div class="services__info">
+      <div class="services__hours">
+        <h3 class="services__info-title">Business Hours</h3>
+        <ul class="services__hours-list">
+          <li><span class="day">Sunday - Monday:</span> <span class="hours">Closed</span></li>
+          <li><span class="day">Tuesday - Friday:</span> <span class="hours">8:00 AM - 7:00 PM</span></li>
+          <li><span class="day">Saturday:</span> <span class="hours">8:00 AM - 3:00 PM</span></li>
+        </ul>
+      </div>
+      
+      <div class="services__location">
+        <h3 class="services__info-title">Visit Us</h3>
+        <address>
+          22441 Foothill Blvd<br>
+          Hayward, CA 94541
+        </address>
+        <div class="services__buttons">
+          <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
+          <a href="https://goo.gl/maps/yourGoogleMapsLink" class="btn btn-outline" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-light-gray);
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .service-card {
+    background-color: var(--color-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-card__icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 50%;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-card__title {
+    font-family: var(--font-heading);
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+
+  .service-card__description {
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+    color: var(--color-gray);
+  }
+
+  .service-card__link {
+    position: relative;
+    font-weight: 600;
+    transition: color var(--transition-medium);
+    padding-bottom: 2px;
+    align-self: center;
+  }
+
+  .service-card__link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .service-card__link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .services__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: var(--radius-md);
+  }
+
+  .services__info-title {
+    margin-bottom: var(--space-md);
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+  }
+
+  .services__hours-list {
+    list-style: none;
+  }
+
+  .services__hours-list li {
+    margin-bottom: var(--space-xs);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .services__hours-list .day {
+    font-weight: 600;
+  }
+
+  .services__location address {
+    margin-bottom: var(--space-md);
+    font-style: normal;
+    line-height: 1.6;
+  }
+
+  .services__buttons {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  @media (max-width: 768px) {
+    .services__info {
+      grid-template-columns: 1fr;
+    }
+
+    .services__buttons {
+      flex-direction: column;
+    }
+  }
+</style> 

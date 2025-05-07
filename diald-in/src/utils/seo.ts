@@ -16,7 +16,7 @@ export const DEFAULT_DESCRIPTION =
   "At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Our experienced barbers specialize in modern fades, classic cuts, beard grooming, and custom styles tailored to each client's unique look.";
 export const DEFAULT_IMAGE = "/images/diald-in-og-image.jpg";
 export const SITE_URL = "https://dialdinbarberstudio.com";
-export const BOOKING_URL = "https://booksy.com/en-us/dl/show-business/1369171";
+export const BOOKING_URL = "https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward";
 export const BUSINESS_EMAIL = "dialdin.barberstudio@gmail.com";
 export const SHOP_URL = "https://dakrihair.com/";
 
@@ -81,24 +81,24 @@ export function generateSEOMetadata({
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "123 Main Street", // Replace with actual address when available
-        "addressLocality": "San Francisco",
+        "streetAddress": "22441 Foothill Blvd",
+        "addressLocality": "Hayward",
         "addressRegion": "CA",
-        "postalCode": "94101",
+        "postalCode": "94541",
         "addressCountry": "US"
       },
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "20:00"
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "19:00"
         },
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": "Saturday",
-          "opens": "10:00",
-          "closes": "18:00"
+          "opens": "08:00",
+          "closes": "15:00"
         }
       ]
     }

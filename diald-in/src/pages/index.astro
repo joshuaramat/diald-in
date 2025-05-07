@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
 import { BOOKING_URL } from '../utils/seo';
 ---
 
@@ -16,7 +18,7 @@ import { BOOKING_URL } from '../utils/seo';
         <p class="hero__subtitle">Where great conversations meet even better cuts. Delivering precision grooming and expert styles in a clean, welcoming environment.</p>
         <div class="hero__cta">
           <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
-          <a href="/services" class="btn btn-outline">View Services</a>
+          <a href="#services" class="btn btn-outline">View Services</a>
         </div>
       </div>
       
@@ -30,79 +32,11 @@ import { BOOKING_URL } from '../utils/seo';
       </div>
     </section>
     
-    <!-- About Section (Placeholder) -->
-    <section class="about section">
-      <div class="container">
-        <h2 class="section__title">About Us</h2>
-        <p class="section__subtitle">A modern barbershop with a classic touch</p>
-        
-        <div class="about__content">
-          <div class="about__text">
-            <p>At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Our experienced barbers specialize in modern fades, classic cuts, beard grooming, and custom styles tailored to each client's unique look.</p>
-            <p>Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
-            <div class="about__features">
-              <div class="about__feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Professional service</span>
-              </div>
-              <div class="about__feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Always punctual</span>
-              </div>
-              <div class="about__feature">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Customer satisfaction</span>
-              </div>
-            </div>
-            <a href="/about" class="btn btn-primary">Learn More</a>
-          </div>
-          <div class="about__image">
-            <img src="https://placehold.co/600x400" alt="Diald In Barber Studio interior" width="600" height="400" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- About Section -->
+    <About />
     
-    <!-- Services Preview Section -->
-    <section class="services section bg-light">
-      <div class="container">
-        <h2 class="section__title">Our Services</h2>
-        <p class="section__subtitle">Professional grooming services tailored to your unique style</p>
-        
-        <div class="services__grid">
-          <div class="service-card">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2s1.2 2.28 1.83 3.42c.63 1.14 2.7 5.21 2.8 5.43.12.21.34.65.05 1.21s-1.17 1.08-1.56 1.08c-.38 0-4.13-2.5-4.13-2.5s-1 1.73-1.44 3.07c-.47 1.34-1.68 5.14-1.73 5.29-.06.15-.15.46-.66.46-.51 0-.97-.4-1.12-.66-.15-.27-2.03-7.89-2.03-7.89s-2.36 1.95-3.81 1.64c-1.45-.31-1.76-1.61-1.78-1.86-.02-.25.05-.67.2-.86.16-.19 2.13-2.03 2.13-2.03L4.4 3.09c-.16-.24-.22-.56-.13-.86.09-.3.34-.49.61-.49h2.25s1.46-1.83 1.93-1.83c.47 0 6.94 2.09 6.94 2.09z"/></svg>
-            </div>
-            <h3 class="service-card__title">Modern Fades</h3>
-            <p class="service-card__description">Precision fades tailored to your style and face shape.</p>
-            <a href="/services#haircuts" class="service-card__link">Learn More</a>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-            </div>
-            <h3 class="service-card__title">Beard Grooming</h3>
-            <p class="service-card__description">Expert beard shaping and maintenance for a polished look.</p>
-            <a href="/services#beard-trim" class="service-card__link">Learn More</a>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16"></path><path d="M4 9h16"></path><path d="M12 14h8"></path><path d="M12 19h8"></path><rect x="4" y="12" width="4" height="9" rx="1"></rect></svg>
-            </div>
-            <h3 class="service-card__title">Weekly Lineups</h3>
-            <p class="service-card__description">Quick touch-ups to keep your style fresh between cuts.</p>
-            <a href="/services#lineup" class="service-card__link">Learn More</a>
-          </div>
-        </div>
-        
-        <div class="services__cta">
-          <a href="/services" class="btn btn-primary">View All Services</a>
-        </div>
-      </div>
-    </section>
+    <!-- Services Section -->
+    <Services />
     
     <!-- Testimonials Section -->
     <section class="testimonials section">
@@ -359,164 +293,12 @@ import { BOOKING_URL } from '../utils/seo';
     }
   }
   
-  /* Section styles */
-  .section {
-    padding: var(--space-2xl) 0;
-  }
-  
-  .section__title {
-    text-align: center;
-    margin-bottom: var(--space-xs);
-    position: relative;
-  }
-  
-  .section__title::after {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--color-accent);
-    margin: var(--space-xs) auto var(--space-md);
-  }
-  
-  .section__subtitle {
-    text-align: center;
-    color: var(--color-gray);
-    margin-bottom: var(--space-xl);
-    font-size: var(--text-lg);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .bg-light {
-    background-color: var(--color-light-gray);
-  }
-  
-  .bg-primary {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-  }
-  
-  .text-light {
-    color: var(--color-light);
-  }
-  
-  .text-light-muted {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .text-accent {
-    color: var(--color-accent);
-  }
-  
-  /* About section */
-  .about__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-  }
-  
-  .about__text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-  
-  .about__features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: var(--space-sm);
-    margin: var(--space-md) 0;
-  }
-  
-  .about__feature {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-  }
-  
-  .about__feature svg {
-    color: var(--color-accent);
-    flex-shrink: 0;
-  }
-  
-  .about__image img {
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-  }
-  
-  @media (max-width: 768px) {
-    .about__content {
-      grid-template-columns: 1fr;
-    }
-    
-    .about__image {
-      order: -1;
-      margin-bottom: var(--space-md);
-    }
-  }
-  
-  /* Services section */
-  .services__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-lg);
-    margin-bottom: var(--space-xl);
-  }
-  
-  .service-card {
-    background-color: var(--color-light);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .service-card__icon {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    border-radius: 50%;
-    margin-bottom: var(--space-md);
-  }
-  
-  .service-card__title {
-    margin-bottom: var(--space-sm);
-    font-size: var(--text-xl);
-  }
-  
-  .service-card__description {
-    color: var(--color-gray);
-    margin-bottom: var(--space-md);
-  }
-  
-  .service-card__link {
-    margin-top: auto;
-    font-weight: 600;
-  }
-  
-  .services__cta {
-    text-align: center;
-    margin-top: var(--space-lg);
-  }
-  
   /* Testimonials section */
+  .testimonials {
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-light);
+  }
+  
   .testimonials__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -527,33 +309,54 @@ import { BOOKING_URL } from '../utils/seo';
     background-color: var(--color-light);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-medium);
     display: flex;
     flex-direction: column;
     height: 100%;
   }
   
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
   .testimonial-card__rating {
     display: flex;
+    gap: 2px;
     margin-bottom: var(--space-md);
     color: var(--color-accent);
   }
   
   .testimonial-card__quote {
-    font-size: var(--text-lg);
-    line-height: 1.5;
-    margin-bottom: var(--space-md);
-    font-style: italic;
     flex-grow: 1;
+    font-style: italic;
+    margin-bottom: var(--space-md);
+    position: relative;
+    padding-left: var(--space-md);
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+  
+  .testimonial-card__quote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--color-light-gray);
+    font-family: serif;
   }
   
   .testimonial-card__author {
-    border-top: 1px solid var(--color-light-gray);
-    padding-top: var(--space-sm);
+    display: flex;
+    flex-direction: column;
   }
   
   .testimonial-card__author-name {
     font-weight: 600;
+    color: var(--color-primary);
   }
   
   .testimonial-card__author-title {
@@ -562,6 +365,11 @@ import { BOOKING_URL } from '../utils/seo';
   }
   
   /* Products section */
+  .products {
+    padding: var(--space-2xl) 0;
+    color: var(--color-light);
+  }
+  
   .products__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -571,42 +379,40 @@ import { BOOKING_URL } from '../utils/seo';
   
   .products__image img {
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    width: 100%;
+    box-shadow: var(--shadow-lg);
   }
   
   .products__heading {
     font-family: var(--font-accent);
     font-size: var(--text-2xl);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
     letter-spacing: 1px;
   }
   
   .products__description {
-    margin-bottom: var(--space-md);
-    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
   }
   
   .products__features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: var(--space-sm);
-    margin: var(--space-md) 0;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
   
   .products__feature {
     display: flex;
     align-items: center;
     gap: var(--space-xs);
-    color: var(--color-light);
   }
   
   .products__feature svg {
-    color: var(--color-accent);
     flex-shrink: 0;
+    color: var(--color-accent);
   }
   
-  @media (max-width: 992px) {
+  @media (max-width: 768px) {
     .products__content {
       grid-template-columns: 1fr;
     }
@@ -618,28 +424,26 @@ import { BOOKING_URL } from '../utils/seo';
   
   /* CTA section */
   .cta {
-    background-color: var(--color-secondary);
-    color: var(--color-light);
-    text-align: center;
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-light);
   }
   
   .cta__content {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
+    text-align: center;
   }
   
   .cta__title {
     font-size: var(--text-3xl);
     margin-bottom: var(--space-md);
+    color: var(--color-primary);
   }
   
   .cta__text {
-    font-size: var(--text-lg);
     margin-bottom: var(--space-lg);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: var(--text-lg);
+    color: var(--color-gray);
   }
   
   .cta__buttons {
@@ -651,6 +455,7 @@ import { BOOKING_URL } from '../utils/seo';
   @media (max-width: 768px) {
     .cta__buttons {
       flex-direction: column;
+      align-items: center;
       max-width: 300px;
       margin: 0 auto;
     }
