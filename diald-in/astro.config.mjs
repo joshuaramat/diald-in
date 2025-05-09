@@ -3,8 +3,13 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  // Enable caching for better performance
+  // Enable static output for GitHub Pages
   output: 'static',
+  
+  // Set the site and base path for GitHub Pages
+  // Replace 'joshuaramat' with your GitHub username if different
+  site: 'https://joshuaramat.github.io',
+  base: '/diald-in',
   
   // Image optimization settings
   image: {
