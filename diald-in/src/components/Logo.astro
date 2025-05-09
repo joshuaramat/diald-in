@@ -18,23 +18,20 @@ const {
   priority = false
 } = Astro.props;
 
-// Import the logo images
-const whiteLogo = await import('../assets/images/Diald In Logo_option 2.1.PNG');
-const blackLogo = await import('../assets/images/Diald In Logo_option 5.1.PNG');
-
-const logo = variant === 'white' ? whiteLogo.default : blackLogo.default;
+// Use the public logo images
+const logoPath = variant === 'white' 
+  ? '/images/logo/white/logo-lg.png'
+  : '/images/logo/black/logo-lg.png';
 
 // Create class string
 const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim();
 ---
 
-<Image
-  src={logo}
+<img
+  src={logoPath}
   alt={`Diald In Barber Studio ${variant} logo`}
   width={width}
   height={height}
-  format="webp"
-  quality={90}
   class={classString}
   loading={priority ? 'eager' : 'lazy'}
   decoding={priority ? 'sync' : 'async'}
