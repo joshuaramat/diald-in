@@ -22,7 +22,7 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
-          path: ./diald-in # Path to your Astro project
+          path: ./ # Update path to the root of the Astro project
           node-version: 18 # The specific version of Node that should be used to build your site
           package-manager: npm # The Node package manager that should be used to install dependencies and build your site
 
