@@ -18,6 +18,16 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
   />
   
+  <!-- Brand fonts - Brachial and Agüero Serif -->
+  <link 
+    rel="stylesheet" 
+    href="https://fonts.cdnfonts.com/css/brachial"
+  />
+  <link 
+    rel="stylesheet" 
+    href="https://fonts.cdnfonts.com/css/aguero-serif"
+  />
+  
   <!-- Font-display swap ensures text is visible while fonts are loading -->
   <style is:inline>
     /* Font loading optimization */
@@ -34,9 +44,36 @@
            url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.svg#Friz Quadrata') format('svg');
     }
     
-    /* Apply Friz Quadrata to headings directly */
-    h1, h2, h3, h4, h5, h6, .btn-outline-primary {
-      font-family: 'Friz Quadrata', 'Trajan Pro', serif !important;
+    /* Brachial Ultra Wide Font for Diald In */
+    @font-face {
+      font-family: 'Brachial';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('https://fonts.cdnfonts.com/s/80162/Brachial-2MM9.woff') format('woff');
+    }
+    
+    /* Agüero Serif for DAKRI */
+    @font-face {
+      font-family: 'Agüero Serif';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('https://fonts.cdnfonts.com/s/81882/AgüeroSerif-Reg.woff') format('woff');
+    }
+    
+    /* Apply Brachial to headings directly */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Brachial', 'Friz Quadrata', 'Trajan Pro', serif !important;
+    }
+    
+    /* Apply Agüero Serif for DAKRI content */
+    .dakri {
+      font-family: 'Agüero Serif', serif !important;
+    }
+    
+    .diald-in {
+      font-family: 'Brachial', 'Friz Quadrata', 'Trajan Pro', serif !important;
     }
     
     @font-face {

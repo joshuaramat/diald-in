@@ -7,6 +7,7 @@ import About from '../components/About.astro';
 import Booking from '../components/Booking.astro';
 import ShopProducts from '../components/ShopProducts.astro';
 import Testimonials from '../components/Testimonials.astro';
+import CTA from '../components/CTA.astro';
 import { BOOKING_URL } from '../utils/seo';
 ---
 
@@ -17,7 +18,7 @@ import { BOOKING_URL } from '../utils/seo';
       <Navbar isDark={true} isSticky={true} />
       
       <div class="container hero__container">
-        <h1 class="hero__title">DIALD IN BARBER STUDIO</h1>
+        <h1 class="hero__title diald-in">DIALD IN BARBER STUDIO</h1>
         <p class="hero__subtitle">Where great conversations meet even better cuts. Delivering precision grooming and expert styles in a clean, welcoming environment.</p>
         <div class="hero__cta">
           <a href={BOOKING_URL} class="btn btn-primary hero__cta-primary" target="_blank" rel="noopener">
@@ -50,18 +51,7 @@ import { BOOKING_URL } from '../utils/seo';
     <ShopProducts />
     
     <!-- CTA Section -->
-    <section class="cta section">
-      <div class="container">
-        <div class="cta__content">
-          <h2 class="cta__title">Ready for a Fresh Cut?</h2>
-          <p class="cta__text">Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
-          <div class="cta__buttons">
-            <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-            <a href="#booking" class="btn btn-outline btn-outline-primary">Learn How Booking Works</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <CTA />
   </main>
   
   <Footer />
@@ -217,68 +207,5 @@ import { BOOKING_URL } from '../utils/seo';
     .hero__cta .btn {
       width: 100%;
     }
-  }
-  
-  /* CTA section */
-  .cta {
-    padding: var(--space-2xl) 0;
-    background-color: var(--color-light);
-  }
-  
-  .cta__content {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .cta__title {
-    font-size: var(--text-3xl);
-    margin-bottom: var(--space-md);
-    color: var(--color-primary);
-  }
-  
-  .cta__text {
-    margin-bottom: var(--space-lg);
-    font-size: var(--text-lg);
-    color: var(--color-gray);
-  }
-  
-  .cta__buttons {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-md);
-  }
-  
-  @media (max-width: 768px) {
-    .cta__buttons {
-      flex-direction: column;
-      align-items: center;
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    
-    .cta__buttons .btn {
-      width: 100%;
-    }
-  }
-
-  .btn-outline:hover, .btn-outline:focus {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-  }
-
-  .btn-outline-primary {
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-    font-family: 'Friz Quadrata', 'Trajan Pro', serif !important;
-    font-weight: 500;
-    transition: all var(--transition-medium);
-  }
-
-  .btn-outline-primary:hover, 
-  .btn-outline-primary:focus {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    text-decoration: none;
   }
 </style>

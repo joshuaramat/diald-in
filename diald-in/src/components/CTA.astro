@@ -1,0 +1,75 @@
+---
+import { BOOKING_URL } from '../utils/seo';
+---
+
+<section class="cta section">
+  <div class="container">
+    <div class="cta__content">
+      <h2 class="cta__title diald-in">Ready for a Fresh Cut?</h2>
+      <p class="cta__text">Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
+      <div class="cta__buttons">
+        <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+        <a href="#booking" class="btn btn-outline btn-outline-primary">Learn How Booking Works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    padding: var(--space-2xl) 0;
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .cta__content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .cta__title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+    color: #ffffff;
+  }
+  
+  .cta__text {
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-lg);
+    color: #999999;
+  }
+  
+  .cta__buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+  
+  .btn-outline-primary {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all var(--transition-medium);
+  }
+
+  .btn-outline-primary:hover, 
+  .btn-outline-primary:focus {
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .cta__buttons {
+      flex-direction: column;
+      align-items: center;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    
+    .cta__buttons .btn {
+      width: 100%;
+    }
+  }
+</style> 

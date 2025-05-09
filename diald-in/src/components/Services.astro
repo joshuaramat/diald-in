@@ -32,7 +32,8 @@ import { BOOKING_URL } from '../utils/seo';
 <style>
   .services {
     padding: var(--space-2xl) 0;
-    background-color: var(--color-light-gray);
+    background-color: #000000;
+    color: #ffffff;
   }
 
   .services__grid {
@@ -43,7 +44,8 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   .service-card {
-    background-color: var(--color-light);
+    background-color: #000000;
+    border: 1px solid #333333;
     border-radius: var(--radius-md);
     padding: var(--space-lg);
     box-shadow: var(--shadow-sm);
@@ -53,11 +55,13 @@ import { BOOKING_URL } from '../utils/seo';
     align-items: center;
     text-align: center;
     height: 100%;
+    color: #ffffff;
   }
 
   .service-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
   }
 
   .service-card__icon {
@@ -66,8 +70,8 @@ import { BOOKING_URL } from '../utils/seo';
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background-color: var(--color-accent);
+    color: #000000;
     border-radius: 50%;
     margin-bottom: var(--space-md);
   }
@@ -75,7 +79,7 @@ import { BOOKING_URL } from '../utils/seo';
   .service-card__title {
     font-family: var(--font-primary);
     font-size: var(--text-xl);
-    color: var(--color-primary);
+    color: #ffffff;
     margin-bottom: var(--space-sm);
     position: relative;
     padding-bottom: var(--space-xs);
@@ -84,7 +88,7 @@ import { BOOKING_URL } from '../utils/seo';
   .service-card__description {
     margin-bottom: var(--space-md);
     flex-grow: 1;
-    color: var(--color-gray);
+    color: #999999;
   }
 
   .service-card__link {
@@ -93,6 +97,7 @@ import { BOOKING_URL } from '../utils/seo';
     transition: color var(--transition-medium);
     padding-bottom: 2px;
     align-self: center;
+    color: var(--color-accent);
   }
 
   .service-card__link::after {
@@ -119,9 +124,10 @@ import { BOOKING_URL } from '../utils/seo';
     gap: var(--space-xl);
     margin-top: var(--space-xl);
     padding: var(--space-lg);
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background-color: #000000;
+    color: #ffffff;
     border-radius: var(--radius-md);
+    border: 1px solid #333333;
   }
 
   .services__info-title {
@@ -132,6 +138,7 @@ import { BOOKING_URL } from '../utils/seo';
 
   .services__hours-list {
     list-style: none;
+    color: #ffffff;
   }
 
   .services__hours-list li {
@@ -142,12 +149,14 @@ import { BOOKING_URL } from '../utils/seo';
 
   .services__hours-list .day {
     font-weight: 600;
+    color: var(--color-accent);
   }
 
   .services__location address {
     margin-bottom: var(--space-md);
     font-style: normal;
     line-height: 1.6;
+    color: #ffffff;
   }
 
   .services__buttons {
@@ -168,7 +177,7 @@ import { BOOKING_URL } from '../utils/seo';
 
   .service-category__heading {
     font-family: var(--font-primary);
-    color: var(--color-primary);
+    color: #ffffff;
     font-size: var(--text-2xl);
     text-align: center;
     margin-bottom: var(--space-lg);

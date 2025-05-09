@@ -1,5 +1,6 @@
 ---
 import { BOOKING_URL, SHOP_URL } from '../utils/seo';
+import Logo from './Logo.astro';
 
 // Navbar component
 interface Props {
@@ -14,7 +15,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   <div class="container">
     <nav class="navbar">
       <a href="/" class="navbar__logo" aria-label="Diald In Barber Studio - Home">
-        <span class="navbar__logo-text">DIALD IN</span>
+        <Logo variant={isDark ? 'white' : 'black'} width={160} height={40} priority={true} />
       </a>
       
       <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
@@ -96,6 +97,8 @@ const { isDark = false, isSticky = false } = Astro.props;
     right: 0;
     z-index: 100;
     transition: background-color var(--transition-medium), box-shadow var(--transition-medium);
+    background-color: #000000;
+    color: #ffffff;
   }
   
   .header--sticky {
@@ -103,12 +106,12 @@ const { isDark = false, isSticky = false } = Astro.props;
   }
   
   .header--sticky.is-sticky {
-    background-color: var(--color-primary);
+    background-color: #000000;
     box-shadow: var(--shadow-md);
   }
   
   .header--dark {
-    color: var(--color-light);
+    color: #ffffff;
   }
   
   .navbar {
@@ -122,15 +125,11 @@ const { isDark = false, isSticky = false } = Astro.props;
   .navbar__logo {
     display: flex;
     align-items: center;
-    font-family: 'Friz Quadrata', 'Trajan Pro', serif;
-    font-size: var(--text-xl);
     text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 1.5px;
   }
   
   .header--dark .navbar__logo {
-    color: var(--color-light);
+    color: #ffffff;
   }
   
   .navbar__logo-text {
@@ -155,7 +154,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   }
   
   .navbar__link {
-    color: inherit;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
     transition: all var(--transition-fast);
@@ -192,7 +191,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   
   .navbar__link--cta {
     background-color: var(--color-accent);
-    color: var(--color-dark);
+    color: #000000;
     padding: 0.5rem 1.25rem;
     border-radius: var(--radius-md);
     font-weight: 600;
@@ -208,8 +207,8 @@ const { isDark = false, isSticky = false } = Astro.props;
   
   .navbar__link--cta:hover,
   .navbar__link--cta:focus {
-    background-color: var(--color-secondary);
-    color: var(--color-light);
+    background-color: #ffffff;
+    color: #000000;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
@@ -232,7 +231,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   .navbar__toggle-icon::before,
   .navbar__toggle-icon::after {
     display: block;
-    background-color: currentColor;
+    background-color: #ffffff;
     height: 2px;
     width: 100%;
     position: absolute;
@@ -281,8 +280,8 @@ const { isDark = false, isSticky = false } = Astro.props;
       bottom: 0;
       width: 75%;
       max-width: 320px;
-      background-color: var(--color-primary);
-      color: var(--color-light);
+      background-color: #000000;
+      color: #ffffff;
       flex-direction: column;
       padding: 5rem var(--space-lg) var(--space-lg);
       transform: translateX(100%);

@@ -4,12 +4,12 @@ import { BOOKING_URL } from '../utils/seo';
 
 <section class="about section" id="about">
   <div class="container">
-    <h2 class="section__title">About Diald In</h2>
+    <h2 class="section__title diald-in">About Diald In</h2>
     <p class="section__subtitle">Where craftsmanship meets community</p>
     
     <div class="about__content">
       <div class="about__text">
-        <p class="about__paragraph">At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Since our founding, we've been dedicated to providing a premium grooming experience in a welcoming environment.</p>
+        <p class="about__paragraph">At <span class="diald-in">Diald In Barber Studio</span>, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Since our founding, we've been dedicated to providing a premium grooming experience in a welcoming environment.</p>
         
         <p class="about__paragraph">Our mission is to deliver precision styling that enhances your natural appearance while providing a relaxing escape from the day-to-day hustle. Every haircut and service is performed with meticulous attention to detail and tailored to your individual style and preferences.</p>
         
@@ -66,7 +66,8 @@ import { BOOKING_URL } from '../utils/seo';
 <style>
   .about {
     padding: var(--space-2xl) 0;
-    background-color: var(--color-light);
+    background-color: #000000;
+    color: #ffffff;
   }
 
   .about__content {
@@ -80,6 +81,7 @@ import { BOOKING_URL } from '../utils/seo';
     margin-bottom: var(--space-md);
     font-size: var(--text-lg);
     line-height: 1.7;
+    color: #ffffff;
   }
 
   .about__values {
@@ -94,17 +96,20 @@ import { BOOKING_URL } from '../utils/seo';
     padding: var(--space-md);
     border-radius: var(--radius-md);
     transition: transform var(--transition-medium);
+    background-color: #111111;
+    border: 1px solid #333333;
   }
 
   .about__value:hover {
     transform: translateY(-5px);
+    border-color: var(--color-accent);
   }
 
   .about__value-icon {
     width: 50px;
     height: 50px;
     margin: 0 auto var(--space-sm);
-    background-color: var(--color-light-gray);
+    background-color: #333333;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -112,19 +117,19 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   .about__value-icon svg {
-    color: var(--color-primary);
+    color: var(--color-accent);
   }
 
   .about__value-title {
     font-family: var(--font-primary);
     font-size: var(--text-lg);
-    color: var(--color-primary);
+    color: var(--color-accent);
     margin-bottom: var(--space-xs);
   }
 
   .about__value-text {
     font-size: var(--text-sm);
-    color: var(--color-gray);
+    color: #999999;
   }
 
   .about__visual {
@@ -144,6 +149,7 @@ import { BOOKING_URL } from '../utils/seo';
     overflow: hidden;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
+    border: 1px solid #333333;
   }
 
   .about__image-container--large {
@@ -162,11 +168,12 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   .about__expertise {
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background-color: #111111;
+    color: #ffffff;
     padding: var(--space-lg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
+    border: 1px solid #333333;
   }
 
   .about__expertise-title {
@@ -178,6 +185,7 @@ import { BOOKING_URL } from '../utils/seo';
   .about__expertise-text {
     margin-bottom: var(--space-md);
     line-height: 1.6;
+    color: #ffffff;
   }
 
   @media (max-width: 992px) {

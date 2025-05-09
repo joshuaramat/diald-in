@@ -1,5 +1,6 @@
 ---
 import { BOOKING_URL, BUSINESS_EMAIL, SHOP_URL } from '../utils/seo';
+import Logo from './Logo.astro';
 
 // Footer component
 const currentYear = new Date().getFullYear();
@@ -9,7 +10,9 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <h3 class="footer__logo">DIALD IN</h3>
+        <div class="footer__logo">
+          <Logo variant="white" width={180} height={45} />
+        </div>
         <p class="footer__tagline">Premier Barber Studio</p>
         <p class="footer__description">
           At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great 
@@ -89,8 +92,8 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .footer {
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background-color: #000000;
+    color: #ffffff;
     padding: var(--space-xl) 0 var(--space-lg);
   }
   
@@ -102,10 +105,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__logo {
-    font-family: var(--font-accent);
-    font-size: var(--text-2xl);
     margin-bottom: var(--space-xs);
-    color: var(--color-light);
   }
   
   .footer__tagline {
@@ -115,7 +115,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__description {
-    color: var(--color-light-gray);
+    color: #999999;
     margin-bottom: var(--space-md);
     font-size: var(--text-sm);
     line-height: 1.6;
@@ -134,14 +134,14 @@ const currentYear = new Date().getFullYear();
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--color-light);
+    background-color: #333333;
+    color: #ffffff;
     transition: all var(--transition-fast);
   }
   
   .footer__social-link:hover {
     background-color: var(--color-accent);
-    color: var(--color-dark);
+    color: #000000;
     transform: translateY(-3px);
   }
   
@@ -172,7 +172,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__link {
-    color: var(--color-light);
+    color: #ffffff;
     text-decoration: none;
     transition: color var(--transition-fast);
   }
@@ -189,10 +189,11 @@ const currentYear = new Date().getFullYear();
   
   .footer__address p {
     margin-bottom: var(--space-xs);
+    color: #ffffff;
   }
   
   .footer__hours p {
-    color: var(--color-light-gray);
+    color: #999999;
     line-height: 1.7;
     margin-bottom: var(--space-md);
   }
@@ -208,7 +209,7 @@ const currentYear = new Date().getFullYear();
   
   .btn-outline:hover, .btn-outline:focus {
     background-color: var(--color-accent);
-    color: var(--color-dark);
+    color: #000000;
   }
   
   .btn-sm {
@@ -218,16 +219,16 @@ const currentYear = new Date().getFullYear();
   
   .btn-accent {
     background-color: var(--color-accent);
-    color: var(--color-dark);
+    color: #000000;
   }
   
   .btn-accent:hover, .btn-accent:focus {
-    background-color: var(--color-light);
-    color: var(--color-primary);
+    background-color: #ffffff;
+    color: #000000;
   }
   
   .footer__shop {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #333333;
     padding-top: var(--space-lg);
     margin-bottom: var(--space-xl);
     display: flex;
@@ -237,7 +238,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__shop-tagline {
-    color: var(--color-light-gray);
+    color: #999999;
     margin-bottom: var(--space-md);
     max-width: 500px;
   }
@@ -248,16 +249,17 @@ const currentYear = new Date().getFullYear();
   
   .footer__bottom {
     padding-top: var(--space-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #333333;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: var(--space-md);
   }
   
   .footer__copyright {
+    color: #999999;
     font-size: var(--text-sm);
-    color: var(--color-light-gray);
   }
   
   .footer__legal {
@@ -272,14 +274,11 @@ const currentYear = new Date().getFullYear();
   @media (max-width: 768px) {
     .footer__bottom {
       flex-direction: column;
-      align-items: center;
       text-align: center;
-      gap: var(--space-sm);
     }
     
-    .footer__shop {
-      padding-left: var(--space-md);
-      padding-right: var(--space-md);
+    .footer__legal {
+      justify-content: center;
     }
   }
 </style> 

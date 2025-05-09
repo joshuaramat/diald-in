@@ -1,0 +1,118 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  className?: string;
+  priority?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  sizes = '100vw',
+  loading = 'lazy',
+  className = '',
+  priority = false
+} = Astro.props;
+
+// Generate srcset for different sizes
+const generateSrcSet = (src: string, width: number) => {
+  const sizes = [width, width * 0.75, width * 0.5];
+  return sizes
+    .map(size => `${src}?width=${Math.round(size)} ${Math.round(size)}w`)
+    .join(', ');
+};
+
+// Generate WebP srcset
+const generateWebPSrcSet = (src: string, width: number) => {
+  const sizes = [width, width * 0.75, width * 0.5];
+  return sizes
+    .map(size => `${src}?width=${Math.round(size)}&format=webp ${Math.round(size)}w`)
+    .join(', ');
+};
+
+// Get the base image path without query parameters
+const baseSrc = src.split('?')[0];
+const webpSrc = `${baseSrc}?format=webp`;
+
+// Generate srcsets
+const srcSet = generateSrcSet(src, width);
+const webpSrcSet = generateWebPSrcSet(src, width);
+
+// Determine loading strategy
+const loadingAttr = priority ? 'eager' : loading;
+const fetchPriority = priority ? 'high' : 'auto';
+---
+
+<picture>
+  <source
+    type="image/webp"
+    srcset={webpSrcSet}
+    sizes={sizes}
+  />
+  <img
+    src={src}
+    srcset={srcSet}
+    sizes={sizes}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loadingAttr}
+    fetchpriority={fetchPriority}
+    class:list={[
+      'optimized-image',
+      className,
+      { 'optimized-image--priority': priority }
+    ]}
+  />
+</picture>
+
+<style>
+  .optimized-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .optimized-image--priority {
+    content-visibility: auto;
+  }
+</style>
+
+<script>
+  // Add intersection observer for lazy loading
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            if (img.dataset.src) img.src = img.dataset.src;
+            if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+      });
+
+      images.forEach(img => imageObserver.observe(img));
+    } else {
+      // Fallback for browsers that don't support IntersectionObserver
+      images.forEach(img => {
+        const imgElement = img as HTMLImageElement;
+        if (imgElement.dataset.src) imgElement.src = imgElement.dataset.src;
+        if (imgElement.dataset.srcset) imgElement.srcset = imgElement.dataset.srcset;
+      });
+    }
+  });
+</script> 

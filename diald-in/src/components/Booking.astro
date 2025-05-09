@@ -21,39 +21,39 @@ const services = [
 
 <section class="booking section" id="booking">
   <div class="container">
-    <h2 class="section__title">Book Your Appointment</h2>
+    <h2 class="section__title diald-in">Book Your Appointment</h2>
     <p class="section__subtitle">Schedule your next cut with our talented team</p>
     
     <div class="booking__content">
       <div class="booking__info">
         <div class="booking__process">
-          <h3 class="booking__heading">How It Works</h3>
+          <h3 class="booking__heading diald-in">How It Works</h3>
           <ol class="booking__steps">
             <li class="booking__step">
               <div class="booking__step-number">1</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title">Choose Your Service</h4>
+                <h4 class="booking__step-title diald-in">Choose Your Service</h4>
                 <p class="booking__step-description">Select from our range of professional haircuts, beard grooming, and styling services.</p>
               </div>
             </li>
             <li class="booking__step">
               <div class="booking__step-number">2</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title">Select Your Barber</h4>
+                <h4 class="booking__step-title diald-in">Select Your Barber</h4>
                 <p class="booking__step-description">Pick your preferred barber or choose the first available professional.</p>
               </div>
             </li>
             <li class="booking__step">
               <div class="booking__step-number">3</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title">Choose Date & Time</h4>
+                <h4 class="booking__step-title diald-in">Choose Date & Time</h4>
                 <p class="booking__step-description">Find a convenient appointment slot that works with your schedule.</p>
               </div>
             </li>
             <li class="booking__step">
               <div class="booking__step-number">4</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title">Confirm & You're Set</h4>
+                <h4 class="booking__step-title diald-in">Confirm & You're Set</h4>
                 <p class="booking__step-description">Receive a confirmation and reminder for your upcoming appointment.</p>
               </div>
             </li>
@@ -68,10 +68,10 @@ const services = [
       
       <div class="booking__card">
         <div class="booking__card-inner">
-          <h3 class="booking__card-title">Ready for a Fresh Cut?</h3>
+          <h3 class="booking__card-title diald-in">Ready for a Fresh Cut?</h3>
           
           <div class="booking__services">
-            <h4 class="booking__section-title">Services</h4>
+            <h4 class="booking__section-title diald-in">Services</h4>
             <ul class="booking__service-list">
               {services.map(service => (
                 <li class="booking__service-item">
@@ -85,7 +85,7 @@ const services = [
           </div>
           
           <div class="booking__team">
-            <h4 class="booking__section-title">Our Team</h4>
+            <h4 class="booking__section-title diald-in">Our Team</h4>
             <div class="booking__barber-list">
               {barbers.map(barber => (
                 <div class="booking__barber-item">
@@ -113,7 +113,8 @@ const services = [
 <style>
   .booking {
     padding: var(--space-2xl) 0;
-    background-color: var(--color-light-gray);
+    background-color: #000000;
+    color: #ffffff;
   }
 
   .booking__content {
@@ -124,17 +125,18 @@ const services = [
   }
 
   .booking__info {
-    background-color: var(--color-light);
+    background-color: #000000;
+    border: 1px solid #333333;
     border-radius: var(--radius-md);
     padding: var(--space-xl);
     box-shadow: var(--shadow-md);
   }
 
   .booking__heading {
-    font-family: var(--font-heading);
+    font-family: var(--font-primary);
     font-size: var(--text-2xl);
     margin-bottom: var(--space-lg);
-    color: var(--color-primary);
+    color: #ffffff;
     position: relative;
   }
 
@@ -166,8 +168,8 @@ const services = [
   }
 
   .booking__step-number {
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background-color: var(--color-accent);
+    color: #000000;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -186,12 +188,12 @@ const services = [
   .booking__step-title {
     font-family: var(--font-primary);
     font-size: var(--text-xl);
-    color: var(--color-primary);
+    color: #ffffff;
     margin-bottom: var(--space-xs);
   }
 
   .booking__step-description {
-    color: var(--color-gray);
+    color: #999999;
     font-size: var(--text-sm);
     line-height: 1.6;
   }
@@ -199,7 +201,8 @@ const services = [
   .booking__note {
     display: flex;
     align-items: flex-start;
-    background-color: rgba(var(--color-primary-rgb), 0.05);
+    background-color: #000000;
+    border: 1px solid #333333;
     padding: var(--space-md);
     border-radius: var(--radius-md);
     margin-top: var(--space-lg);
@@ -215,6 +218,7 @@ const services = [
   .booking__note p {
     margin: 0;
     font-size: var(--text-sm);
+    color: #ffffff;
   }
 
   .booking__card {
@@ -223,8 +227,9 @@ const services = [
   }
 
   .booking__card-inner {
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #333333;
     border-radius: var(--radius-md);
     padding: var(--space-xl);
     box-shadow: var(--shadow-lg);
@@ -236,7 +241,7 @@ const services = [
   }
 
   .booking__card-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-primary);
     font-size: var(--text-xl);
     margin-bottom: var(--space-lg);
     color: var(--color-accent);
@@ -248,7 +253,7 @@ const services = [
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: var(--space-sm);
-    color: var(--color-light);
+    color: #ffffff;
     opacity: 0.9;
   }
 
@@ -260,7 +265,7 @@ const services = [
 
   .booking__service-item {
     padding: var(--space-xs) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #333333;
   }
 
   .booking__service-item:last-child {
@@ -275,11 +280,12 @@ const services = [
 
   .booking__service-name {
     font-weight: 500;
+    color: #ffffff;
   }
 
   .booking__service-info {
     font-size: var(--text-xs);
-    opacity: 0.8;
+    color: #999999;
   }
 
   .booking__barber-list {
@@ -298,7 +304,7 @@ const services = [
   .booking__barber-avatar {
     width: 36px;
     height: 36px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #333333;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -313,11 +319,12 @@ const services = [
 
   .booking__barber-name {
     font-weight: 500;
+    color: #ffffff;
   }
 
   .booking__barber-specialty {
     font-size: var(--text-xs);
-    opacity: 0.8;
+    color: #999999;
   }
 
   .booking__cta {
@@ -327,7 +334,7 @@ const services = [
     margin-top: auto;
     text-align: center;
     background-color: var(--color-accent);
-    color: var(--color-dark);
+    color: #000000;
     border: none;
     font-weight: 600;
     transition: transform var(--transition-medium), box-shadow var(--transition-medium);
@@ -336,15 +343,15 @@ const services = [
   .booking__cta:hover, .booking__cta:focus {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    background-color: var(--color-accent);
-    color: var(--color-dark);
+    background-color: #ffffff;
+    color: #000000;
   }
 
   .booking__card-footer {
     margin-top: var(--space-md);
     text-align: center;
     font-size: var(--text-xs);
-    opacity: 0.7;
+    color: #999999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -374,7 +381,7 @@ const services = [
   .booking-faq__question {
     font-family: var(--font-primary);
     font-size: var(--text-lg);
-    color: var(--color-primary);
+    color: #ffffff;
     margin-bottom: var(--space-xs);
   }
 </style> 

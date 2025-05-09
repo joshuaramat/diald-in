@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  variant?: 'white' | 'black';
+  width?: number;
+  height?: number;
+  className?: string;
+  priority?: boolean;
+}
+
+const {
+  variant = 'black',
+  width = 200,
+  height = 50,
+  className = '',
+  priority = false
+} = Astro.props;
+
+// Import the logo images
+const whiteLogo = await import('../assets/images/Diald In Logo_option 2.1.PNG');
+const blackLogo = await import('../assets/images/Diald In Logo_option 5.1.PNG');
+
+const logo = variant === 'white' ? whiteLogo.default : blackLogo.default;
+
+// Create class string
+const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim();
+---
+
+<Image
+  src={logo}
+  alt={`Diald In Barber Studio ${variant} logo`}
+  width={width}
+  height={height}
+  format="webp"
+  quality={90}
+  class={classString}
+  loading={priority ? 'eager' : 'lazy'}
+  decoding={priority ? 'sync' : 'async'}
+/>
+
+<style>
+  .logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .logo--priority {
+    content-visibility: auto;
+  }
+</style> 

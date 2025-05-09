@@ -11,6 +11,12 @@ export default defineConfig({
     service: {
       entrypoint: 'astro/assets/services/sharp',
     },
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.dialdinbarberstudio.com',
+      },
+    ],
   },
 
   // Build optimizations

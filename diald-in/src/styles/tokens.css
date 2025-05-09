@@ -5,24 +5,25 @@
 
 :root {
   /* Color Palette - Modern, refined barbershop theme with warm accents */
-  --color-primary: #2c3e50;       /* Deep blue-gray - primary brand color */
-  --color-secondary: #c0392b;     /* Deep red - accent color */
+  --color-primary: #000000;       /* Black - primary brand color */
+  --color-secondary: #ffffff;     /* White - secondary color */
   --color-accent: #d4a86a;        /* Gold/bronze - luxury accent */
   
-  --color-dark: #1a1a1a;          /* Near black for text */
-  --color-light: #f8f9fa;         /* Off-white for backgrounds */
-  --color-gray: #6c757d;          /* Medium gray for subtle elements */
-  --color-light-gray: #e9ecef;    /* Light gray for dividers */
+  --color-dark: #ffffff;          /* White for text */
+  --color-light: #000000;         /* Black for backgrounds */
+  --color-gray: #999999;          /* Light gray for secondary text */
+  --color-light-gray: #333333;    /* Dark gray for subtle elements */
 
   /* RGB Values for opacity/RGBA usage */
-  --color-primary-rgb: 44, 62, 80;
-  --color-secondary-rgb: 192, 57, 43;
+  --color-primary-rgb: 0, 0, 0;
+  --color-secondary-rgb: 255, 255, 255;
   --color-accent-rgb: 212, 168, 106;
 
   /* Typography */
-  --font-primary: 'Friz Quadrata', 'Trajan Pro', serif;  /* Primary brand font */
+  --font-primary: 'Brachial', 'Friz Quadrata', 'Trajan Pro', serif;  /* Diald In brand font */
   --font-secondary: 'Montserrat', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;  /* Secondary font for body text */
   --font-accent: 'Bebas Neue', 'Impact', sans-serif;   /* For pricing, calls to action */
+  --font-dakri: 'Agüero Serif', serif;  /* DAKRI brand font */
   
   /* Font Sizes - Using a modular scale */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
@@ -64,12 +65,12 @@
 
 /* Dark theme variables - can be activated later if needed */
 .dark-theme {
-  --color-primary: #34495e;
-  --color-secondary: #e74c3c;
-  --color-accent: #f39c12;
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-accent: #d4a86a;
   
-  --color-dark: #f8f9fa;
-  --color-light: #121212;
-  --color-gray: #a0aec0;
-  --color-light-gray: #2d3748;
+  --color-dark: #ffffff;
+  --color-light: #000000;
+  --color-gray: #999999;
+  --color-light-gray: #333333;
 } 

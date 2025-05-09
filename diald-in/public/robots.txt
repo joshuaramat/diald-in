@@ -1,0 +1,43 @@
+# robots.txt for Diald In Barber Studio
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://dialdinbarberstudio.com/sitemap.xml
+
+# Disallow admin or private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*?*
+
+# Allow important content
+Allow: /images/
+Allow: /styles/
+Allow: /scripts/
+Allow: /assets/
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+
+# Crawl-delay for specific bots
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: Slurp
+Crawl-delay: 1
+
+# Block archive.org
+User-agent: archive.org_bot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: / 
