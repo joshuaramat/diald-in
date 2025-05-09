@@ -19,12 +19,22 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
-        uses: withastro/action@v2
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          path: ./ # Update path to the root of the Astro project
-          node-version: 18 # The specific version of Node that should be used to build your site
-          package-manager: npm # The Node package manager that should be used to install dependencies and build your site
+          node-version: '18.17.1'
+          
+      - name: Install dependencies
+        run: cd diald-in && npm ci
+        
+      - name: Build
+        run: cd diald-in && npm run build
+        
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: diald-in/dist
 
   deploy:
     needs: build
