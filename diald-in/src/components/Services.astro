@@ -34,6 +34,7 @@ import { BOOKING_URL } from '../utils/seo';
     padding: var(--space-2xl) 0;
     background-color: #000000;
     color: #ffffff;
+    font-family: 'Brachial', sans-serif;
   }
 
   .services__grid {
@@ -77,18 +78,25 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   .service-card__title {
-    font-family: var(--font-primary);
+    font-family: 'Brachial', sans-serif;
     font-size: var(--text-xl);
     color: #ffffff;
     margin-bottom: var(--space-sm);
     position: relative;
     padding-bottom: var(--space-xs);
+    letter-spacing: 0.75px;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .service-card__description {
     margin-bottom: var(--space-md);
     flex-grow: 1;
     color: #999999;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
   }
 
   .service-card__link {
@@ -98,6 +106,7 @@ import { BOOKING_URL } from '../utils/seo';
     padding-bottom: 2px;
     align-self: center;
     color: var(--color-accent);
+    letter-spacing: 0.5px;
   }
 
   .service-card__link::after {
@@ -133,7 +142,13 @@ import { BOOKING_URL } from '../utils/seo';
   .services__info-title {
     margin-bottom: var(--space-md);
     color: var(--color-accent);
-    font-family: var(--font-primary);
+    font-family: 'Brachial', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.75px;
+    font-size: 1.5rem;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .services__hours-list {
@@ -145,11 +160,13 @@ import { BOOKING_URL } from '../utils/seo';
     margin-bottom: var(--space-xs);
     display: flex;
     justify-content: space-between;
+    letter-spacing: 0.3px;
   }
 
   .services__hours-list .day {
     font-weight: 600;
     color: var(--color-accent);
+    letter-spacing: 0.5px;
   }
 
   .services__location address {
@@ -157,12 +174,50 @@ import { BOOKING_URL } from '../utils/seo';
     font-style: normal;
     line-height: 1.6;
     color: #ffffff;
+    letter-spacing: 0.3px;
   }
 
   .services__buttons {
     display: flex;
     gap: var(--space-sm);
     margin-top: var(--space-md);
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    font-family: 'Brachial', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: #000000;
+    border: 2px solid var(--color-accent);
+  }
+  
+  .btn-primary:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+  
+  .btn-outline:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
@@ -173,13 +228,22 @@ import { BOOKING_URL } from '../utils/seo';
     .services__buttons {
       flex-direction: column;
     }
+    
+    .btn {
+      width: 100%;
+    }
   }
 
   .service-category__heading {
-    font-family: var(--font-primary);
+    font-family: 'Brachial', sans-serif;
     color: #ffffff;
     font-size: var(--text-2xl);
     text-align: center;
     margin-bottom: var(--space-lg);
+    letter-spacing: 0.75px;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 </style> 
