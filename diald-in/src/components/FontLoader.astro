@@ -2,6 +2,9 @@
 // FontLoader component for optimized font loading
 // This component should be included in the head of the layout
 import '../styles/fonts.css';
+
+// Get the base URL for asset paths
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Fragment>
@@ -26,7 +29,7 @@ import '../styles/fonts.css';
   />
   
   <!-- Font-display swap ensures text is visible while fonts are loading -->
-  <style is:inline>
+  <style is:inline define:vars={{ baseUrl }}>
     /* Font loading optimization */
     @font-face {
       font-family: 'Friz Quadrata';
@@ -39,6 +42,23 @@ import '../styles/fonts.css';
            url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.woff') format('woff'),
            url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.ttf') format('truetype'),
            url('https://db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.svg#Friz Quadrata') format('svg');
+    }
+    
+    /* Brachial font family - Direct inline definitions */
+    @font-face {
+      font-family: 'Brachial';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('var(--baseUrl)assets/fonts/WOFF2/Brachial-Normal.woff2') format('woff2');
+    }
+    
+    @font-face {
+      font-family: 'Brachial';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('var(--baseUrl)assets/fonts/WOFF2/Brachial-Bold.woff2') format('woff2');
     }
     
     /* Agüero Serif for DAKRI */
