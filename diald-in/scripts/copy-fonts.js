@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 // Define source and destination directories
 const sourceDir = path.resolve(__dirname, '../src/assets/fonts');
-const publicDir = path.resolve(__dirname, '../public/styles/fonts');
+const publicDir = path.resolve(__dirname, '../public/assets/fonts');
 const distDir = path.resolve(__dirname, '../dist/assets/fonts');
 
 // Create destination directory structure if it doesn't exist

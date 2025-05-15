@@ -2,9 +2,6 @@
 // FontLoader component for optimized font loading
 // This component should be included in the head of the layout
 import '../styles/fonts.css';
-
-// Get the base URL for asset paths
-const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Fragment>
@@ -29,7 +26,7 @@ const baseUrl = import.meta.env.BASE_URL;
   />
   
   <!-- Font-display swap ensures text is visible while fonts are loading -->
-  <style is:inline define:vars={{ baseUrl }}>
+  <style is:inline>
     /* Font loading optimization */
     @font-face {
       font-family: 'Friz Quadrata';
@@ -50,7 +47,7 @@ const baseUrl = import.meta.env.BASE_URL;
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url('var(--baseUrl)assets/fonts/WOFF2/Brachial-Normal.woff2') format('woff2');
+      src: url('/assets/fonts/WOFF2/Brachial-Normal.woff2') format('woff2');
     }
     
     @font-face {
@@ -58,7 +55,7 @@ const baseUrl = import.meta.env.BASE_URL;
       font-style: normal;
       font-weight: 700;
       font-display: swap;
-      src: url('var(--baseUrl)assets/fonts/WOFF2/Brachial-Bold.woff2') format('woff2');
+      src: url('/assets/fonts/WOFF2/Brachial-Bold.woff2') format('woff2');
     }
     
     /* Agüero Serif for DAKRI */

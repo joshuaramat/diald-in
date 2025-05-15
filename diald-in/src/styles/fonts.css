@@ -9,7 +9,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-Normal.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-Normal.woff2') format('woff2');
 }
 
 /* Brachial font family - Light weight */
@@ -18,7 +18,7 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-Light.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-Light.woff2') format('woff2');
 }
 
 /* Brachial font family - Medium weight */
@@ -27,7 +27,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-Medium.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-Medium.woff2') format('woff2');
 }
 
 /* Brachial font family - SemiBold weight */
@@ -36,7 +36,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-SemiBold.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-SemiBold.woff2') format('woff2');
 }
 
 /* Brachial font family - Bold weight */
@@ -45,7 +45,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-Bold.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-Bold.woff2') format('woff2');
 }
 
 /* Brachial font family - Ultra Bold weight */
@@ -54,7 +54,7 @@
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-UltraBold.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-UltraBold.woff2') format('woff2');
 }
 
 /* Brachial Wide variants for different contexts */
@@ -63,7 +63,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-Normal-Wide.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-Normal-Wide.woff2') format('woff2');
 }
 
 @font-face {
@@ -71,7 +71,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-Normal-SemiWide.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-Normal-SemiWide.woff2') format('woff2');
 }
 
 @font-face {
@@ -79,5 +79,5 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/WOFF2/Brachial-Normal-UltraWide.woff2') format('woff2');
+  src: url('/assets/fonts/WOFF2/Brachial-Normal-UltraWide.woff2') format('woff2');
 } 
