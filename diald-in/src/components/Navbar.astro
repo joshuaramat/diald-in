@@ -15,7 +15,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   <div class="container">
     <nav class="navbar">
       <a href="/" class="navbar__logo" aria-label="Diald In Barber Studio - Home">
-        <Logo variant="white" width={160} height={40} priority={true} />
+        <Logo variant="white" width={200} height={50} priority={true} />
       </a>
       
       <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
@@ -100,6 +100,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     background-color: #000000;
     color: #ffffff;
     font-family: 'Brachial', sans-serif;
+    padding: 0.75rem 0;
   }
   
   .header--sticky {
@@ -119,7 +120,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-md) 0;
+    padding: 0.5rem 0;
     position: relative;
   }
   
@@ -127,6 +128,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     display: flex;
     align-items: center;
     text-decoration: none;
+    margin-right: 2rem;
   }
   
   .header--dark .navbar__logo {
@@ -148,7 +150,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   
   .navbar__menu {
     display: flex;
-    gap: var(--space-md);
+    gap: 1.75rem;  /* Increased for better spacing */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -161,11 +163,12 @@ const { isDark = false, isSticky = false } = Astro.props;
     text-decoration: none;
     font-weight: 500;
     transition: all var(--transition-fast);
-    padding: 0.5rem;
+    padding: 0.75rem 0.5rem;  /* Increased vertical padding */
     display: inline-block;
     position: relative;
     font-family: 'Brachial', sans-serif;
     letter-spacing: 0.5px;
+    font-size: 1rem;  /* Ensure consistent font size */
   }
   
   .navbar__link::after {
@@ -173,7 +176,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
+    bottom: 0.5rem;  /* Adjust position to align with text */
     left: 0.5rem;
     background-color: var(--color-accent);
     transition: width var(--transition-medium);
@@ -191,20 +194,23 @@ const { isDark = false, isSticky = false } = Astro.props;
   }
   
   .navbar__cta-wrapper {
-    margin-left: var(--space-md);
+    margin-left: 1.25rem;
   }
   
   .navbar__link--cta {
     background-color: var(--color-accent);
     color: #000000;
-    padding: 0.5rem 1.25rem;
+    padding: 0.75rem 1.5rem;  /* Increased padding for better balance */
     border-radius: var(--radius-md);
     font-weight: 600;
     transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
+    justify-content: center;  /* Center contents */
+    gap: 0.5rem;  /* Increased space between icon and text */
     font-family: 'Brachial', sans-serif;
+    text-align: center;  /* Ensure text is centered */
+    white-space: nowrap;  /* Prevent wrapping */
   }
   
   .navbar__link--cta::after {
@@ -266,11 +272,16 @@ const { isDark = false, isSticky = false } = Astro.props;
   
   @media (max-width: 992px) {
     .navbar__menu {
-      gap: var(--space-sm);
+      gap: 1.25rem;  /* Adjusted for medium screens */
     }
     
     .navbar__link {
-      font-size: var(--text-sm);
+      font-size: 0.95rem;
+      padding: 0.75rem 0.35rem;  /* Smaller horizontal padding */
+    }
+    
+    .navbar__logo {
+      margin-right: 1rem;  /* Reduced margin */
     }
   }
   
@@ -295,6 +306,7 @@ const { isDark = false, isSticky = false } = Astro.props;
       transition: transform var(--transition-medium);
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
       z-index: 100;
+      gap: 1rem;  /* Reduced for mobile */
     }
     
     .navbar__menu--active {
@@ -304,12 +316,14 @@ const { isDark = false, isSticky = false } = Astro.props;
     .navbar__link {
       display: block;
       width: 100%;
-      padding: var(--space-sm) 0;
-      font-size: var(--text-base);
+      padding: 0.75rem 0;
+      font-size: 1.1rem;  /* Slightly larger for mobile */
+      text-align: left;
     }
     
     .navbar__link::after {
       left: 0;
+      bottom: 0.35rem;
     }
     
     .navbar__link:hover::after, 
@@ -319,7 +333,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     
     .navbar__cta-wrapper {
       margin-left: 0;
-      margin-top: var(--space-md);
+      margin-top: 1.5rem;
       width: 100%;
     }
     
@@ -327,7 +341,8 @@ const { isDark = false, isSticky = false } = Astro.props;
       text-align: center;
       display: flex;
       justify-content: center;
-      padding: var(--space-sm) var(--space-md);
+      padding: 0.85rem 1.25rem;
+      width: 100%;
     }
     
     [aria-expanded="true"] .navbar__toggle-icon {
