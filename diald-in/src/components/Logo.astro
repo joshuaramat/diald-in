@@ -20,8 +20,8 @@ const {
 
 // Use the public logo images
 const logoPath = variant === 'white' 
-  ? '/images/logo/white/logo-lg.png'
-  : '/images/logo/black/logo-lg.png';
+  ? `${import.meta.env.BASE_URL}images/logo/white/logo-lg.png`
+  : `${import.meta.env.BASE_URL}images/logo/black/logo-lg.png`;
 
 // Create class string
 const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim();

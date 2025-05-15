@@ -4,6 +4,7 @@
  */
 
 @import './tokens.css';
+@import './fonts.css';
 
 /* Modern CSS Reset */
 *, *::before, *::after {
@@ -21,7 +22,7 @@ html {
 }
 
 body {
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-dark);
@@ -39,7 +40,7 @@ img, picture, video, canvas, svg {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Friz Quadrata', 'Trajan Pro', serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5em;
@@ -180,7 +181,7 @@ a:hover, a:focus {
 
 /* Section titles */
 .section__title {
-  font-family: 'Friz Quadrata', 'Trajan Pro', serif !important;
+  font-family: var(--font-primary) !important;
   text-align: center;
   margin-bottom: var(--space-sm);
 } 

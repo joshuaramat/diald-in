@@ -9,7 +9,7 @@ export default defineConfig({
   // Set the site and base path for GitHub Pages
   // Replace 'joshuaramat' with your GitHub username if different
   site: 'https://joshuaramat.github.io',
-  base: '/diald-in',
+  base: '/',
   
   // Image optimization settings
   image: {

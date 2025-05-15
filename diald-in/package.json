@@ -4,10 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run optimize-images && astro build",
+    "build": "npm run optimize-images && npm run copy-fonts && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "copy-fonts": "node scripts/copy-fonts.js"
   },
   "dependencies": {
     "astro": "^5.7.11"
