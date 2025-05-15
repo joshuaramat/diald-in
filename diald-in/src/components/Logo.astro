@@ -35,6 +35,7 @@ const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim
   class={classString}
   loading={priority ? 'eager' : 'lazy'}
   decoding={priority ? 'sync' : 'async'}
+  fetchpriority={priority ? 'high' : 'auto'}
 />
 
 <style>
@@ -42,6 +43,7 @@ const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim
     max-width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
   }
 
   .logo--priority {

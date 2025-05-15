@@ -100,7 +100,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     background-color: #000000;
     color: #ffffff;
     font-family: 'Brachial', sans-serif;
-    padding: 0.75rem 0;
+    padding: 1rem 0;
   }
   
   .header--sticky {
@@ -120,7 +120,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
+    padding: 0.25rem 0;
     position: relative;
   }
   
@@ -128,7 +128,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     display: flex;
     align-items: center;
     text-decoration: none;
-    margin-right: 2rem;
+    margin-right: 2.5rem;
   }
   
   .header--dark .navbar__logo {
@@ -138,6 +138,8 @@ const { isDark = false, isSticky = false } = Astro.props;
   .navbar__logo-text {
     display: inline-block;
     font-family: 'Brachial', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
   
   .navbar__logo-icon {
@@ -150,7 +152,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   
   .navbar__menu {
     display: flex;
-    gap: 1.75rem;  /* Increased for better spacing */
+    gap: 2rem;  /* Increased for better spacing */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -167,8 +169,11 @@ const { isDark = false, isSticky = false } = Astro.props;
     display: inline-block;
     position: relative;
     font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.5px;
-    font-size: 1rem;  /* Ensure consistent font size */
+    letter-spacing: 0.75px;
+    font-size: 1.05rem;  /* Slightly increased font size */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   .navbar__link::after {
@@ -194,23 +199,24 @@ const { isDark = false, isSticky = false } = Astro.props;
   }
   
   .navbar__cta-wrapper {
-    margin-left: 1.25rem;
+    margin-left: 1.5rem;
   }
   
   .navbar__link--cta {
     background-color: var(--color-accent);
     color: #000000;
-    padding: 0.75rem 1.5rem;  /* Increased padding for better balance */
+    padding: 0.75rem 1.75rem;  /* Increased padding for better balance */
     border-radius: var(--radius-md);
     font-weight: 600;
     transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;  /* Center contents */
-    gap: 0.5rem;  /* Increased space between icon and text */
+    gap: 0.625rem;  /* Precise space between icon and text */
     font-family: 'Brachial', sans-serif;
     text-align: center;  /* Ensure text is centered */
     white-space: nowrap;  /* Prevent wrapping */
+    letter-spacing: 0.75px;
   }
   
   .navbar__link--cta::after {
@@ -272,16 +278,16 @@ const { isDark = false, isSticky = false } = Astro.props;
   
   @media (max-width: 992px) {
     .navbar__menu {
-      gap: 1.25rem;  /* Adjusted for medium screens */
+      gap: 1.5rem;  /* Adjusted for medium screens */
     }
     
     .navbar__link {
-      font-size: 0.95rem;
+      font-size: 1rem;
       padding: 0.75rem 0.35rem;  /* Smaller horizontal padding */
     }
     
     .navbar__logo {
-      margin-right: 1rem;  /* Reduced margin */
+      margin-right: 1.5rem;  /* Reduced margin */
     }
   }
   
@@ -306,7 +312,7 @@ const { isDark = false, isSticky = false } = Astro.props;
       transition: transform var(--transition-medium);
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
       z-index: 100;
-      gap: 1rem;  /* Reduced for mobile */
+      gap: 1.25rem;  /* Increased for mobile */
     }
     
     .navbar__menu--active {
@@ -341,7 +347,7 @@ const { isDark = false, isSticky = false } = Astro.props;
       text-align: center;
       display: flex;
       justify-content: center;
-      padding: 0.85rem 1.25rem;
+      padding: 0.85rem 1.5rem;
       width: 100%;
     }
     
