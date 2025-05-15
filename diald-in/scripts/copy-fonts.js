@@ -13,11 +13,12 @@ const __dirname = path.dirname(__filename);
 
 // Define source and destination directories
 const sourceDir = path.resolve(__dirname, '../src/assets/fonts');
-const destDir = path.resolve(__dirname, '../public/styles/fonts');
+const publicDir = path.resolve(__dirname, '../public/styles/fonts');
+const distDir = path.resolve(__dirname, '../dist/assets/fonts');
 
 // Create destination directory structure if it doesn't exist
-if (!fs.existsSync(destDir)) {
-  fs.mkdirSync(destDir, { recursive: true });
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
 }
 
 // Function to copy directory recursively
@@ -45,7 +46,17 @@ function copyDir(src, dest) {
   }
 }
 
-// Start copying
-console.log(`Copying font files from ${sourceDir} to ${destDir}...`);
-copyDir(sourceDir, destDir);
+// Start copying to public directory
+console.log(`Copying font files from ${sourceDir} to ${publicDir}...`);
+copyDir(sourceDir, publicDir);
+
+// Try to copy to dist directory if it exists (for production builds)
+if (fs.existsSync(path.resolve(__dirname, '../dist'))) {
+  console.log(`Copying font files from ${sourceDir} to ${distDir}...`);
+  if (!fs.existsSync(distDir)) {
+    fs.mkdirSync(distDir, { recursive: true });
+  }
+  copyDir(sourceDir, distDir);
+}
+
 console.log('Font files copied successfully!'); 

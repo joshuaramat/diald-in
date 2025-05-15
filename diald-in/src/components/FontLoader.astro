@@ -1,6 +1,7 @@
 ---
 // FontLoader component for optimized font loading
 // This component should be included in the head of the layout
+import '../styles/fonts.css';
 ---
 
 <Fragment>
@@ -23,9 +24,6 @@
     rel="stylesheet" 
     href="https://fonts.cdnfonts.com/css/aguero-serif"
   />
-  
-  <!-- Import local font definitions -->
-  <link rel="stylesheet" href=`${import.meta.env.BASE_URL}styles/fonts.css` />
   
   <!-- Font-display swap ensures text is visible while fonts are loading -->
   <style is:inline>
