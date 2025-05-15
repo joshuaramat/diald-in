@@ -8,14 +8,16 @@ interface Props {
   height?: number;
   className?: string;
   priority?: boolean;
+  minWidth?: number;
 }
 
 const {
   variant = 'black',
-  width = 200,
-  height = 50,
+  width = 220,  // Increased default width
+  height = 55,  // Increased default height proportionally
   className = '',
-  priority = false
+  priority = false,
+  minWidth = 180  // Default minimum width
 } = Astro.props;
 
 // Use the public logo images
@@ -25,6 +27,10 @@ const logoPath = variant === 'white'
 
 // Create class string
 const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim();
+
+// Calculate minimum height based on aspect ratio
+const aspectRatio = width / height;
+const minHeight = minWidth / aspectRatio;
 ---
 
 <img
@@ -36,6 +42,7 @@ const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim
   loading={priority ? 'eager' : 'lazy'}
   decoding={priority ? 'sync' : 'async'}
   fetchpriority={priority ? 'high' : 'auto'}
+  style={`min-width: ${minWidth}px; min-height: ${minHeight}px;`}
 />
 
 <style>
@@ -44,9 +51,16 @@ const classString = `logo ${className} ${priority ? 'logo--priority' : ''}`.trim
     height: auto;
     display: block;
     object-fit: contain;
+    min-width: 180px; /* Global minimum width */
   }
 
   .logo--priority {
     content-visibility: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      min-width: 150px; /* Smaller minimum width on mobile */
+    }
   }
 </style> 

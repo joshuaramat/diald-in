@@ -15,7 +15,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   <div class="container">
     <nav class="navbar">
       <a href="/" class="navbar__logo" aria-label="Diald In Barber Studio - Home">
-        <Logo variant="white" width={200} height={50} priority={true} />
+        <Logo variant="white" width={240} height={60} priority={true} minWidth={200} />
       </a>
       
       <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
@@ -129,6 +129,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     align-items: center;
     text-decoration: none;
     margin-right: 2.5rem;
+    min-width: 200px; /* Minimum logo container width */
   }
   
   .header--dark .navbar__logo {
@@ -295,6 +296,10 @@ const { isDark = false, isSticky = false } = Astro.props;
     .navbar__toggle {
       display: block;
       z-index: 110;
+    }
+    
+    .navbar__logo {
+      min-width: 160px; /* Smaller min-width for mobile */
     }
     
     .navbar__menu {
