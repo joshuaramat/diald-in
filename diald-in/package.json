@@ -2,6 +2,9 @@
   "name": "diald-in",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=18.17.1"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "npm run optimize-images && npm run copy-fonts && astro build && npm run post-build",

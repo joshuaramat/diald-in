@@ -3,12 +3,11 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  // Enable static output for GitHub Pages
+  // Enable static output for Vercel
   output: 'static',
   
-  // Set the site and base path for GitHub Pages
-  // Replace 'joshuaramat' with your GitHub username if different
-  site: 'https://joshuaramat.github.io',
+  // Set the site URL for production
+  site: 'https://dialdinbarberstudio.com',
   base: '/',
   
   // Image optimization settings
@@ -21,14 +20,28 @@ export default defineConfig({
         protocol: 'https',
         hostname: '*.dialdinbarberstudio.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
     ],
   },
 
-  // Build optimizations
+  // Build optimizations for production
   build: {
     inlineStylesheets: 'auto',
+    assets: '_astro',
   },
   
-  // Enable server-side rendering for specific routes if needed later
-  // server: { port: 3000, host: true },
+  // Vite configuration for production optimization
+  vite: {
+    build: {
+      cssCodeSplit: false,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        },
+      },
+    },
+  },
 });

@@ -38,7 +38,7 @@ export const SECTION_DESCRIPTIONS = {
   services: "Explore our range of professional barber services including modern fades, classic cuts, beard grooming, and custom styles. Quality service at competitive prices.",
   about: "Meet the skilled barbers at Diald In Barber Studio. Learn about our commitment to excellence and the community we've built in Hayward.",
   booking: "Book your appointment at Diald In Barber Studio. Easy online booking system for haircuts, beard grooming, and styling services.",
-  testimonials: "Read reviews from our satisfied clients. See why Diald In Barber Studio is rated the best barbershop in Hayward, CA.",
+
   shop: "Shop premium hair products from Dakri Hair. Professional-grade styling products for the perfect look every time."
 };
 
@@ -92,13 +92,13 @@ export const SERVICES = [
   }
 ];
 
-// Review aggregation data
-export const REVIEW_AGGREGATE = {
-  ratingValue: "4.9",
-  reviewCount: "124",
-  bestRating: "5",
-  worstRating: "1"
-};
+// Review aggregation data - ARCHIVED for future API integration
+// export const REVIEW_AGGREGATE = {
+//   ratingValue: "4.9",
+//   reviewCount: "124",
+//   bestRating: "5",
+//   worstRating: "1"
+// };
 
 /**
  * Generate the full title with site name
@@ -151,14 +151,14 @@ export function generateSEOMetadata({
     "url": BOOKING_URL
   }));
 
-  // Generate review aggregation for JSON-LD
-  const reviewAggregate = {
-    "@type": "AggregateRating",
-    "ratingValue": REVIEW_AGGREGATE.ratingValue,
-    "reviewCount": REVIEW_AGGREGATE.reviewCount,
-    "bestRating": REVIEW_AGGREGATE.bestRating,
-    "worstRating": REVIEW_AGGREGATE.worstRating
-  };
+  // Generate review aggregation for JSON-LD - ARCHIVED for future API integration
+  // const reviewAggregate = {
+  //   "@type": "AggregateRating",
+  //   "ratingValue": REVIEW_AGGREGATE.ratingValue,
+  //   "reviewCount": REVIEW_AGGREGATE.reviewCount,
+  //   "bestRating": REVIEW_AGGREGATE.bestRating,
+  //   "worstRating": REVIEW_AGGREGATE.worstRating
+  // };
   
   return {
     title: fullTitle,
@@ -230,21 +230,22 @@ export function generateSEOMetadata({
         "@type": "OfferCatalog",
         "name": "Barber Services",
         "itemListElement": serviceOfferings
-      },
-      "aggregateRating": reviewAggregate,
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "James T."
-        },
-        "reviewBody": "Best barbershop in town! The attention to detail is amazing and they always make sure I leave looking my best. Haven't found anyone who can fade like these guys."
       }
+      // ARCHIVED: Review and rating data for future API integration
+      // "aggregateRating": reviewAggregate,
+      // "review": {
+      //   "@type": "Review",
+      //   "reviewRating": {
+      //     "@type": "Rating",
+      //     "ratingValue": "5",
+      //     "bestRating": "5"
+      //   },
+      //   "author": {
+      //     "@type": "Person",
+      //     "name": "James T."
+      //   },
+      //   "reviewBody": "Best barbershop in town! The attention to detail is amazing and they always make sure I leave looking my best. Haven't found anyone who can fade like these guys."
+      // }
     }
   };
 } 

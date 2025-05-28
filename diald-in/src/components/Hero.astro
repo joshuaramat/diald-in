@@ -1,20 +1,26 @@
 ---
-// Empty frontmatter block
+import Logo from './Logo.astro';
 ---
 
 <section class="hero">
   <div class="hero__background">
-    <!-- We'll use CSS to handle the background image -->
+    <picture>
+      <source srcset="/images/hero/hero-background.webp" type="image/webp">
+      <source srcset="/images/hero/hero-background.jpg" type="image/jpeg">
+      <img src="/images/hero/hero-background.jpg" alt="Diald In Barber Studio background" class="hero__bg-img">
+    </picture>
   </div>
   <div class="hero__overlay"></div>
   
   <div class="hero__content">
-    <h1 class="hero__title">Diald In Barber Studio</h1>
+    <h1 class="hero__title">
+      <Logo variant="white" width={500} height={125} className="hero__logo" priority={true} />
+    </h1>
     <p class="hero__subtitle">Where great conversations meet even better cuts. Delivering precision grooming and expert styles in a clean, welcoming environment.</p>
     <div class="hero__cta">
       <a href="https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward" class="hero__cta-button btn btn-primary" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__cta-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        Book Now
+        Book Appointment
       </a>
       <a href="#services" class="hero__cta-button btn btn-outline">View Services</a>
     </div>
@@ -43,10 +49,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/images/hero/hero-image.jpg');
-    background-size: cover;
-    background-position: center;
     z-index: 1;
+  }
+  
+  .hero__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   
   .hero__overlay {
@@ -55,7 +65,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
     z-index: 2;
   }
   
@@ -69,17 +79,22 @@
   }
   
   .hero__title {
-    font-family: 'Brachial', var(--font-primary);
-    font-size: var(--text-4xl);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-    color: #ffffff;
-    line-height: 1.2;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0.75px;
-    text-transform: uppercase;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    line-height: 0;
+  }
+  
+  .hero__title :global(.hero__logo) {
+    max-width: 100%;
+    height: auto;
+    filter: brightness(1) contrast(1);
+    object-fit: cover;
+    object-position: center;
+    margin: -10px 0;
+    transform: scale(1.1);
   }
   
   .hero__subtitle {
@@ -193,34 +208,12 @@
     }
   }
   
-  /* Responsive styles for background image */
-  @media (min-width: 1281px) {
-    .hero__background {
-      background-image: url('/images/hero/hero-image.jpg');
-    }
-  }
-  
-  @media (min-width: 961px) and (max-width: 1280px) {
-    .hero__background {
-      background-image: url('/images/hero/hero-lg.jpg');
-    }
-  }
-  
-  @media (min-width: 641px) and (max-width: 960px) {
-    .hero__background {
-      background-image: url('/images/hero/hero-md.jpg');
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .hero__background {
-      background-image: url('/images/hero/hero-sm.jpg');
-    }
-  }
-  
   @media (max-width: 768px) {
-    .hero__title {
-      font-size: var(--text-3xl);
+    .hero__title :global(.hero__logo) {
+      max-width: 350px;
+      width: 100%;
+      margin: -8px 0;
+      transform: scale(1.05);
     }
     
     .hero__subtitle {
