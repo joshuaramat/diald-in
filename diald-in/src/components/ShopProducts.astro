@@ -1,13 +1,12 @@
 ---
-import { getFeaturedProducts, generateProductStructuredData } from '../utils/shopify';
-import type { ShopifyProduct } from '../utils/shopify';
+import { getFeaturedProducts, generateProductStructuredData } from '../data/dakri-products';
 import { SHOP_URL } from '../utils/seo';
-import ShopProduct from './ShopProduct.astro';
+import DAKRIProduct from './DAKRIProduct.astro';
 
-// Get featured products at build time
-const featuredProducts = await getFeaturedProducts(3);
+// Get real products from DAKRI Hair data
+const featuredProducts = getFeaturedProducts(3);
 
-// Generate structured data for products
+// Generate structured data for SEO
 const productsStructuredData = featuredProducts.map(product => 
   generateProductStructuredData(product)
 );
@@ -15,19 +14,35 @@ const productsStructuredData = featuredProducts.map(product =>
 
 <section class="shop section" id="shop">
   <div class="container">
-    <h2 class="section__title">Premium Hair Products</h2>
-    <p class="section__subtitle">Style and maintain your look with our professional product line</p>
+    <div class="shop__header">
+      <h2 class="section__title">Premium Hair Products</h2>
+      <p class="section__subtitle">Professional-grade products from DAKRI Hair</p>
+      <div class="shop__live-indicator">
+        <span class="shop__live-dot"></span>
+        Live from DAKRI Hair
+      </div>
+    </div>
     
-    <div class="shop__grid">
+    <div class="shop__products">
       {featuredProducts.map((product) => (
-        <ShopProduct product={product} />
+        <DAKRIProduct product={product} />
       ))}
     </div>
     
     <div class="shop__cta">
-      <a href={SHOP_URL} class="btn btn-primary" target="_blank" rel="noopener">
-        View All Products
-      </a>
+      <div class="shop__cta-content">
+        <h3 class="shop__cta-title">Shop the Full Collection</h3>
+        <p class="shop__cta-description">
+          Discover our complete range of professional hair care products at DAKRI Hair. 
+          Same quality products we use in the studio, now available for home use.
+        </p>
+        <a href={SHOP_URL} class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"/>
+          </svg>
+          Shop DAKRI Hair
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -45,69 +60,231 @@ const productsStructuredData = featuredProducts.map(product =>
 
 <style>
   .shop {
-    padding: var(--space-2xl) 0;
-    background-color: #000000;
+    padding: var(--space-xl) 0;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     color: #ffffff;
   }
   
   .shop__header {
     text-align: center;
     margin-bottom: var(--space-xl);
+    padding: 0 var(--space-md);
   }
   
-  .shop__title {
-    font-family: var(--font-primary);
-    font-size: var(--text-3xl);
-    margin-bottom: var(--space-md);
-    color: #ffffff;
+  .shop__live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 20px;
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-sm);
+    color: #22c55e;
+    margin-top: var(--space-md);
+    font-weight: 500;
   }
   
-  .shop__description {
-    font-size: var(--text-lg);
-    color: #999999;
-    max-width: 600px;
-    margin: 0 auto;
+  .shop__live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
   }
   
-  .shop__grid {
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+  }
+  
+  .shop__products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--space-lg);
-  }
-  
-  .shop__filters {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-md);
     margin-bottom: var(--space-xl);
-    flex-wrap: wrap;
+    padding: 0 var(--space-md);
   }
   
-  .shop__filter-button {
+  .shop__cta {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #c49c5a 100%);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 var(--space-md);
+  }
+  
+  .shop__cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.3;
+  }
+  
+  .shop__cta-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .shop__cta-title {
+    font-family: var(--font-primary);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+  
+  .shop__cta-description {
+    color: #333333;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+  }
+  
+  .btn-lg {
     padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
     background-color: #000000;
     color: #ffffff;
-    border: 1px solid #333333;
-    border-radius: var(--radius-sm);
-    font-size: var(--text-base);
-    cursor: pointer;
-    transition: all var(--transition-fast);
+    border: 2px solid #000000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    width: 100%;
+    justify-content: center;
+    max-width: 280px;
   }
   
-  .shop__filter-button:hover,
-  .shop__filter-button.active {
-    background-color: var(--color-accent);
+  .btn-lg:hover {
+    background-color: #ffffff;
     color: #000000;
-    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
   
-  @media (max-width: 768px) {
-    .shop__title {
+  .btn-icon {
+    transition: transform 0.3s ease;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .btn-lg:hover .btn-icon {
+    transform: translateX(4px);
+  }
+
+  /* Tablet breakpoint */
+  @media (min-width: 640px) {
+    .shop {
+      padding: var(--space-2xl) 0;
+    }
+    
+    .shop__header {
+      margin-bottom: var(--space-2xl);
+      padding: 0 var(--space-lg);
+    }
+    
+    .shop__products {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+      padding: 0 var(--space-lg);
+    }
+    
+    .shop__cta {
+      padding: var(--space-xl);
+      margin: 0 var(--space-lg);
+      border-radius: 20px;
+    }
+    
+    .shop__cta-title {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-md);
+    }
+    
+    .shop__cta-description {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-lg);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn-lg {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-base);
+      gap: var(--space-sm);
+      width: auto;
+      max-width: none;
+    }
+    
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  /* Desktop breakpoint */
+  @media (min-width: 1024px) {
+    .shop__header {
+      padding: 0;
+    }
+    
+    .shop__products {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      gap: var(--space-2xl);
+      padding: 0;
+    }
+    
+    .shop__cta {
+      padding: var(--space-2xl);
+      margin: 0;
+    }
+    
+    .shop__cta-title {
       font-size: var(--text-2xl);
     }
     
-    .shop__description {
-      font-size: var(--text-base);
+    .shop__cta-description {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-xl);
+      max-width: 600px;
+    }
+    
+    .btn-lg {
+      padding: var(--space-md) var(--space-xl);
+      font-size: var(--text-lg);
+    }
+    
+    .btn-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  /* Large desktop breakpoint */
+  @media (min-width: 1280px) {
+    .shop__products {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
   }
 </style> 

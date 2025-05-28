@@ -1,5 +1,5 @@
 ---
-import { BOOKING_URL, BUSINESS_EMAIL, SHOP_URL } from '../utils/seo';
+import { BOOKING_URL, BUSINESS_EMAIL, SHOP_URL, PHONE_NUMBER } from '../utils/seo';
 import Logo from './Logo.astro';
 
 // Footer component
@@ -44,8 +44,8 @@ const currentYear = new Date().getFullYear();
       <div class="footer__contact">
         <h4 class="footer__heading">Contact Us</h4>
         <address class="footer__address">
-          <p>123 Main Street<br>San Francisco, CA 94101</p>
-          <p><a href="tel:+1234567890" class="footer__link">+1 (234) 567-890</a></p>
+          <p>22441 Foothill Blvd<br>Hayward, CA 94541</p>
+          <p><a href={`tel:${PHONE_NUMBER}`} class="footer__link">(510) 963-5985</a></p>
           <p><a href={`mailto:${BUSINESS_EMAIL}`} class="footer__link">{BUSINESS_EMAIL}</a></p>
         </address>
         <div class="footer__hours">
@@ -59,10 +59,20 @@ const currentYear = new Date().getFullYear();
     </div>
     
     <div class="footer__shop">
-      <h4 class="footer__heading footer__heading--centered">Premium Hair Products</h4>
-      <p class="footer__shop-tagline">Visit our online store for premium hair care products</p>
+      <h4 class="footer__heading footer__heading--centered">Professional Hair Products</h4>
+      <p class="footer__shop-tagline">Get the same premium products we use in the studio</p>
+      <div class="footer__shop-brands">
+        <span class="footer__shop-brand">DAKRI Hair</span>
+        <span class="footer__shop-separator">•</span>
+        <span class="footer__shop-description">Professional Grade</span>
+      </div>
       <div class="footer__shop-cta">
-        <a href={SHOP_URL} class="btn btn-accent" target="_blank" rel="noopener">Shop DAKRI Hair</a>
+        <a href={SHOP_URL} class="btn btn-accent" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"/>
+          </svg>
+          Shop DAKRI Hair
+        </a>
       </div>
     </div>
     
@@ -226,11 +236,22 @@ const currentYear = new Date().getFullYear();
     color: #000000;
     font-family: 'Brachial', sans-serif;
     letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
   }
   
   .btn-accent:hover, .btn-accent:focus {
     background-color: #ffffff;
     color: #000000;
+  }
+  
+  .btn-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-accent:hover .btn-icon {
+    transform: translateX(2px);
   }
   
   .footer__shop {
@@ -249,6 +270,23 @@ const currentYear = new Date().getFullYear();
     max-width: 500px;
     font-family: 'Brachial', sans-serif;
     letter-spacing: 0.3px;
+  }
+  
+  .footer__shop-brands {
+    margin-bottom: var(--space-md);
+  }
+  
+  .footer__shop-brand {
+    font-weight: 600;
+    margin-right: var(--space-xs);
+  }
+  
+  .footer__shop-separator {
+    margin-right: var(--space-xs);
+  }
+  
+  .footer__shop-description {
+    color: #999999;
   }
   
   .footer__shop-cta {

@@ -184,7 +184,61 @@ a:hover, a:focus {
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--space-md);
+}
+
+/* Ensure no horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Section titles */
+.section__title {
+  font-family: var(--font-primary) !important;
+  text-align: center;
+  margin-bottom: var(--space-sm);
+  padding: 0 var(--space-md);
+}
+
+.section__subtitle {
+  text-align: center;
+  color: #999999;
+  margin-bottom: var(--space-lg);
+  padding: 0 var(--space-md);
+}
+
+/* Mobile-specific container adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .section__title {
+    font-size: var(--text-2xl);
+    padding: 0 var(--space-sm);
+  }
+  
+  .section__subtitle {
+    font-size: var(--text-sm);
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+  
+  .section__title {
+    font-size: var(--text-xl);
+    padding: 0;
+  }
+  
+  .section__subtitle {
+    font-size: var(--text-xs);
+    padding: 0;
+  }
 }
 
 /* Utility classes */

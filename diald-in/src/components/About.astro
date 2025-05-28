@@ -40,7 +40,7 @@ import { BOOKING_URL } from '../utils/seo';
         </div>
       </div>
       
-      <div class="about__visual">
+      <!-- <div class="about__visual">
         <div class="about__image-grid">
           <div class="about__image-container about__image-container--large">
             <img src="https://placehold.co/600x400/2c3e50/ffffff?text=Barber+Studio" alt="Diald In Barber Studio interior" class="about__image" />
@@ -51,7 +51,7 @@ import { BOOKING_URL } from '../utils/seo';
           <div class="about__image-container">
             <img src="https://placehold.co/300x300/2c3e50/ffffff?text=Haircut" alt="Client getting a haircut at Diald In" class="about__image" />
           </div>
-        </div>
+        </div> -->
         
         <div class="about__expertise">
           <h3 class="about__expertise-title">Expert Barbers</h3>
@@ -191,28 +191,106 @@ import { BOOKING_URL } from '../utils/seo';
   @media (max-width: 992px) {
     .about__content {
       grid-template-columns: 1fr;
+      gap: var(--space-lg);
     }
 
     .about__values {
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-sm);
     }
   }
 
   @media (max-width: 768px) {
+    .about {
+      padding: var(--space-xl) 0;
+    }
+    
     .about__content {
-      gap: var(--space-xl);
+      gap: var(--space-lg);
+      padding: 0 var(--space-md);
+    }
+
+    .about__paragraph {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-sm);
     }
 
     .about__values {
-      gap: var(--space-md);
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+    
+    .about__value {
+      padding: var(--space-sm);
+    }
+    
+    .about__value-icon {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .about__value-title {
+      font-size: var(--text-base);
+    }
+    
+    .about__value-text {
+      font-size: var(--text-xs);
     }
 
     .about__image-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-xs);
     }
 
     .about__image-container:not(.about__image-container--large) {
       display: none;
+    }
+    
+    .about__expertise {
+      padding: var(--space-md);
+      margin: 0 var(--space-md);
+    }
+    
+    .about__expertise-title {
+      font-size: var(--text-lg);
+    }
+    
+    .about__expertise-text {
+      font-size: var(--text-sm);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about__content {
+      padding: 0 var(--space-sm);
+    }
+    
+    .about__values {
+      margin-top: var(--space-md);
+    }
+    
+    .about__value {
+      padding: var(--space-xs);
+    }
+    
+    .about__value-icon {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .about__value-title {
+      font-size: var(--text-sm);
+      margin-bottom: 4px;
+    }
+    
+    .about__value-text {
+      font-size: 0.75rem;
+    }
+    
+    .about__expertise {
+      margin: 0 var(--space-sm);
+      padding: var(--space-sm);
     }
   }
 </style> 

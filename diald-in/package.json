@@ -15,7 +15,8 @@
     "post-build": "node scripts/post-build.js"
   },
   "dependencies": {
-    "astro": "^5.7.11"
+    "astro": "^5.7.11",
+    "undici": "^7.10.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",

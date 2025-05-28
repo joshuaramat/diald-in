@@ -1,0 +1,237 @@
+---
+import type { ScrapedProduct } from '../utils/shopify-scraper';
+
+interface Props {
+  product: ScrapedProduct;
+}
+
+const { product } = Astro.props;
+const hasDiscount = product.compareAtPrice && product.compareAtPrice !== product.price;
+---
+
+<div class="scraped-product">
+  <div class="scraped-product__image-container">
+    <a href={product.url} class="scraped-product__image-link" target="_blank" rel="noopener">
+      <img 
+        src={product.image} 
+        alt={product.title} 
+        class="scraped-product__image" 
+        width="400" 
+        height="400"
+        loading="lazy"
+        onerror="this.src='/images/products/placeholder.jpg'"
+      />
+    </a>
+    {hasDiscount && (
+      <div class="scraped-product__badge">Sale</div>
+    )}
+    {!product.availableForSale && (
+      <div class="scraped-product__badge scraped-product__badge--sold-out">Sold Out</div>
+    )}
+  </div>
+  
+  <div class="scraped-product__content">
+    <div class="scraped-product__type">{product.productType}</div>
+    
+    <h3 class="scraped-product__title">
+      <a href={product.url} target="_blank" rel="noopener">{product.title}</a>
+    </h3>
+    
+    <p class="scraped-product__description">{product.description}</p>
+    
+    <div class="scraped-product__price-container">
+      <span class="scraped-product__price">
+        {product.price}
+      </span>
+      
+      {hasDiscount && (
+        <span class="scraped-product__compare-price">
+          {product.compareAtPrice}
+        </span>
+      )}
+    </div>
+    
+    <a 
+      href={product.url} 
+      class={`scraped-product__button ${!product.availableForSale ? 'scraped-product__button--disabled' : ''}`} 
+      target="_blank" 
+      rel="noopener"
+    >
+      {product.availableForSale ? 'Shop Now' : 'View Product'}
+    </a>
+  </div>
+</div>
+
+<style>
+  .scraped-product {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 168, 106, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .scraped-product:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(212, 168, 106, 0.15);
+  }
+  
+  .scraped-product__image-container {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+  
+  .scraped-product__image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .scraped-product__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .scraped-product:hover .scraped-product__image {
+    transform: scale(1.05);
+  }
+  
+  .scraped-product__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--color-accent);
+    color: #000000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .scraped-product__badge--sold-out {
+    background-color: #dc3545;
+    color: #ffffff;
+  }
+  
+  .scraped-product__content {
+    padding: var(--space-lg);
+  }
+  
+  .scraped-product__type {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .scraped-product__title {
+    font-family: var(--font-primary);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    line-height: 1.3;
+  }
+  
+  .scraped-product__title a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .scraped-product__title a:hover {
+    color: var(--color-accent);
+  }
+  
+  .scraped-product__description {
+    color: #cccccc;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .scraped-product__price-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .scraped-product__price {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-accent);
+    font-family: var(--font-primary);
+  }
+  
+  .scraped-product__compare-price {
+    font-size: var(--text-base);
+    color: #999999;
+    text-decoration: line-through;
+  }
+  
+  .scraped-product__button {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-accent);
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--text-base);
+    font-weight: 600;
+    font-family: var(--font-primary);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+  }
+  
+  .scraped-product__button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 168, 106, 0.3);
+  }
+  
+  .scraped-product__button--disabled {
+    background-color: #666666;
+    color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .scraped-product__button--disabled:hover {
+    background-color: #666666;
+    color: #cccccc;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  @media (max-width: 768px) {
+    .scraped-product__content {
+      padding: var(--space-md);
+    }
+    
+    .scraped-product__title {
+      font-size: var(--text-base);
+    }
+    
+    .scraped-product__price {
+      font-size: var(--text-lg);
+    }
+  }
+</style> 

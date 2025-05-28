@@ -6,8 +6,8 @@ import Logo from './Logo.astro';
   <div class="hero__background">
     <picture>
       <source srcset="/images/hero/hero-background.webp" type="image/webp">
-      <source srcset="/images/hero/hero-background.jpg" type="image/jpeg">
-      <img src="/images/hero/hero-background.jpg" alt="Diald In Barber Studio background" class="hero__bg-img">
+      <source srcset="/images/hero/hero-background.png" type="image/png">
+      <img src="/images/hero/hero-background.png" alt="Diald In Barber Studio background" class="hero__bg-img">
     </picture>
   </div>
   <div class="hero__overlay"></div>
@@ -50,13 +50,21 @@ import Logo from './Logo.astro';
     right: 0;
     bottom: 0;
     z-index: 1;
+    /* Fallback background in case image doesn't load */
+    background-color: #1a1a1a;
+  }
+  
+  .hero__background picture {
+    width: 100%;
+    height: 100%;
   }
   
   .hero__bg-img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center bottom;
+    /* Override global picture display: block rule */
+    display: inline !important;
   }
   
   .hero__overlay {
@@ -65,7 +73,7 @@ import Logo from './Logo.astro';
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75));
     z-index: 2;
   }
   
@@ -75,7 +83,8 @@ import Logo from './Logo.astro';
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-lg) var(--space-md);
+    width: 100%;
   }
   
   .hero__title {
@@ -91,31 +100,39 @@ import Logo from './Logo.astro';
     max-width: 100%;
     height: auto;
     filter: brightness(1) contrast(1);
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    margin: -10px 0;
-    transform: scale(1.1);
+    margin: -8px 0;
+    transform: scale(1.05);
+    width: 100%;
+    max-width: 280px;
   }
   
   .hero__subtitle {
-    font-size: var(--text-xl);
-    margin-bottom: var(--space-lg);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-md);
     color: #ffffff;
-    line-height: 1.6;
+    line-height: 1.5;
     font-family: 'Brachial', var(--font-primary);
     font-weight: 400;
-    max-width: 650px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    letter-spacing: 0.5px;
-    opacity: 0.9;
+    letter-spacing: 0.3px;
+    opacity: 0.95;
+    padding: 0 var(--space-sm);
   }
   
   .hero__cta {
     display: flex;
-    gap: var(--space-md);
+    flex-direction: column;
+    gap: var(--space-sm);
     justify-content: center;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .hero__cta-button {
@@ -123,14 +140,15 @@ import Logo from './Logo.astro';
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
+    padding: 0.75rem 1.5rem;
     font-family: 'Brachial', var(--font-primary);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: var(--text-sm);
     letter-spacing: 0.5px;
-    border-radius: 0.375rem;
+    border-radius: 8px;
     transition: all 0.3s ease;
     text-decoration: none;
+    width: 100%;
   }
   
   .btn-primary {
@@ -144,7 +162,7 @@ import Logo from './Logo.astro';
     background-color: #ffffff;
     border-color: #ffffff;
     color: #000000;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
@@ -157,17 +175,19 @@ import Logo from './Logo.astro';
   .btn-outline:hover,
   .btn-outline:focus {
     background-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   .hero__cta-icon {
     flex-shrink: 0;
+    width: 18px;
+    height: 18px;
   }
   
   .hero__scroll-indicator {
     position: absolute;
-    bottom: var(--space-xl);
+    bottom: var(--space-lg);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -184,7 +204,7 @@ import Logo from './Logo.astro';
   }
   
   .hero__scroll-text {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     margin-bottom: var(--space-xs);
     font-family: 'Brachial', var(--font-primary);
     letter-spacing: 0.5px;
@@ -194,6 +214,8 @@ import Logo from './Logo.astro';
   
   .hero__scroll-icon {
     animation: bounce 2s infinite;
+    width: 20px;
+    height: 20px;
   }
   
   @keyframes bounce {
@@ -207,31 +229,144 @@ import Logo from './Logo.astro';
       transform: translateY(-5px);
     }
   }
-  
-  @media (max-width: 768px) {
+
+  /* Mobile-specific background positioning */
+  @media (max-width: 480px) {
+    .hero__bg-img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    /* Override global picture display: block rule */
+    display: inline !important;
+  }
+    
+    .hero__overlay {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+    }
+    
+    .hero__content {
+      padding: var(--space-md) var(--space-sm);
+    }
+    
     .hero__title :global(.hero__logo) {
-      max-width: 350px;
-      width: 100%;
+      max-width: 240px;
+      margin: -6px 0;
+    }
+    
+    .hero__subtitle {
+      font-size: var(--text-sm);
+      padding: 0;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .hero__cta {
+      max-width: 260px;
+      gap: var(--space-xs);
+    }
+    
+    .hero__cta-button {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+    }
+    
+    .hero__cta-icon {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .hero__scroll-indicator {
+      bottom: var(--space-md);
+    }
+    
+    .hero__scroll-text {
+      font-size: 0.7rem;
+    }
+    
+    .hero__scroll-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  /* Tablet breakpoint */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .hero__bg-img {
+      object-position: center top; /* Show the top center of the image */
+    }
+    
+    .hero__title :global(.hero__logo) {
+      max-width: 320px;
       margin: -8px 0;
       transform: scale(1.05);
     }
     
     .hero__subtitle {
       font-size: var(--text-lg);
-      max-width: 100%;
+      max-width: 90%;
+      padding: 0 var(--space-sm);
     }
     
     .hero__cta {
-      flex-direction: column;
+      flex-direction: row;
       gap: var(--space-sm);
+      max-width: 100%;
       width: 100%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
     }
     
     .hero__cta-button {
-      width: 100%;
+      flex: 1;
+      max-width: 200px;
+    }
+  }
+
+  /* Desktop breakpoint */
+  @media (min-width: 769px) {
+    .hero__content {
+      padding: var(--space-xl) var(--space-md);
+    }
+    
+    .hero__title :global(.hero__logo) {
+      max-width: 500px;
+      margin: -10px 0;
+      transform: scale(1.1);
+    }
+    
+    .hero__subtitle {
+      font-size: var(--text-xl);
+      max-width: 650px;
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+    }
+    
+    .hero__cta {
+      flex-direction: row;
+      gap: var(--space-md);
+      max-width: none;
+      width: auto;
+    }
+    
+    .hero__cta-button {
+      width: auto;
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+    }
+    
+    .hero__cta-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .hero__scroll-indicator {
+      bottom: var(--space-xl);
+    }
+    
+    .hero__scroll-text {
+      font-size: var(--text-sm);
+    }
+    
+    .hero__scroll-icon {
+      width: 24px;
+      height: 24px;
     }
   }
 </style> 

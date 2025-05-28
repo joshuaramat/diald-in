@@ -70,7 +70,7 @@ const services = [
         <div class="booking__card-inner">
           <h3 class="booking__card-title diald-in">Ready for a Fresh Cut?</h3>
           
-          <div class="booking__services">
+          <!-- <div class="booking__services">
             <h4 class="booking__section-title diald-in">Services</h4>
             <ul class="booking__service-list">
               {services.map(service => (
@@ -82,7 +82,7 @@ const services = [
                 </li>
               ))}
             </ul>
-          </div>
+          </div> -->
           
           <div class="booking__team">
             <h4 class="booking__section-title diald-in">Our Team</h4>
@@ -359,8 +359,14 @@ const services = [
   }
 
   @media (max-width: 992px) {
+    .booking {
+      padding: var(--space-xl) 0;
+    }
+    
     .booking__content {
       grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      padding: 0 var(--space-md);
     }
 
     .booking__card {
@@ -369,12 +375,106 @@ const services = [
 
     .booking__barber-list {
       grid-template-columns: 1fr 1fr;
+      gap: var(--space-xs);
     }
   }
 
   @media (max-width: 768px) {
+    .booking__content {
+      padding: 0 var(--space-md);
+    }
+    
+    .booking__card-inner {
+      padding: var(--space-lg);
+    }
+    
+    .booking__card-title {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-md);
+    }
+    
+    .booking__section-title {
+      font-size: var(--text-sm);
+    }
+    
+    .booking__service-item {
+      padding: var(--space-xs) 0;
+    }
+    
+    .booking__service-name {
+      font-size: var(--text-sm);
+    }
+    
+    .booking__service-info {
+      font-size: 0.7rem;
+    }
+
     .booking__barber-list {
       grid-template-columns: 1fr;
+      gap: var(--space-xs);
+    }
+    
+    .booking__barber-item {
+      padding: var(--space-xs);
+    }
+    
+    .booking__barber-avatar {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .booking__barber-name {
+      font-size: var(--text-sm);
+    }
+    
+    .booking__barber-specialty {
+      font-size: 0.7rem;
+    }
+    
+    .booking__cta {
+      padding: var(--space-sm);
+      font-size: var(--text-base);
+    }
+    
+    .booking__note {
+      padding: var(--space-sm);
+      margin: var(--space-md) var(--space-md) 0;
+    }
+    
+    .booking__note p {
+      font-size: var(--text-xs);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .booking__content {
+      padding: 0 var(--space-sm);
+    }
+    
+    .booking__card-inner {
+      padding: var(--space-md);
+    }
+    
+    .booking__card-title {
+      font-size: var(--text-base);
+    }
+    
+    .booking__service-name {
+      font-size: var(--text-xs);
+    }
+    
+    .booking__barber-avatar {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .booking__barber-name {
+      font-size: var(--text-xs);
+    }
+    
+    .booking__note {
+      margin: var(--space-sm) var(--space-sm) 0;
+      padding: var(--space-xs);
     }
   }
 

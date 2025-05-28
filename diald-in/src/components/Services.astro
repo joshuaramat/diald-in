@@ -137,6 +137,8 @@ import { BOOKING_URL } from '../utils/seo';
     color: #ffffff;
     border-radius: var(--radius-md);
     border: 1px solid #333333;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .services__info-title {
@@ -221,16 +223,107 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   @media (max-width: 768px) {
+    .services {
+      padding: var(--space-xl) 0;
+    }
+    
+    .services__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      padding: 0 var(--space-md);
+    }
+    
+    .service-card {
+      padding: var(--space-md);
+    }
+    
+    .service-card__icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .service-card__title {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .service-card__description {
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-sm);
+    }
+
     .services__info {
       grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      margin: var(--space-lg) var(--space-md) 0;
+      padding: var(--space-lg);
+      max-width: calc(100% - 2 * var(--space-md));
     }
 
     .services__buttons {
       flex-direction: column;
+      gap: var(--space-sm);
+      max-width: 280px;
+      margin: 0 auto;
     }
     
     .btn {
       width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-sm);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services__grid {
+      padding: 0 var(--space-sm);
+    }
+    
+    .service-card {
+      padding: var(--space-sm);
+    }
+    
+    .service-card__icon {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .service-card__title {
+      font-size: var(--text-base);
+    }
+    
+    .service-card__description {
+      font-size: var(--text-xs);
+    }
+    
+    .services__info {
+      margin: var(--space-lg) var(--space-sm) 0;
+      padding: var(--space-md);
+      max-width: calc(100% - 2 * var(--space-sm));
+    }
+    
+    .services__buttons {
+      max-width: 260px;
+    }
+    
+    .services__info-title {
+      font-size: var(--text-xl);
+    }
+    
+    .services__hours-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+    
+    .services__hours-list .day {
+      font-size: var(--text-sm);
+    }
+    
+    .services__hours-list .hours {
+      font-size: var(--text-sm);
+      color: #ffffff;
     }
   }
 
