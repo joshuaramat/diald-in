@@ -74,7 +74,7 @@ export const FEATURED_DAKRI_PRODUCTS: DAKRIProduct[] = [
       'Flexible, touchable hold',
       'Perfect for tousled styles'
     ],
-    size: '4 fl oz'
+    size: '6 fl oz'
   }
 ];
 
