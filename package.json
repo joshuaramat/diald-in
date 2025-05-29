@@ -1,7 +1,13 @@
 {
-  "name": "diald-in",
+  "name": "diald-in-barber-studio",
+  "description": "Modern, responsive landing page for Diald In Barber Studio - Live at https://dialdinbarberstudio.com",
+  "version": "1.0.0",
   "type": "module",
-  "version": "0.0.1",
+  "homepage": "https://dialdinbarberstudio.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshuaramat/diald-in"
+  },
   "engines": {
     "node": ">=18.17.1"
   },

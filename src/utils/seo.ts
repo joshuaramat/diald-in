@@ -18,7 +18,7 @@ export const DEFAULT_DESCRIPTION =
 export const DEFAULT_IMAGE = "/images/diald-in-og-image.jpg";
 export const SITE_URL = "https://dialdinbarberstudio.com";
 export const BOOKING_URL = "https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward";
-export const BUSINESS_EMAIL = "dialdin.barberstudio@gmail.com";
+export const BUSINESS_EMAIL = "daniel@dialdinbarberstudio.com";
 export const SHOP_URL = "https://dakrihair.com/";
 export const PHONE_NUMBER = "+15109635985"; // Business phone number
 
