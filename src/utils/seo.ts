@@ -25,8 +25,7 @@ export const PHONE_NUMBER = "+15109635985"; // Business phone number
 // Social media profiles
 export const SOCIAL_PROFILES = {
   instagram: "https://instagram.com/dialdin.barberstudio",
-  facebook: "https://facebook.com/dialdinbarber",
-  youtube: "https://youtube.com/@dialdinbarber",
+  facebook: "https://www.facebook.com/61574992139619",
   shop: {
     instagram: "https://instagram.com/dakrihair"
   }
