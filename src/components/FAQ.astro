@@ -1,0 +1,250 @@
+---
+const faqItems = [
+  {
+    question: "Where is Diald In Barber Studio located?",
+    answer: "Diald In Barber Studio is located at 22441 Foothill Blvd, Hayward, CA 94541. We're conveniently situated in the heart of Hayward, easily accessible from Castro Valley, San Lorenzo, and Union City."
+  },
+  {
+    question: "What are your hours of operation?",
+    answer: "We're open Tuesday through Friday from 8:00 AM to 7:00 PM, and Saturday from 8:00 AM to 3:00 PM. We're closed on Sundays and Mondays. Book your appointment online for guaranteed availability."
+  },
+  {
+    question: "Do I need to book an appointment or can I walk in?",
+    answer: "While we accept walk-ins when possible, we highly recommend booking an appointment online through Booksy to guarantee your preferred time slot and barber. This ensures you get the best service without waiting."
+  },
+  {
+    question: "Do you offer beard grooming services?",
+    answer: "Yes! We offer comprehensive beard grooming services including trimming, shaping, and styling."
+  }
+];
+
+// Generate FAQ Schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="faq__header">
+      <h2 class="section__title">Frequently Asked Questions</h2>
+      <p class="section__subtitle">Everything you need to know about Diald In Barber Studio</p>
+      <p class="section__description">
+        Get answers to common questions about our services, location, pricing, and booking process.
+      </p>
+    </div>
+
+    <div class="faq__content">
+      {faqItems.map((item, index) => (
+        <div class="faq__item" data-faq-item>
+          <button class="faq__question" aria-expanded="false" aria-controls={`faq-answer-${index}`}>
+            <h3 class="faq__question-text">{item.question}</h3>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__answer" id={`faq-answer-${index}`} aria-hidden="true">
+            <div class="faq__answer-content">
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="faq__cta">
+      <p class="faq__cta-text">Still have questions?</p>
+      <a href="tel:+15109635985" class="faq__cta-link">Call us at (510) 963-5985</a>
+      <span class="faq__cta-separator">or</span>
+      <a href="https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward" target="_blank" rel="noopener" class="faq__cta-link">Book an appointment</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Schema for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  .faq {
+    padding: var(--space-xl) 0;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+  }
+
+  .faq__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .faq__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq__item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+  }
+
+  .faq__item:hover {
+    border-color: var(--color-accent);
+  }
+
+  .faq__question {
+    width: 100%;
+    padding: var(--space-md);
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition-medium);
+  }
+
+  .faq__question:hover {
+    background-color: rgba(212, 168, 106, 0.05);
+  }
+
+  .faq__question-text {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+  }
+
+  .faq__icon {
+    font-size: var(--text-lg);
+    font-weight: 300;
+    color: var(--color-accent);
+    transition: transform var(--transition-medium);
+    flex-shrink: 0;
+    margin-left: var(--space-sm);
+  }
+
+  .faq__question[aria-expanded="true"] .faq__icon {
+    transform: rotate(45deg);
+  }
+
+  .faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-medium) ease;
+  }
+
+  .faq__answer[aria-hidden="false"] {
+    max-height: 200px;
+  }
+
+  .faq__answer-content {
+    padding: 0 var(--space-md) var(--space-md);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .faq__cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background: rgba(212, 168, 106, 0.1);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(212, 168, 106, 0.2);
+  }
+
+  .faq__cta-text {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .faq__cta-link {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .faq__cta-link:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+
+  .faq__cta-separator {
+    margin: 0 var(--space-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .faq {
+      padding: var(--space-lg) 0;
+    }
+
+    .faq__question {
+      padding: var(--space-sm);
+    }
+
+    .faq__question-text {
+      font-size: var(--text-sm);
+    }
+
+    .faq__answer-content {
+      padding: 0 var(--space-sm) var(--space-sm);
+    }
+
+    .faq__cta {
+      padding: var(--space-md);
+    }
+
+    .faq__cta-text {
+      font-size: var(--text-base);
+    }
+  }
+</style>
+
+<script>
+  // FAQ accordion functionality with proper TypeScript typing
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq__question');
+      const answer = item.querySelector('.faq__answer');
+      
+      if (question && answer) {
+        question.addEventListener('click', function() {
+          const isExpanded = question.getAttribute('aria-expanded') === 'true';
+          
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            const otherQuestion = otherItem.querySelector('.faq__question');
+            const otherAnswer = otherItem.querySelector('.faq__answer');
+            
+            if (otherItem !== item && otherQuestion && otherAnswer) {
+              otherQuestion.setAttribute('aria-expanded', 'false');
+              otherAnswer.setAttribute('aria-hidden', 'true');
+            }
+          });
+          
+          // Toggle current item
+          question.setAttribute('aria-expanded', String(!isExpanded));
+          answer.setAttribute('aria-hidden', String(isExpanded));
+        });
+      }
+    });
+  });
+</script> 

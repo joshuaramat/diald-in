@@ -12,9 +12,9 @@ export interface SEOProps {
   section?: string;
 }
 
-export const DEFAULT_TITLE = "Diald In Barber Studio";
+export const DEFAULT_TITLE = "Diald In Barber Studio | Best Barbershop in Hayward, CA | Expert Haircuts & Beard Grooming";
 export const DEFAULT_DESCRIPTION = 
-  "At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Our experienced barbers specialize in modern fades, classic cuts, beard grooming, and custom styles tailored to each client's unique look.";
+  "Diald In Barber Studio is Hayward's premier barbershop offering expert haircuts, beard grooming, and styling services. Located at 22441 Foothill Blvd, our skilled barbers specialize in modern fades, classic cuts, and custom styles. Book your appointment today for the best haircut experience in Hayward, California.";
 export const DEFAULT_IMAGE = "/images/logo/black/logo-lg.png";
 export const SITE_URL = "https://dialdinbarberstudio.com";
 export const BOOKING_URL = "https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward";
@@ -31,14 +31,13 @@ export const SOCIAL_PROFILES = {
   }
 };
 
-// Section-specific meta descriptions
+// Section-specific meta descriptions - optimized for search queries
 export const SECTION_DESCRIPTIONS = {
-  home: "Premium barbershop in Hayward, CA offering expert haircuts, beard grooming, and styling services. Book your appointment today for a fresh look.",
-  services: "Explore our range of professional barber services including modern fades, classic cuts, beard grooming, and custom styles. Quality service at competitive prices.",
-  about: "Meet the skilled barbers at Diald In Barber Studio. Learn about our commitment to excellence and the community we've built in Hayward.",
-  booking: "Book your appointment at Diald In Barber Studio. Easy online booking system for haircuts, beard grooming, and styling services.",
-
-  shop: "Shop premium hair products from Dakri Hair. Professional-grade styling products for the perfect look every time."
+  home: "Diald In Barber Studio, Hayward's #1 rated barbershop offering professional haircuts, beard grooming, and styling services. Expert barbers, affordable prices, convenient Foothill Blvd location. Book online today!",
+  services: "Professional barber services at Diald In Barber Studio Hayward: haircuts ($30), beard grooming ($20), kids cuts ($25). Modern fades, classic cuts, and custom styling by experienced barbers.",
+  about: "Why choose Diald In Barber Studio? Meet our expert barbers in Hayward, CA. Professional haircut experience, community-focused barbershop, traditional craftsmanship with modern style.",
+  booking: "Book your haircut appointment at Diald In Barber Studio Hayward. Choose your preferred barber, select services, and schedule online. Located at 22441 Foothill Blvd, Hayward, CA 94541.",
+  shop: "Premium hair styling products from Dakri Hair. Professional-grade pomades, waxes, and styling products used by Diald In Barber Studio. Shop online for salon-quality results at home."
 };
 
 // Business hours configuration
@@ -186,10 +185,16 @@ export function generateSEOMetadata({
       
       // Additional meta tags
       { name: "author", content: DEFAULT_TITLE },
+      { name: "keywords", content: "Diald In Barber Studio, barbershop Hayward, haircut Hayward CA, best barber Hayward, men's grooming, fade haircut, beard grooming, classic cuts, professional barber, Bay Area barbershop, Castro Valley barber, San Lorenzo barbershop" },
       { name: "geo.region", content: "US-CA" },
       { name: "geo.placename", content: "Hayward" },
       { name: "geo.position", content: "37.6688;-122.0808" },
       { name: "ICBM", content: "37.6688, -122.0808" },
+      { name: "business:contact_data:street_address", content: "22441 Foothill Blvd" },
+      { name: "business:contact_data:locality", content: "Hayward" },
+      { name: "business:contact_data:region", content: "CA" },
+      { name: "business:contact_data:postal_code", content: "94541" },
+      { name: "business:contact_data:country_name", content: "United States" },
     ],
     link: [
       { rel: "canonical", href: canonical },
@@ -228,7 +233,30 @@ export function generateSEOMetadata({
         "@type": "OfferCatalog",
         "name": "Barber Services",
         "itemListElement": serviceOfferings
-      }
+      },
+      "keywords": "barbershop, haircut, beard grooming, Hayward barber, men's grooming, fade haircut, classic cuts, styling services, professional barber, California barbershop",
+      "paymentAccepted": "Cash, Credit Card, Debit Card",
+      "currenciesAccepted": "USD",
+      "alternateName": ["Diald In", "Diald In Barbershop", "Dialdin Barber Studio"],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "37.6688",
+          "longitude": "-122.0808"
+        },
+        "geoRadius": "25000"
+      },
+      "makesOffer": serviceOfferings,
+      "knowsAbout": [
+        "Men's haircuts",
+        "Beard grooming",
+        "Fade haircuts", 
+        "Classic cuts",
+        "Hair styling",
+        "Barbering techniques",
+        "Men's grooming"
+      ]
       // ARCHIVED: Review and rating data for future API integration
       // "aggregateRating": reviewAggregate,
       // "review": {

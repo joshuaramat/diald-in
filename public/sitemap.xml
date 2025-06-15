@@ -9,85 +9,65 @@
   <!-- Homepage -->
   <url>
     <loc>https://dialdinbarberstudio.com/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://dialdinbarberstudio.com/images/diald-in-og-image.jpg</image:loc>
-      <image:title>Diald In Barber Studio - Premium Barbershop in Hayward, CA</image:title>
+      <image:loc>https://dialdinbarberstudio.com/images/logo/black/logo-lg.png</image:loc>
+      <image:title>Diald In Barber Studio - Best Barbershop in Hayward, CA</image:title>
     </image:image>
   </url>
 
   <!-- Services Section -->
   <url>
     <loc>https://dialdinbarberstudio.com/#services</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://dialdinbarberstudio.com/images/services-og-image.jpg</image:loc>
-      <image:title>Professional Barber Services at Diald In Barber Studio</image:title>
-    </image:image>
   </url>
 
   <!-- About Section -->
   <url>
     <loc>https://dialdinbarberstudio.com/#about</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://dialdinbarberstudio.com/images/about-og-image.jpg</image:loc>
-      <image:title>Meet Our Expert Barbers at Diald In Barber Studio</image:title>
-    </image:image>
   </url>
 
   <!-- Booking Section -->
   <url>
     <loc>https://dialdinbarberstudio.com/#booking</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://dialdinbarberstudio.com/images/booking-og-image.jpg</image:loc>
-      <image:title>Book Your Appointment at Diald In Barber Studio</image:title>
-    </image:image>
-  </url>
-
-  <!-- Testimonials Section -->
-  <url>
-    <loc>https://dialdinbarberstudio.com/#testimonials</loc>
-    <lastmod>2024-03-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://dialdinbarberstudio.com/images/testimonials-og-image.jpg</image:loc>
-      <image:title>Client Reviews and Testimonials - Diald In Barber Studio</image:title>
-    </image:image>
   </url>
 
   <!-- Shop Section -->
   <url>
     <loc>https://dialdinbarberstudio.com/#shop</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://dialdinbarberstudio.com/images/shop-og-image.jpg</image:loc>
-      <image:title>Shop Premium Hair Products at Dakri Hair</image:title>
-    </image:image>
+  </url>
+
+  <!-- FAQ Section -->
+  <url>
+    <loc>https://dialdinbarberstudio.com/#faq</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- External Links -->
   <url>
     <loc>https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dakrihair.com/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
