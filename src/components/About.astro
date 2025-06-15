@@ -1,41 +1,44 @@
 ---
+import Button from './Button.astro';
 import { BOOKING_URL } from '../utils/seo';
 ---
 
 <section class="about section" id="about">
   <div class="container">
     <h2 class="section__title diald-in">About Diald In</h2>
-    <p class="section__subtitle">Where craftsmanship meets community</p>
+    <p class="section__subtitle">Where Craftsmanship Meets Community</p>
+    <p class="section__description">Your neighborhood destination for exceptional grooming and genuine connections.</p>
     
     <div class="about__content">
       <div class="about__text">
-        <p class="about__paragraph">At <span class="diald-in">Diald In Barber Studio</span>, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Since our founding, we've been dedicated to providing a premium grooming experience in a welcoming environment.</p>
+        <h3 class="about__section-heading">Our Story</h3>
+        <p class="about__paragraph">At <span class="diald-in">Diald In Barber Studio</span>, we're creating a community hub where traditional barbering craftsmanship meets modern style and genuine hospitality.</p>
         
-        <p class="about__paragraph">Our mission is to deliver precision styling that enhances your natural appearance while providing a relaxing escape from the day-to-day hustle. Every haircut and service is performed with meticulous attention to detail and tailored to your individual style and preferences.</p>
+        <p class="about__paragraph">Every service we provide is a testament to our commitment to excellence. From precision cuts to detailed grooming, we tailor each experience to reflect your unique style while ensuring you leave looking and feeling your absolute best.</p>
         
         <div class="about__values">
           <div class="about__value">
             <div class="about__value-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             </div>
-            <h3 class="about__value-title">Community</h3>
-            <p class="about__value-text">Creating a space where everyone feels welcome and connections are formed.</p>
+            <h3 class="about__value-title">Community First</h3>
+            <p class="about__value-text">Building lasting relationships through genuine conversations and welcoming every client as family.</p>
           </div>
           
           <div class="about__value">
             <div class="about__value-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </div>
-            <h3 class="about__value-title">Excellence</h3>
-            <p class="about__value-text">Committed to the highest standards in barbering technique and customer service.</p>
+            <h3 class="about__value-title">Uncompromising Excellence</h3>
+            <p class="about__value-text">Delivering the highest standards in barbering technique, service quality, and attention to detail.</p>
           </div>
           
           <div class="about__value">
             <div class="about__value-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             </div>
-            <h3 class="about__value-title">Integrity</h3>
-            <p class="about__value-text">Building trust through honest recommendations and transparent practices.</p>
+            <h3 class="about__value-title">Trust & Integrity</h3>
+            <p class="about__value-text">Earning confidence through honest recommendations, transparent practices, and consistent results.</p>
           </div>
         </div>
       </div>
@@ -56,7 +59,7 @@ import { BOOKING_URL } from '../utils/seo';
         <div class="about__expertise">
           <h3 class="about__expertise-title">Expert Barbers</h3>
           <p class="about__expertise-text">Our team of skilled barbers brings years of experience and continuous education to every service. We're dedicated to staying current with the latest techniques while honoring traditional barbering craftsmanship.</p>
-          <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book With Us</a>
+          <Button href={BOOKING_URL} variant="primary" target="_blank" rel="noopener">Book With Us</Button>
         </div>
       </div>
     </div>
@@ -82,6 +85,15 @@ import { BOOKING_URL } from '../utils/seo';
     font-size: var(--text-lg);
     line-height: 1.7;
     color: #ffffff;
+  }
+
+  .about__section-heading {
+    font-family: var(--font-primary);
+    font-size: var(--text-xl);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 
   .about__values {

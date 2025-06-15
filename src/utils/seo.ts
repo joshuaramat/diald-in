@@ -15,7 +15,7 @@ export interface SEOProps {
 export const DEFAULT_TITLE = "Diald In Barber Studio";
 export const DEFAULT_DESCRIPTION = 
   "At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great conversations meet even better cuts. Our experienced barbers specialize in modern fades, classic cuts, beard grooming, and custom styles tailored to each client's unique look.";
-export const DEFAULT_IMAGE = "/images/diald-in-og-image.jpg";
+export const DEFAULT_IMAGE = "/images/logo/black/logo-lg.png";
 export const SITE_URL = "https://dialdinbarberstudio.com";
 export const BOOKING_URL = "https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward";
 export const BUSINESS_EMAIL = "daniel@dialdinbarberstudio.com";
@@ -222,7 +222,6 @@ export function generateSEOMetadata({
       "sameAs": [
         SOCIAL_PROFILES.instagram,
         SOCIAL_PROFILES.facebook,
-        SOCIAL_PROFILES.youtube,
         SOCIAL_PROFILES.shop.instagram
       ],
       "hasOfferCatalog": {

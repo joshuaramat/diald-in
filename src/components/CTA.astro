@@ -1,15 +1,17 @@
 ---
+import Button from './Button.astro';
 import { BOOKING_URL } from '../utils/seo';
 ---
 
 <section class="cta section">
   <div class="container">
     <div class="cta__content">
-      <h2 class="cta__title diald-in">Ready for a Fresh Cut?</h2>
-      <p class="cta__text">Whether you're coming in for a fresh weekly lineup or a complete style transformation, we deliver premium service in a clean, comfortable, and welcoming environment.</p>
+      <h2 class="cta__title diald-in">Ready to Look Your Best?</h2>
+      <p class="cta__subtitle">Experience the Diald In Difference</p>
+      <p class="cta__text">Whether you're looking for a fresh weekly lineup or a complete style transformation, our expert barbers deliver premium service in a clean, comfortable, and welcoming environment that feels like home.</p>
       <div class="cta__buttons">
-        <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-        <a href="#booking" class="btn btn-outline btn-outline-primary">Learn How Booking Works</a>
+        <Button href={BOOKING_URL} variant="primary" target="_blank" rel="noopener">Book Your Appointment</Button>
+        <Button href="#booking" variant="outline" class="btn-outline-primary">Learn How It Works</Button>
       </div>
     </div>
   </div>
@@ -30,6 +32,12 @@ import { BOOKING_URL } from '../utils/seo';
   
   .cta__title {
     font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+    color: #ffffff;
+  }
+  
+  .cta__subtitle {
+    font-size: var(--text-2xl);
     margin-bottom: var(--space-md);
     color: #ffffff;
   }
@@ -74,6 +82,11 @@ import { BOOKING_URL } from '../utils/seo';
       margin-bottom: var(--space-sm);
     }
     
+    .cta__subtitle {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-sm);
+    }
+    
     .cta__text {
       font-size: var(--text-base);
       margin-bottom: var(--space-md);
@@ -101,6 +114,10 @@ import { BOOKING_URL } from '../utils/seo';
     
     .cta__title {
       font-size: var(--text-xl);
+    }
+    
+    .cta__subtitle {
+      font-size: var(--text-sm);
     }
     
     .cta__text {

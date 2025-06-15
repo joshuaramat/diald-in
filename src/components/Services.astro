@@ -1,12 +1,20 @@
 ---
+import Button from './Button.astro';
 import { BOOKING_URL } from '../utils/seo';
 ---
 
 <section class="services section">
   <div class="container">
+    <div class="services__header">
+      <h2 class="section__title">Our Services</h2>
+      <p class="section__subtitle">Professional Grooming Services Tailored to You</p>
+      <p class="section__description">From classic cuts to modern styles, we offer comprehensive barbering services in a welcoming environment.</p>
+    </div>
+    
     <div class="services__info">
       <div class="services__hours">
         <h3 class="services__info-title">Business Hours</h3>
+        <p class="services__info-subtitle">Visit us during these convenient hours</p>
         <ul class="services__hours-list">
           <li><span class="day">Sunday - Monday:</span> <span class="hours">Closed</span></li>
           <li><span class="day">Tuesday - Friday:</span> <span class="hours">8:00 AM - 7:00 PM</span></li>
@@ -15,14 +23,15 @@ import { BOOKING_URL } from '../utils/seo';
       </div>
       
       <div class="services__location">
-        <h3 class="services__info-title">Visit Us</h3>
+        <h3 class="services__info-title">Visit Our Studio</h3>
+        <p class="services__info-subtitle">Located in the heart of Hayward</p>
         <address>
           22441 Foothill Blvd<br>
           Hayward, CA 94541
         </address>
         <div class="services__buttons">
-          <a href={BOOKING_URL} class="btn btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
-          <a href="https://www.google.com/maps/place/22441+Foothill+Blvd,+Hayward,+CA+94541" class="btn btn-outline" target="_blank" rel="noopener">Get Directions</a>
+          <Button href={BOOKING_URL} variant="primary" target="_blank" rel="noopener">Book an Appointment</Button>
+          <Button href="https://www.google.com/maps/place/22441+Foothill+Blvd,+Hayward,+CA+94541" variant="outline" target="_blank" rel="noopener">Get Directions</Button>
         </div>
       </div>
     </div>
@@ -32,9 +41,23 @@ import { BOOKING_URL } from '../utils/seo';
 <style>
   .services {
     padding: var(--space-2xl) 0;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
     font-family: 'Brachial', sans-serif;
+  }
+
+  .services__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    padding: 0 var(--space-md);
+  }
+
+  .services__info-subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+    letter-spacing: 0.3px;
   }
 
   .services__grid {
@@ -45,8 +68,8 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   .service-card {
-    background-color: #000000;
-    border: 1px solid #333333;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
     box-shadow: var(--shadow-sm);
@@ -56,7 +79,7 @@ import { BOOKING_URL } from '../utils/seo';
     align-items: center;
     text-align: center;
     height: 100%;
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 
   .service-card:hover {
@@ -80,7 +103,7 @@ import { BOOKING_URL } from '../utils/seo';
   .service-card__title {
     font-family: 'Brachial', sans-serif;
     font-size: var(--text-xl);
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin-bottom: var(--space-sm);
     position: relative;
     padding-bottom: var(--space-xs);
@@ -94,7 +117,7 @@ import { BOOKING_URL } from '../utils/seo';
   .service-card__description {
     margin-bottom: var(--space-md);
     flex-grow: 1;
-    color: #999999;
+    color: var(--color-text-secondary);
     letter-spacing: 0.3px;
     line-height: 1.6;
   }
@@ -133,10 +156,10 @@ import { BOOKING_URL } from '../utils/seo';
     gap: var(--space-xl);
     margin-top: var(--space-xl);
     padding: var(--space-lg);
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
     border-radius: var(--radius-md);
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -155,7 +178,7 @@ import { BOOKING_URL } from '../utils/seo';
 
   .services__hours-list {
     list-style: none;
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 
   .services__hours-list li {
@@ -175,7 +198,7 @@ import { BOOKING_URL } from '../utils/seo';
     margin-bottom: var(--space-md);
     font-style: normal;
     line-height: 1.6;
-    color: #ffffff;
+    color: var(--color-text-primary);
     letter-spacing: 0.3px;
   }
 

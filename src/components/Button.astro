@@ -1,0 +1,258 @@
+---
+interface Props {
+  variant?: 'primary' | 'outline' | 'accent' | 'ghost' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  target?: '_blank' | '_self';
+  rel?: string;
+  disabled?: boolean;
+  loading?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: string;
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
+  icon?: string;
+  iconPosition?: 'left' | 'right';
+  fullWidth?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  target,
+  rel,
+  disabled = false,
+  loading = false,
+  type = 'button',
+  onClick,
+  ariaLabel,
+  ariaDescribedBy,
+  icon,
+  iconPosition = 'left',
+  fullWidth = false,
+  class: className = ''
+} = Astro.props;
+
+const baseClasses = [
+  'btn',
+  variant === 'primary' ? 'btn-primary' : variant !== 'ghost' && variant !== 'danger' ? `btn-${variant}` : '',
+  size !== 'md' ? `btn-${size}` : '',
+  fullWidth && 'btn--full-width',
+  loading && 'btn--loading',
+  disabled && 'btn--disabled',
+  className
+].filter(Boolean).join(' ');
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element 
+  class={baseClasses}
+  href={href}
+  target={target}
+  rel={rel}
+  type={!href ? type : undefined}
+  disabled={disabled || loading}
+  onclick={onClick}
+  aria-label={ariaLabel}
+  aria-describedby={ariaDescribedBy}
+  aria-busy={loading}
+>
+  {loading && (
+    <span class="btn__loading" aria-hidden="true">
+      <span class="loading-spinner"></span>
+    </span>
+  )}
+  
+  {icon && iconPosition === 'left' && !loading && (
+    <span class="btn__icon btn__icon--left" set:html={icon} aria-hidden="true" />
+  )}
+  
+  <span class="btn__text">
+    <slot />
+  </span>
+  
+  {icon && iconPosition === 'right' && !loading && (
+    <span class="btn__icon btn__icon--right" set:html={icon} aria-hidden="true" />
+  )}
+</Element>
+
+<style>
+  /* Additional styles for Button component features not in global CSS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    position: relative;
+    min-height: 44px; /* Touch target minimum */
+    white-space: nowrap;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center;
+  }
+  
+  /* Missing size variants - add to complement global CSS */
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    min-height: 36px;
+  }
+  
+  .btn-lg {
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    min-height: 52px;
+  }
+  
+  /* Missing accent variant */
+  .btn-accent {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+  }
+  
+  .btn-accent:hover, .btn-accent:focus {
+    background-color: var(--color-accent-hover);
+    color: var(--color-primary);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Component-specific states */
+  .btn:disabled,
+  .btn--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  .btn--loading {
+    cursor: wait;
+  }
+  
+  .btn--loading .btn__text {
+    opacity: 0;
+  }
+  
+  .btn--full-width {
+    width: 100%;
+  }
+  
+  /* Loading state */
+  .btn__loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Icons */
+  .btn__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .btn__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .btn-sm .btn__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .btn-lg .btn__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Hover animations for icons */
+  .btn__icon--right {
+    transition: transform var(--transition-medium);
+  }
+  
+  .btn:hover .btn__icon--right {
+    transform: translateX(2px);
+  }
+  
+  /* Touch feedback for mobile */
+  @media (hover: none) and (pointer: coarse) {
+    .btn:active {
+      transform: scale(0.98);
+    }
+  }
+  
+  /* Accessibility improvements */
+  .btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      transition: none;
+    }
+    
+    .btn:hover {
+      transform: none;
+    }
+  }
+  
+  /* Enhanced Micro-interactions */
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  
+  .btn:hover::before {
+    width: 300%;
+    height: 300%;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Primary button enhancements */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #c49c5a 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+</style> 

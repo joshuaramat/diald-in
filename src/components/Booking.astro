@@ -1,14 +1,57 @@
 ---
+import Button from './Button.astro';
 import { BOOKING_URL } from '../utils/seo';
 
 // Barbers and services data
 const barbers = [
-  { name: "Barber Dan", specialty: "Custom fades and beard styling" },
-  { name: "VegaKutz", specialty: "Precision cuts and hair design" },
-  { name: "Blendedbyivan", specialty: "Classic cuts and modern styles" },
-  { name: "Dameblends", specialty: "Kids cuts and family-friendly styles" },
-  { name: "Josethebarber", specialty: "Beard expertise and skin fades" },
-  { name: "Geocutzz", specialty: "Beard expertise and skin fades" }
+  { 
+    name: "Dame", 
+    specialty: "Kids cuts and family-friendly styles",
+    image: "/images/barbers/Dame.jpg",
+    alt: "Dame working with a young client"
+  },
+  { 
+    name: "Dan", 
+    specialty: "Custom fades and beard styling",
+    image: "/images/barbers/Dan.jpg",
+    alt: "Dan working on a client's haircut"
+  },
+  { 
+    name: "Gcutz", 
+    specialty: "Sharp lineups and tapers",
+    image: "/images/barbers/Gcutz.jpg",
+    alt: "Gcutz working on a sharp lineup"
+  },
+  { 
+    name: "Geocutz", 
+    specialty: "Beard expertise and skin fades",
+    image: "/images/barbers/Geocutz.jpg",
+    alt: "Geocutz creating a skin fade"
+  },
+  { 
+    name: "Ivan", 
+    specialty: "Classic cuts and modern styles",
+    image: "/images/barbers/Ivan.jpg",
+    alt: "Ivan performing a precision cut"
+  },
+  { 
+    name: "Jose", 
+    specialty: "Beard expertise and skin fades",
+    image: "/images/barbers/Jose.jpg",
+    alt: "Jose trimming a client's beard"
+  },
+  { 
+    name: "Mickey", 
+    specialty: "Creative cuts and styling",
+    image: "/images/barbers/Mickey.jpg",
+    alt: "Mickey creating a creative hairstyle"
+  },
+  { 
+    name: "Vega", 
+    specialty: "Precision cuts and hair design",
+    image: "/images/barbers/Vega.jpg",
+    alt: "Vega styling a client's hair"
+  }
 ];
 
 const services = [
@@ -22,40 +65,45 @@ const services = [
 
 <section class="booking section" id="booking">
   <div class="container">
-    <h2 class="section__title diald-in">Book Your Appointment</h2>
-    <p class="section__subtitle">Schedule your next cut with our talented team</p>
+    <div class="booking__header">
+      <h2 class="section__title diald-in">Book Your Perfect Cut</h2>
+      <p class="section__subtitle">Schedule Your Appointment with Our Expert Team</p>
+      <p class="section__description">Ready for a fresh look? Our skilled barbers are here to deliver precision cuts and exceptional service.</p>
+    </div>
     
     <div class="booking__content">
       <div class="booking__info">
         <div class="booking__process">
-          <h3 class="booking__heading diald-in">How It Works</h3>
+          <h3 class="booking__heading diald-in">Simple Booking Process</h3>
+          <p class="booking__process-description">Get your perfect cut in just four easy steps</p>
+          
           <ol class="booking__steps">
             <li class="booking__step">
               <div class="booking__step-number">1</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title diald-in">Select Your Barber</h4>
-                <p class="booking__step-description">Pick your preferred barber or choose the first available professional.</p>
+                <h4 class="booking__step-title diald-in">Choose Your Barber</h4>
+                <p class="booking__step-description">Select your preferred barber or let us match you with the first available professional who fits your style needs.</p>
               </div>
             </li>
             <li class="booking__step">
               <div class="booking__step-number">2</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title diald-in">Choose Your Service</h4>
-                <p class="booking__step-description">Select from our range of professional haircuts, beard grooming, and styling services.</p>
+                <h4 class="booking__step-title diald-in">Select Your Service</h4>
+                <p class="booking__step-description">Browse our comprehensive menu of haircuts, beard grooming, and specialty styling services to find your perfect match.</p>
               </div>
             </li>
             <li class="booking__step">
               <div class="booking__step-number">3</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title diald-in">Choose Date & Time</h4>
-                <p class="booking__step-description">Find a convenient appointment slot that works with your schedule.</p>
+                <h4 class="booking__step-title diald-in">Pick Your Time</h4>
+                <p class="booking__step-description">Find the perfect appointment slot that fits seamlessly into your busy schedule with real-time availability.</p>
               </div>
             </li>
             <li class="booking__step">
               <div class="booking__step-number">4</div>
               <div class="booking__step-content">
-                <h4 class="booking__step-title diald-in">Confirm & You're Set</h4>
-                <p class="booking__step-description">Receive a confirmation and reminder for your upcoming appointment.</p>
+                <h4 class="booking__step-title diald-in">Confirm & Relax</h4>
+                <p class="booking__step-description">Receive instant confirmation and helpful reminders, then simply show up ready for your exceptional barbering experience.</p>
               </div>
             </li>
           </ol>
@@ -91,17 +139,18 @@ const services = [
               {barbers.map(barber => (
                 <div class="booking__barber-item">
                   <div class="booking__barber-avatar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <img src={barber.image} alt={barber.alt} width="72" height="72" />
                   </div>
                   <div class="booking__barber-info">
                     <span class="booking__barber-name">{barber.name}</span>
+                    {/* <span class="booking__barber-specialty">{barber.specialty}</span> */}
                   </div>
                 </div>
               ))}
             </div>
           </div>
           
-          <a href={BOOKING_URL} class="btn btn-primary booking__cta" target="_blank" rel="noopener">Book on Booksy</a>
+          <Button href={BOOKING_URL} variant="primary" target="_blank" rel="noopener" class="booking__cta">Book on Booksy</Button>
           
           <p class="booking__card-footer">Powered by <img src="https://placehold.co/80x20/ffffff/000000?text=Booksy" alt="Booksy logo" width="80" height="20" /></p>
         </div>
@@ -115,6 +164,20 @@ const services = [
     padding: var(--space-2xl) 0;
     background-color: #000000;
     color: #ffffff;
+  }
+
+  .booking__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    padding: 0 var(--space-md);
+  }
+
+  .booking__process-description {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
+    line-height: 1.5;
+    letter-spacing: 0.3px;
   }
 
   .booking__content {
@@ -290,36 +353,108 @@ const services = [
 
   .booking__barber-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-sm);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
     margin-bottom: var(--space-lg);
   }
 
   .booking__barber-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: var(--space-xs);
+    padding: var(--space-md);
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid #333333;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .booking__barber-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 168, 106, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .booking__barber-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-accent);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(212, 168, 106, 0.15);
+  }
+
+  .booking__barber-item:hover::before {
+    left: 100%;
+  }
+
+  .booking__barber-item:active {
+    transform: translateY(-2px) scale(1.01);
+    transition: transform 0.1s ease;
   }
 
   .booking__barber-avatar {
-    width: 36px;
-    height: 36px;
+    width: 72px;
+    height: 72px;
     background-color: #333333;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    overflow: hidden;
+    border: 3px solid var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .booking__barber-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .booking__barber-name {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: var(--text-base);
+    margin-bottom: var(--space-xs);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .booking__barber-name::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .booking__barber-item:hover .booking__barber-name {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .booking__barber-item:hover .booking__barber-name::after {
+    width: 100%;
   }
 
   .booking__barber-info {
     display: flex;
     flex-direction: column;
-  }
-
-  .booking__barber-name {
-    font-weight: 500;
-    color: #ffffff;
+    align-items: center;
   }
 
   .booking__barber-specialty {
@@ -375,7 +510,21 @@ const services = [
 
     .booking__barber-list {
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-xs);
+      gap: var(--space-sm);
+    }
+
+    .booking__barber-avatar {
+      width: 64px;
+      height: 64px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .booking__barber-item {
+      padding: var(--space-sm);
+    }
+
+    .booking__barber-name {
+      font-size: var(--text-sm);
     }
   }
 
@@ -410,7 +559,7 @@ const services = [
     }
 
     .booking__barber-list {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: var(--space-xs);
     }
     
@@ -419,8 +568,10 @@ const services = [
     }
     
     .booking__barber-avatar {
-      width: 32px;
-      height: 32px;
+      width: 56px;
+      height: 56px;
+      margin-bottom: var(--space-xs);
+      border-width: 2px;
     }
     
     .booking__barber-name {
@@ -463,13 +614,25 @@ const services = [
       font-size: var(--text-xs);
     }
     
+    .booking__barber-list {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xs);
+    }
+    
     .booking__barber-avatar {
-      width: 28px;
-      height: 28px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: var(--space-xs);
+      border-width: 2px;
     }
     
     .booking__barber-name {
       font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    
+    .booking__barber-item {
+      padding: var(--space-xs);
     }
     
     .booking__note {

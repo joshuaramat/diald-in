@@ -1,10 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
   // Enable static output for Vercel
   output: 'static',
+  
+  // Add React integration
+  integrations: [react()],
   
   // Set the site URL for production
   site: 'https://dialdinbarberstudio.com',

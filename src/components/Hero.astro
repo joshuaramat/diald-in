@@ -1,34 +1,54 @@
 ---
 import Logo from './Logo.astro';
+import Button from './Button.astro';
+import { BOOKING_URL } from '../utils/seo';
 ---
 
-<section class="hero">
+<section class="hero" role="banner" aria-labelledby="hero-title">
   <div class="hero__background">
     <picture>
       <source srcset="/images/hero/hero-background.webp" type="image/webp">
       <source srcset="/images/hero/hero-background.png" type="image/png">
-      <img src="/images/hero/hero-background.png" alt="Diald In Barber Studio background" class="hero__bg-img">
+      <img src="/images/hero/hero-background.png" alt="Professional barber studio interior with modern styling chairs and equipment" class="hero__bg-img" aria-hidden="true">
     </picture>
   </div>
-  <div class="hero__overlay"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
   
   <div class="hero__content">
-    <h1 class="hero__title">
+    <h1 class="hero__title" id="hero-title">
       <Logo variant="white" width={500} height={125} className="hero__logo" priority={true} />
+      <span class="visually-hidden">Diald In Barber Studio - Premium Grooming Services</span>
     </h1>
-    <p class="hero__subtitle">Where great conversations meet even better cuts. Delivering precision grooming and expert styles in a clean, welcoming environment.</p>
-    <div class="hero__cta">
-      <a href="https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward" class="hero__cta-button btn btn-primary" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__cta-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+    <p class="hero__subtitle" aria-describedby="hero-title">Your Destination for Precision Cuts & Expert Grooming</p>
+    <p class="hero__description">Experience the perfect blend of traditional barbering craftsmanship and modern styling in our welcoming studio. Where every cut tells a story and every visit builds community.</p>
+    <div class="hero__cta" role="group" aria-label="Primary actions">
+      <Button 
+        href={BOOKING_URL}
+        variant="primary"
+        target="_blank"
+        rel="noopener"
+        ariaLabel="Book appointment - Opens in new tab"
+        icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>'
+        iconPosition="left"
+        class="hero__cta-button">
         Book Appointment
-      </a>
-      <a href="#shop" class="hero__cta-button btn btn-outline">Shop DAKRI Hair</a>
+      </Button>
+      <Button 
+        href="#shop"
+        variant="outline"
+        ariaLabel="Shop DAKRI Hair products - Scroll to products section"
+        class="hero__cta-button">
+        Shop DAKRI Hair
+      </Button>
     </div>
   </div>
   
-  <a href="#about" class="hero__scroll-indicator">
+  <a href="#about" 
+     class="hero__scroll-indicator"
+     aria-label="Scroll down to learn more about our services"
+     role="button">
     <span class="hero__scroll-text">Scroll Down</span>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__scroll-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__scroll-icon" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
   </a>
 </section>
 
@@ -39,7 +59,7 @@ import Logo from './Logo.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: var(--color-text-primary);
     overflow: hidden;
   }
   
@@ -51,7 +71,7 @@ import Logo from './Logo.astro';
     bottom: 0;
     z-index: 1;
     /* Fallback background in case image doesn't load */
-    background-color: #1a1a1a;
+    background-color: var(--color-primary);
   }
   
   .hero__background picture {
@@ -111,7 +131,7 @@ import Logo from './Logo.astro';
   .hero__subtitle {
     font-size: var(--text-base);
     margin-bottom: var(--space-md);
-    color: #ffffff;
+    color: var(--color-text-primary);
     line-height: 1.5;
     font-family: 'Brachial', var(--font-primary);
     font-weight: 400;
@@ -120,6 +140,21 @@ import Logo from './Logo.astro';
     margin-right: auto;
     letter-spacing: 0.3px;
     opacity: 0.95;
+    padding: 0 var(--space-sm);
+  }
+  
+  .hero__description {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    font-family: 'Brachial', var(--font-primary);
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.2px;
+    opacity: 0.9;
     padding: 0 var(--space-sm);
   }
   
@@ -153,28 +188,29 @@ import Logo from './Logo.astro';
   
   .btn-primary {
     background-color: var(--color-accent);
-    color: #000000;
+    color: var(--color-primary);
     border: 2px solid var(--color-accent);
   }
   
   .btn-primary:hover,
   .btn-primary:focus {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: #000000;
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: var(--color-primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   .btn-outline {
     background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-text-primary);
   }
   
   .btn-outline:hover,
   .btn-outline:focus {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--color-text-primary);
+    color: var(--color-primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
@@ -193,7 +229,7 @@ import Logo from './Logo.astro';
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #ffffff;
+    color: var(--color-text-primary);
     text-decoration: none;
     transition: transform var(--transition-fast);
     z-index: 3;

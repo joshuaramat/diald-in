@@ -7,9 +7,7 @@ import Services from '../components/Services.astro';
 import About from '../components/About.astro';
 import Booking from '../components/Booking.astro';
 import ShopProducts from '../components/ShopProducts.astro';
-
 import CTA from '../components/CTA.astro';
-import { BOOKING_URL } from '../utils/seo';
 ---
 
 <BaseLayout>
@@ -27,8 +25,6 @@ import { BOOKING_URL } from '../utils/seo';
     <!-- Booking Section -->
     <Booking />
     
-
-    
     <!-- Shop Products Section -->
     <ShopProducts />
     
@@ -38,6 +34,192 @@ import { BOOKING_URL } from '../utils/seo';
   
   <Footer />
 </BaseLayout>
+
+<!-- Enhanced Interactions Script -->
+<script type="module">
+  // Import React components for client-side enhancement
+  import { createRoot } from 'react-dom/client';
+  import React from 'react';
+
+  // Enhanced barber selection with micro-interactions
+  function enhanceBarberCards() {
+    const barberItems = document.querySelectorAll('.booking__barber-item');
+    
+    barberItems.forEach((item, index) => {
+      // Add enhanced hover effects
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px) scale(1.03)';
+        this.style.boxShadow = '0 20px 40px rgba(212, 168, 106, 0.15)';
+        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Add shimmer effect
+        const shimmer = document.createElement('div');
+        shimmer.className = 'shimmer-effect';
+        shimmer.style.cssText = `
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+          animation: shimmer 1.5s ease-out;
+          pointer-events: none;
+        `;
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(shimmer);
+        
+        setTimeout(() => shimmer.remove(), 1500);
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+      });
+
+      // Add selection functionality
+      item.addEventListener('click', function() {
+        // Remove selection from other items
+        barberItems.forEach(otherItem => {
+          otherItem.classList.remove('selected');
+        });
+        
+        // Add selection to clicked item  
+        this.classList.add('selected');
+        
+        // Track selection
+        const barberName = this.querySelector('.booking__barber-name').textContent;
+        console.log('Selected barber:', barberName);
+        
+        // Analytics tracking
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'barber_selected', {
+            event_category: 'engagement',
+            event_label: barberName,
+          });
+        }
+      });
+
+      // Stagger animation on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      observer.observe(item);
+    });
+  }
+
+  // Enhanced button interactions
+  function enhanceButtons() {
+    const buttons = document.querySelectorAll('.booking__cta, .btn');
+    
+    buttons.forEach(button => {
+      // Ripple effect
+      button.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+          position: absolute;
+          left: ${x - 10}px;
+          top: ${y - 10}px;
+          width: 20px;
+          height: 20px;
+          background: rgba(255,255,255,0.3);
+          border-radius: 50%;
+          transform: scale(0);
+          animation: ripple 0.6s ease-out;
+          pointer-events: none;
+        `;
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+      });
+
+      // Enhanced hover effects
+      button.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.02)';
+        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      });
+
+      button.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+    });
+  }
+
+  // Scroll reveal animation
+  function addScrollReveal() {
+    const sections = document.querySelectorAll('section');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    sections.forEach((section, index) => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(30px)';
+      section.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+      observer.observe(section);
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    enhanceBarberCards();
+    enhanceButtons();
+    addScrollReveal();
+  });
+
+  // Add CSS keyframes
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    @keyframes ripple {
+      0% { transform: scale(0); opacity: 0.6; }
+      100% { transform: scale(4); opacity: 0; }
+    }
+    
+    .booking__barber-item.selected {
+      border-color: var(--color-accent) !important;
+      background-color: rgba(212, 168, 106, 0.1) !important;
+    }
+    
+    .booking__barber-item.selected .booking__barber-name {
+      color: var(--color-accent) !important;
+    }
+    
+    .booking__barber-item {
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  `;
+  document.head.appendChild(style);
+</script>
 
 <style>
   /* Global page styles */

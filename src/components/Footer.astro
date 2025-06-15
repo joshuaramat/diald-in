@@ -1,6 +1,7 @@
 ---
 import { BOOKING_URL, BUSINESS_EMAIL, SHOP_URL, PHONE_NUMBER } from '../utils/seo';
 import Logo from './Logo.astro';
+import Button from './Button.astro';
 
 // Footer component
 const currentYear = new Date().getFullYear();
@@ -13,10 +14,11 @@ const currentYear = new Date().getFullYear();
         <div class="footer__logo">
           <Logo variant="white" width={180} height={45} />
         </div>
-        <p class="footer__tagline">Premier Barber Studio</p>
+        <p class="footer__tagline">Premium Barber Studio</p>
+        <p class="footer__mission">Where Craftsmanship Meets Community</p>
         <p class="footer__description">
-          At Diald In Barber Studio, we're more than just a barbershop—we're a community hub where great 
-          conversations meet even better cuts.
+          Experience more than just a haircut at Diald In Barber Studio. We're your neighborhood destination 
+          for exceptional grooming services, genuine conversations, and lasting connections.
         </p>
         <div class="footer__social">
           <a href="#" aria-label="Facebook" class="footer__social-link">
@@ -50,26 +52,30 @@ const currentYear = new Date().getFullYear();
             <p>Sun - Mon: Closed<br>Tues - Fri: 8:00 AM - 7:00 PM<br>Sat: 8:00 AM - 3:00 PM</p>
         </div>
         <div class="footer__cta">
-          <a href={BOOKING_URL} class="btn btn-outline btn-sm" target="_blank" rel="noopener">Book Appointment</a>
+          <Button href={BOOKING_URL} variant="outline" size="sm" target="_blank" rel="noopener">Book Appointment</Button>
         </div>
       </div>
     </div>
     
     <div class="footer__shop">
-      <h4 class="footer__heading footer__heading--centered">Professional Hair Products</h4>
-      <p class="footer__shop-tagline">Get the same premium products we use in the studio</p>
+      <h4 class="footer__heading footer__heading--centered">Premium Hair Care Products</h4>
+      <p class="footer__shop-tagline">Professional-Grade Products for Home Use</p>
+      <p class="footer__shop-description-text">Take home the same high-quality products our barbers trust and use daily in the studio.</p>
       <div class="footer__shop-brands">
         <span class="footer__shop-brand">DAKRI Hair</span>
         <span class="footer__shop-separator">•</span>
         <span class="footer__shop-description">Professional Grade</span>
       </div>
       <div class="footer__shop-cta">
-        <a href={SHOP_URL} class="btn btn-accent" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
-            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"/>
-          </svg>
+        <Button 
+          href={SHOP_URL} 
+          variant="accent" 
+          target="_blank" 
+          rel="noopener"
+          icon='<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"/></svg>'
+          iconPosition="left">
           Shop DAKRI Hair
-        </a>
+        </Button>
       </div>
     </div>
     
@@ -107,6 +113,15 @@ const currentYear = new Date().getFullYear();
     margin-bottom: var(--space-xs);
     font-family: 'Brachial', sans-serif;
     letter-spacing: 0.5px;
+  }
+  
+  .footer__mission {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+    font-family: 'Brachial', sans-serif;
+    letter-spacing: 0.3px;
+    font-size: var(--text-sm);
   }
   
   .footer__description {
@@ -288,6 +303,16 @@ const currentYear = new Date().getFullYear();
   
   .footer__shop-cta {
     margin-top: var(--space-xs);
+  }
+  
+  .footer__shop-description-text {
+    color: #999999;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-sm);
+    text-align: center;
+    line-height: 1.5;
+    font-family: 'Brachial', sans-serif;
+    letter-spacing: 0.3px;
   }
   
   .footer__bottom {
