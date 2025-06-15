@@ -42,13 +42,12 @@ const productsStructuredData = featuredProducts.map(product =>
         </p>
         <Button 
           href={SHOP_URL} 
-          variant="primary" 
+          variant="dark" 
           size="lg" 
           target="_blank" 
           rel="noopener"
           icon='<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"/></svg>'
-          iconPosition="left"
-          class="btn-lg">
+          iconPosition="left">
           Shop DAKRI Hair
         </Button>
       </div>
@@ -175,41 +174,7 @@ const productsStructuredData = featuredProducts.map(product =>
     line-height: 1.5;
   }
   
-  .btn-lg {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    border-radius: 10px;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    background-color: #000000;
-    color: #ffffff;
-    border: 2px solid #000000;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    width: 100%;
-    justify-content: center;
-    max-width: 280px;
-  }
-  
-  .btn-lg:hover {
-    background-color: #ffffff;
-    color: #000000;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
-  
-  .btn-icon {
-    transition: transform 0.3s ease;
-    width: 16px;
-    height: 16px;
-  }
-  
-  .btn-lg:hover .btn-icon {
-    transform: translateX(4px);
-  }
+  /* Button styling now handled by main.css .btn-dark variant */
 
   /* Tablet breakpoint */
   @media (min-width: 640px) {
@@ -255,18 +220,7 @@ const productsStructuredData = featuredProducts.map(product =>
       margin-right: auto;
     }
     
-    .btn-lg {
-      padding: var(--space-md) var(--space-lg);
-      font-size: var(--text-base);
-      gap: var(--space-sm);
-      width: auto;
-      max-width: none;
-    }
-    
-    .btn-icon {
-      width: 18px;
-      height: 18px;
-    }
+    /* Button responsive styles now handled by main.css */
   }
 
   /* Desktop breakpoint */
@@ -303,15 +257,7 @@ const productsStructuredData = featuredProducts.map(product =>
       max-width: 600px;
     }
     
-    .btn-lg {
-      padding: var(--space-md) var(--space-xl);
-      font-size: var(--text-lg);
-    }
-    
-    .btn-icon {
-      width: 20px;
-      height: 20px;
-    }
+    /* Button desktop styles now handled by main.css */
   }
 
   /* Large desktop breakpoint */

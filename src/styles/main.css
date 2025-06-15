@@ -248,6 +248,19 @@ a:hover, a:focus {
   color: var(--color-primary);
 }
 
+/* Button dark variant for high contrast */
+.btn-dark {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+}
+
+.btn-dark:hover, .btn-dark:focus {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
 /* Button sizes */
 .btn-sm {
   padding: 0.5rem 1rem;

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'primary' | 'outline' | 'accent' | 'ghost' | 'danger';
+  variant?: 'primary' | 'outline' | 'accent' | 'dark' | 'ghost' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   target?: '_blank' | '_self';
@@ -109,19 +109,7 @@ const Element = href ? 'a' : 'button';
     min-height: 52px;
   }
   
-  /* Missing accent variant */
-  .btn-accent {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-  }
-  
-  .btn-accent:hover, .btn-accent:focus {
-    background-color: var(--color-accent-hover);
-    color: var(--color-primary);
-    text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
+  /* Remove duplicate styles - handled by main.css */
   
   /* Component-specific states */
   .btn:disabled,
@@ -245,14 +233,5 @@ const Element = href ? 'a' : 'button';
     transition: transform 0.1s ease;
   }
   
-  /* Primary button enhancements */
-  .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #c49c5a 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
-  }
-  
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  /* Primary button styles moved to main.css to avoid conflicts */
 </style> 
