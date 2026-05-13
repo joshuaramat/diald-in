@@ -136,6 +136,31 @@ body {
   overflow-x: hidden;
 }
 
+/* SQUIRE floating button exclusion zone on mobile — prevents the
+   widget's FAB (bottom-right, fixed-position) from overlapping the
+   footer/last-section CTAs when scrolled to the bottom of the page. */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 88px;
+  }
+}
+
+/* Force SQUIRE booking widget to full-screen on phone-sized viewports.
+   SQUIRE's built-in 426px breakpoint is too low for 2025 — phones like
+   iPhone 14 Pro Max (430px) and Galaxy S22 Ultra (428px) get pushed into
+   sidebar mode (375px wide + 50px right margin) and leak off-screen. */
+@media (max-width: 600px) {
+  iframe.squire_widget {
+    width: 100% !important;
+    height: 100vh !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
 /* Improve media defaults */
 img, picture, video, canvas, svg {
   display: block;
