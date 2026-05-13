@@ -17,7 +17,7 @@ export const DEFAULT_DESCRIPTION =
   "Diald In Barber Studio is Hayward's premier barbershop offering expert haircuts, beard grooming, and styling services. Located at 22441 Foothill Blvd, our skilled barbers specialize in modern fades, classic cuts, and custom styles. Book your appointment today for the best haircut experience in Hayward, California.";
 export const DEFAULT_IMAGE = "/images/logo/black/logo-lg.png";
 export const SITE_URL = "https://dialdinbarberstudio.com";
-export const BOOKING_URL = "https://getsquire.com/booking/book/diald-in-barber-studio-hayward";
+export const BOOKING_URL = "https://online.getsquire.com/book/diald-in-barber-studio-hayward";
 export const BUSINESS_EMAIL = "daniel@dialdinbarberstudio.com";
 export const SHOP_URL = "https://dakrihair.com/";
 export const PHONE_NUMBER = "+15109635985"; // Business phone number

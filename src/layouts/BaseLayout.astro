@@ -32,6 +32,8 @@ const seo = generateSEOMetadata({
 
 // Base URL for asset paths
 const baseUrl = import.meta.env.BASE_URL;
+
+const squireBrandId = import.meta.env.PUBLIC_SQUIRE_BRAND_ID;
 ---
 
 <!DOCTYPE html>
@@ -170,7 +172,10 @@ const baseUrl = import.meta.env.BASE_URL;
       }
     </style>
     
-    <!-- Global CSS is now loaded via main.css import -->
+    <!-- SQUIRE Booking Widget -->
+    {squireBrandId && (
+      <script type="text/javascript" set:html={`!function(e,t){var i=e.createElement("script"),sa="setAttribute";i.src="https://widget.getsquire.com/widget.js";i[sa]("defer","");i[sa]("type","text/javascript");i[sa]("brand",t.brand);i[sa]("x-squire-inline-enabled","true");i[sa]("id","squire-widget");i[sa]("data-name","squire-widget");e.head.appendChild(i)}(document,{brand:"${squireBrandId}"})`} />
+    )}
   </head>
   <body class={bodyClass}>
     <slot />
