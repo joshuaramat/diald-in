@@ -1,66 +1,6 @@
 ---
-import Button from './Button.astro';
 import { BOOKING_URL } from '../utils/seo';
-
-// Barbers and services data
-const barbers = [
-  { 
-    name: "Dame", 
-    specialty: "Kids cuts and family-friendly styles",
-    image: "/images/barbers/Dame.jpg",
-    alt: "Dame working with a young client"
-  },
-  { 
-    name: "Dan", 
-    specialty: "Custom fades and beard styling",
-    image: "/images/barbers/Dan.jpg",
-    alt: "Dan working on a client's haircut"
-  },
-  { 
-    name: "Gcutz", 
-    specialty: "Sharp lineups and tapers",
-    image: "/images/barbers/Gcutz.jpg",
-    alt: "Gcutz working on a sharp lineup"
-  },
-  { 
-    name: "Geocutz", 
-    specialty: "Beard expertise and skin fades",
-    image: "/images/barbers/Geocutz.jpg",
-    alt: "Geocutz creating a skin fade"
-  },
-  { 
-    name: "Ivan", 
-    specialty: "Classic cuts and modern styles",
-    image: "/images/barbers/Ivan.jpg",
-    alt: "Ivan performing a precision cut"
-  },
-  { 
-    name: "Jose", 
-    specialty: "Beard expertise and skin fades",
-    image: "/images/barbers/Jose.jpg",
-    alt: "Jose trimming a client's beard"
-  },
-  { 
-    name: "Mickey", 
-    specialty: "Creative cuts and styling",
-    image: "/images/barbers/Mickey.jpg",
-    alt: "Mickey creating a creative hairstyle"
-  },
-  { 
-    name: "Vega", 
-    specialty: "Precision cuts and hair design",
-    image: "/images/barbers/Vega.jpg",
-    alt: "Vega styling a client's hair"
-  }
-];
-
-const services = [
-  { name: "Basic Haircut", time: "30 min", price: "$30+" },
-  { name: "Haircut and Beard", time: "45 min", price: "$45+" },
-  { name: "Kids Haircut (3-12 years old)", time: "30 min", price: "$25+" },
-  { name: "Beard Service", time: "20 min", price: "$20+" },
-  { name: "Beard Service with Hair Lineup", time: "30 min", price: "$30+" }
-];
+import { BARBERS } from '../data/barbers';
 ---
 
 <section class="booking section" id="booking">
@@ -118,41 +58,26 @@ const services = [
       <div class="booking__card">
         <div class="booking__card-inner">
           <h3 class="booking__card-title diald-in">Ready for a Fresh Cut?</h3>
-          
-          <!-- <div class="booking__services">
-            <h4 class="booking__section-title diald-in">Services</h4>
-            <ul class="booking__service-list">
-              {services.map(service => (
-                <li class="booking__service-item">
-                  <div class="booking__service-details">
-                    <span class="booking__service-name">{service.name}</span>
-                    <span class="booking__service-info">{service.time} · {service.price}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div> -->
-          
+
           <div class="booking__team">
             <h4 class="booking__section-title diald-in">Our Team</h4>
             <div class="booking__barber-list">
-              {barbers.map(barber => (
+              {BARBERS.map(barber => (
                 <div class="booking__barber-item">
                   <div class="booking__barber-avatar">
                     <img src={barber.image} alt={barber.alt} width="72" height="72" />
                   </div>
                   <div class="booking__barber-info">
                     <span class="booking__barber-name">{barber.name}</span>
-                    {/* <span class="booking__barber-specialty">{barber.specialty}</span> */}
                   </div>
                 </div>
               ))}
             </div>
           </div>
           
-          <Button href={BOOKING_URL} variant="primary" target="_blank" rel="noopener" class="booking__cta">Book on GetSquire</Button>
+          <a href={BOOKING_URL} class="btn btn-primary booking__cta" rel="noopener">Book Appointment</a>
 
-          <p class="booking__card-footer">Powered by <img src="https://placehold.co/80x20/ffffff/000000?text=GetSquire" alt="GetSquire logo" width="80" height="20" /></p>
+          <p class="booking__card-footer">Powered by <img src="https://placehold.co/80x20/ffffff/000000?text=Squire" alt="Squire logo" width="80" height="20" /></p>
         </div>
       </div>
     </div>
@@ -189,7 +114,7 @@ const services = [
 
   .booking__info {
     background-color: #000000;
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-xl);
     box-shadow: var(--shadow-md);
@@ -256,7 +181,7 @@ const services = [
   }
 
   .booking__step-description {
-    color: #999999;
+    color: var(--color-text-muted);
     font-size: var(--text-sm);
     line-height: 1.6;
   }
@@ -265,7 +190,7 @@ const services = [
     display: flex;
     align-items: flex-start;
     background-color: #000000;
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
     padding: var(--space-md);
     border-radius: var(--radius-md);
     margin-top: var(--space-lg);
@@ -292,7 +217,7 @@ const services = [
   .booking__card-inner {
     background-color: #000000;
     color: #ffffff;
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-xl);
     box-shadow: var(--shadow-lg);
@@ -320,37 +245,6 @@ const services = [
     opacity: 0.9;
   }
 
-  .booking__service-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-lg) 0;
-  }
-
-  .booking__service-item {
-    padding: var(--space-xs) 0;
-    border-bottom: 1px solid #333333;
-  }
-
-  .booking__service-item:last-child {
-    border-bottom: none;
-  }
-
-  .booking__service-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .booking__service-name {
-    font-weight: 500;
-    color: #ffffff;
-  }
-
-  .booking__service-info {
-    font-size: var(--text-xs);
-    color: #999999;
-  }
-
   .booking__barber-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -365,7 +259,7 @@ const services = [
     padding: var(--space-md);
     background-color: rgba(255, 255, 255, 0.02);
     border-radius: var(--radius-md);
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     text-align: center;
     cursor: pointer;
@@ -380,7 +274,7 @@ const services = [
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 168, 106, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(var(--color-accent-rgb), 0.1), transparent);
     transition: left 0.6s ease;
   }
 
@@ -388,7 +282,7 @@ const services = [
     background-color: rgba(255, 255, 255, 0.05);
     border-color: var(--color-accent);
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(212, 168, 106, 0.15);
+    box-shadow: 0 8px 25px rgba(var(--color-accent-rgb), 0.15);
   }
 
   .booking__barber-item:hover::before {
@@ -403,7 +297,7 @@ const services = [
   .booking__barber-avatar {
     width: 72px;
     height: 72px;
-    background-color: #333333;
+    background-color: var(--color-border);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -457,11 +351,6 @@ const services = [
     align-items: center;
   }
 
-  .booking__barber-specialty {
-    font-size: var(--text-xs);
-    color: #999999;
-  }
-
   .booking__cta {
     width: 100%;
     padding: var(--space-md);
@@ -486,7 +375,7 @@ const services = [
     margin-top: var(--space-md);
     text-align: center;
     font-size: var(--text-xs);
-    color: #999999;
+    color: var(--color-text-muted);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -545,18 +434,6 @@ const services = [
     .booking__section-title {
       font-size: var(--text-sm);
     }
-    
-    .booking__service-item {
-      padding: var(--space-xs) 0;
-    }
-    
-    .booking__service-name {
-      font-size: var(--text-sm);
-    }
-    
-    .booking__service-info {
-      font-size: 0.7rem;
-    }
 
     .booking__barber-list {
       grid-template-columns: 1fr 1fr;
@@ -577,11 +454,7 @@ const services = [
     .booking__barber-name {
       font-size: var(--text-sm);
     }
-    
-    .booking__barber-specialty {
-      font-size: 0.7rem;
-    }
-    
+
     .booking__cta {
       padding: var(--space-sm);
       font-size: var(--text-base);
@@ -609,11 +482,7 @@ const services = [
     .booking__card-title {
       font-size: var(--text-base);
     }
-    
-    .booking__service-name {
-      font-size: var(--text-xs);
-    }
-    
+
     .booking__barber-list {
       grid-template-columns: 1fr 1fr;
       gap: var(--space-xs);

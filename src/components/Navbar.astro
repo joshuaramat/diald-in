@@ -15,7 +15,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   <div class="container">
     <nav class="navbar">
       <a href="/" class="navbar__logo" aria-label="Diald In Barber Studio - Home">
-        <Logo variant="white" width={240} height={60} priority={true} minWidth={200} />
+        <Logo variant="white" width={192} height={48} priority={true} minWidth={160} />
       </a>
       
       <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
@@ -29,7 +29,7 @@ const { isDark = false, isSticky = false } = Astro.props;
         <li role="none"><a href="#shop" class="navbar__link" role="menuitem">Shop</a></li>
 
         <li role="none" class="navbar__cta-wrapper">
-          <a href={BOOKING_URL} class="navbar__link navbar__link--cta" role="menuitem" target="_blank" rel="noopener">
+          <a href={BOOKING_URL} class="navbar__link navbar__link--cta" role="menuitem" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="navbar__cta-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             Book Now
           </a>
@@ -99,7 +99,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     background-color: #000000;
     color: #ffffff;
     font-family: 'Brachial', sans-serif;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
   }
   
   .header--sticky {

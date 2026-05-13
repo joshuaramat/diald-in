@@ -1,4 +1,6 @@
 ---
+import { BOOKING_URL } from '../utils/seo';
+
 const faqItems = [
   {
     question: "Where is Diald In Barber Studio located?",
@@ -10,7 +12,7 @@ const faqItems = [
   },
   {
     question: "Do I need to book an appointment or can I walk in?",
-    answer: "While we accept walk-ins when possible, we highly recommend booking an appointment online through Booksy to guarantee your preferred time slot and barber. This ensures you get the best service without waiting."
+    answer: "While we accept walk-ins when possible, we highly recommend booking an appointment online through Squire to guarantee your preferred time slot and barber. This ensures you get the best service without waiting."
   },
   {
     question: "Do you offer beard grooming services?",
@@ -63,7 +65,7 @@ const faqSchema = {
       <p class="faq__cta-text">Still have questions?</p>
       <a href="tel:+15109635985" class="faq__cta-link">Call us at (510) 963-5985</a>
       <span class="faq__cta-separator">or</span>
-      <a href="https://booksy.com/en-us/1461330_diald-in-barber-studio_barber-shop_119449_hayward" target="_blank" rel="noopener" class="faq__cta-link">Book an appointment</a>
+      <a href={BOOKING_URL} rel="noopener" class="faq__cta-link">Book an appointment</a>
     </div>
   </div>
 </section>
@@ -115,7 +117,7 @@ const faqSchema = {
   }
 
   .faq__question:hover {
-    background-color: rgba(212, 168, 106, 0.05);
+    background-color: rgba(var(--color-accent-rgb), 0.05);
   }
 
   .faq__question-text {
@@ -159,9 +161,9 @@ const faqSchema = {
     text-align: center;
     margin-top: var(--space-xl);
     padding: var(--space-lg);
-    background: rgba(212, 168, 106, 0.1);
+    background: rgba(var(--color-accent-rgb), 0.1);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(212, 168, 106, 0.2);
+    border: 1px solid rgba(var(--color-accent-rgb), 0.2);
   }
 
   .faq__cta-text {

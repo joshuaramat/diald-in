@@ -10,8 +10,8 @@ import { BOOKING_URL } from '../utils/seo';
       <p class="cta__subtitle">Experience the Diald In Difference</p>
       <p class="cta__text">Whether you're looking for a fresh weekly lineup or a complete style transformation, our expert barbers deliver premium service in a clean, comfortable, and welcoming environment that feels like home.</p>
       <div class="cta__buttons">
-        <Button href={BOOKING_URL} variant="primary" target="_blank" rel="noopener">Book Your Appointment</Button>
-        <Button href="#booking" variant="outline" class="btn-outline-primary">Learn How It Works</Button>
+        <Button href={BOOKING_URL} variant="primary" rel="noopener">Book Your Appointment</Button>
+        <Button href="#booking" variant="outline">Learn How It Works</Button>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@ import { BOOKING_URL } from '../utils/seo';
   .cta__text {
     margin-bottom: var(--space-lg);
     font-size: var(--text-lg);
-    color: #999999;
+    color: var(--color-text-muted);
   }
   
   .cta__buttons {
@@ -53,21 +53,7 @@ import { BOOKING_URL } from '../utils/seo';
     justify-content: center;
     gap: var(--space-md);
   }
-  
-  .btn-outline-primary {
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    font-weight: 500;
-    transition: all var(--transition-medium);
-  }
 
-  .btn-outline-primary:hover, 
-  .btn-outline-primary:focus {
-    background-color: #ffffff;
-    color: #000000;
-    text-decoration: none;
-  }
-  
   @media (max-width: 768px) {
     .cta {
       padding: var(--space-xl) 0;

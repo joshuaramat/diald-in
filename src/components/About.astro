@@ -43,24 +43,10 @@ import { BOOKING_URL } from '../utils/seo';
         </div>
       </div>
       
-      <!-- <div class="about__visual">
-        <div class="about__image-grid">
-          <div class="about__image-container about__image-container--large">
-            <img src="https://placehold.co/600x400/2c3e50/ffffff?text=Barber+Studio" alt="Diald In Barber Studio interior" class="about__image" />
-          </div>
-          <div class="about__image-container">
-            <img src="https://placehold.co/300x300/2c3e50/ffffff?text=Team" alt="Diald In barber team at work" class="about__image" />
-          </div>
-          <div class="about__image-container">
-            <img src="https://placehold.co/300x300/2c3e50/ffffff?text=Haircut" alt="Client getting a haircut at Diald In" class="about__image" />
-          </div>
-        </div> -->
-        
-        <div class="about__expertise">
-          <h3 class="about__expertise-title">Expert Barbers</h3>
-          <p class="about__expertise-text">Our team of skilled barbers brings years of experience and continuous education to every service. We're dedicated to staying current with the latest techniques while honoring traditional barbering craftsmanship.</p>
-          <Button href={BOOKING_URL} variant="primary" target="_blank" rel="noopener">Book With Us</Button>
-        </div>
+      <div class="about__expertise">
+        <h3 class="about__expertise-title">Expert Barbers</h3>
+        <p class="about__expertise-text">Our team of skilled barbers brings years of experience and continuous education to every service. We're dedicated to staying current with the latest techniques while honoring traditional barbering craftsmanship.</p>
+        <Button href={BOOKING_URL} variant="primary" rel="noopener">Book With Us</Button>
       </div>
     </div>
   </div>
@@ -108,8 +94,8 @@ import { BOOKING_URL } from '../utils/seo';
     padding: var(--space-md);
     border-radius: var(--radius-md);
     transition: transform var(--transition-medium);
-    background-color: #111111;
-    border: 1px solid #333333;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
   }
 
   .about__value:hover {
@@ -121,7 +107,7 @@ import { BOOKING_URL } from '../utils/seo';
     width: 50px;
     height: 50px;
     margin: 0 auto var(--space-sm);
-    background-color: #333333;
+    background-color: var(--color-border);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -141,7 +127,7 @@ import { BOOKING_URL } from '../utils/seo';
 
   .about__value-text {
     font-size: var(--text-sm);
-    color: #999999;
+    color: var(--color-text-muted);
   }
 
   .about__visual {
@@ -161,7 +147,7 @@ import { BOOKING_URL } from '../utils/seo';
     overflow: hidden;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
   }
 
   .about__image-container--large {
@@ -180,12 +166,12 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   .about__expertise {
-    background-color: #111111;
+    background-color: var(--color-surface);
     color: #ffffff;
     padding: var(--space-lg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
   }
 
   .about__expertise-title {

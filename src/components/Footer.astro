@@ -52,7 +52,7 @@ const currentYear = new Date().getFullYear();
             <p>Sun - Mon: Closed<br>Tues - Fri: 8:00 AM - 7:00 PM<br>Sat: 8:00 AM - 3:00 PM</p>
         </div>
         <div class="footer__cta">
-          <Button href={BOOKING_URL} variant="outline" size="sm" target="_blank" rel="noopener">Book Appointment</Button>
+          <Button href={BOOKING_URL} variant="outline-accent" size="sm" rel="noopener">Book Appointment</Button>
         </div>
       </div>
     </div>
@@ -125,7 +125,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__description {
-    color: #999999;
+    color: var(--color-text-muted);
     margin-bottom: var(--space-md);
     font-size: var(--text-sm);
     line-height: 1.6;
@@ -146,7 +146,7 @@ const currentYear = new Date().getFullYear();
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #333333;
+    background-color: var(--color-border);
     color: #ffffff;
     transition: all var(--transition-fast);
   }
@@ -215,7 +215,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__hours p {
-    color: #999999;
+    color: var(--color-text-muted);
     line-height: 1.7;
     margin-bottom: var(--space-md);
     font-family: 'Brachial', sans-serif;
@@ -225,49 +225,9 @@ const currentYear = new Date().getFullYear();
   .footer__cta {
     margin-top: var(--space-md);
   }
-  
-  .btn-outline {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.5px;
-  }
-  
-  .btn-outline:hover, .btn-outline:focus {
-    background-color: var(--color-accent);
-    color: #000000;
-  }
-  
-  .btn-sm {
-    padding: 0.4rem 1rem;
-    font-size: var(--text-sm);
-  }
-  
-  .btn-accent {
-    background-color: var(--color-accent);
-    color: #000000;
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.5px;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-  }
-  
-  .btn-accent:hover, .btn-accent:focus {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .btn-icon {
-    transition: transform 0.3s ease;
-  }
-  
-  .btn-accent:hover .btn-icon {
-    transform: translateX(2px);
-  }
-  
+
   .footer__shop {
-    border-top: 1px solid #333333;
+    border-top: 1px solid var(--color-border);
     padding-top: var(--space-lg);
     margin-bottom: var(--space-xl);
     display: flex;
@@ -277,7 +237,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__shop-tagline {
-    color: #999999;
+    color: var(--color-text-muted);
     margin-bottom: var(--space-md);
     max-width: 500px;
     font-family: 'Brachial', sans-serif;
@@ -298,7 +258,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__shop-description {
-    color: #999999;
+    color: var(--color-text-muted);
   }
   
   .footer__shop-cta {
@@ -306,7 +266,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__shop-description-text {
-    color: #999999;
+    color: var(--color-text-muted);
     font-size: var(--text-sm);
     margin-bottom: var(--space-sm);
     text-align: center;
@@ -317,7 +277,7 @@ const currentYear = new Date().getFullYear();
   
   .footer__bottom {
     padding-top: var(--space-md);
-    border-top: 1px solid #333333;
+    border-top: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -326,7 +286,7 @@ const currentYear = new Date().getFullYear();
   }
   
   .footer__copyright {
-    color: #999999;
+    color: var(--color-text-muted);
     font-size: var(--text-sm);
     font-family: 'Brachial', sans-serif;
     letter-spacing: 0.3px;

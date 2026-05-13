@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'primary' | 'outline' | 'accent' | 'dark' | 'ghost' | 'danger';
+  variant?: 'primary' | 'outline' | 'outline-accent' | 'accent' | 'dark' | 'ghost' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   target?: '_blank' | '_self';
@@ -95,21 +95,6 @@ const Element = href ? 'a' : 'button';
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform-origin: center;
   }
-  
-  /* Missing size variants - add to complement global CSS */
-  .btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    min-height: 36px;
-  }
-  
-  .btn-lg {
-    padding: 1rem 1.5rem;
-    font-size: 1.125rem;
-    min-height: 52px;
-  }
-  
-  /* Remove duplicate styles - handled by main.css */
   
   /* Component-specific states */
   .btn:disabled,
@@ -232,6 +217,4 @@ const Element = href ? 'a' : 'button';
     transform: scale(0.95);
     transition: transform 0.1s ease;
   }
-  
-  /* Primary button styles moved to main.css to avoid conflicts */
 </style> 

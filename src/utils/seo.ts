@@ -17,7 +17,7 @@ export const DEFAULT_DESCRIPTION =
   "Diald In Barber Studio is Hayward's premier barbershop offering expert haircuts, beard grooming, and styling services. Located at 22441 Foothill Blvd, our skilled barbers specialize in modern fades, classic cuts, and custom styles. Book your appointment today for the best haircut experience in Hayward, California.";
 export const DEFAULT_IMAGE = "/images/logo/black/logo-lg.png";
 export const SITE_URL = "https://dialdinbarberstudio.com";
-export const BOOKING_URL = "https://getsquire.com/booking/book/diald-in-barber-studio-hayward";
+export const BOOKING_URL = "https://online.getsquire.com/book/diald-in-barber-studio-hayward";
 export const BUSINESS_EMAIL = "daniel@dialdinbarberstudio.com";
 export const SHOP_URL = "https://dakrihair.com/";
 export const PHONE_NUMBER = "+15109635985"; // Business phone number
@@ -29,15 +29,6 @@ export const SOCIAL_PROFILES = {
   shop: {
     instagram: "https://instagram.com/dakrihair"
   }
-};
-
-// Section-specific meta descriptions - optimized for search queries
-export const SECTION_DESCRIPTIONS = {
-  home: "Diald In Barber Studio, Hayward's #1 rated barbershop offering professional haircuts, beard grooming, and styling services. Expert barbers, affordable prices, convenient Foothill Blvd location. Book online today!",
-  services: "Professional barber services at Diald In Barber Studio Hayward: haircuts ($30), beard grooming ($20), kids cuts ($25). Modern fades, classic cuts, and custom styling by experienced barbers.",
-  about: "Why choose Diald In Barber Studio? Meet our expert barbers in Hayward, CA. Professional haircut experience, community-focused barbershop, traditional craftsmanship with modern style.",
-  booking: "Book your haircut appointment at Diald In Barber Studio Hayward. Choose your preferred barber, select services, and schedule online. Located at 22441 Foothill Blvd, Hayward, CA 94541.",
-  shop: "Premium hair styling products from Dakri Hair. Professional-grade pomades, waxes, and styling products used by Diald In Barber Studio. Shop online for salon-quality results at home."
 };
 
 // Business hours configuration
@@ -98,10 +89,7 @@ export const SERVICES = [
 //   worstRating: "1"
 // };
 
-/**
- * Generate the full title with site name
- */
-export function getPageTitle(title?: string, section?: string): string {
+function getPageTitle(title?: string, section?: string): string {
   if (!title && !section) return DEFAULT_TITLE;
   if (section) return `${section} | ${DEFAULT_TITLE}`;
   return `${title} | ${DEFAULT_TITLE}`;
