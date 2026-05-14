@@ -88,12 +88,17 @@ const Element = href ? 'a' : 'button';
     gap: var(--space-xs);
     position: relative;
     min-height: 44px; /* Touch target minimum */
-    white-space: nowrap;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform-origin: center;
+    text-align: center;
+  }
+
+  /* Opt-in modifier for short labels that should never wrap (e.g. navbar) */
+  .btn--single-line {
+    white-space: nowrap;
   }
   
   /* Component-specific states */

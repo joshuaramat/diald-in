@@ -75,7 +75,6 @@ const faqSchema = {
 
 <style>
   .faq {
-    padding: var(--space-xl) 0;
     background: var(--color-surface);
     color: var(--color-text-primary);
   }
@@ -190,31 +189,13 @@ const faqSchema = {
     color: var(--color-text-secondary);
   }
 
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .faq {
-      padding: var(--space-lg) 0;
-    }
-
-    .faq__question {
-      padding: var(--space-sm);
-    }
-
-    .faq__question-text {
-      font-size: var(--text-sm);
-    }
-
-    .faq__answer-content {
-      padding: 0 var(--space-sm) var(--space-sm);
-    }
-
-    .faq__cta {
-      padding: var(--space-md);
-    }
-
-    .faq__cta-text {
-      font-size: var(--text-base);
-    }
+  /* Mobile (<640px): tighter padding, smaller question text */
+  @media (max-width: 639.98px) {
+    .faq__question { padding: var(--space-sm); }
+    .faq__question-text { font-size: var(--text-sm); }
+    .faq__answer-content { padding: 0 var(--space-sm) var(--space-sm); }
+    .faq__cta { padding: var(--space-md); }
+    .faq__cta-text { font-size: var(--text-base); }
   }
 </style>
 

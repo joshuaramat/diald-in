@@ -52,6 +52,13 @@
   src: url('/assets/fonts/WOFF2/Brachial-UltraBold.woff2') format('woff2');
 }
 
+/* Breakpoints — do not invent new values
+ *   < 640px:  mobile (default styles, no @media wrapper)
+ *   ≥ 640px:  tablet  → @media (min-width: 640px)
+ *   ≥ 1024px: desktop → @media (min-width: 1024px)
+ * Exception: 600px on iframe.squire_widget — third-party widget breakpoint
+ */
+
 /* Custom properties - 3 Color System */
 :root {
   /* Primary Colors */
@@ -59,12 +66,19 @@
   --color-accent: #d4a86a;         /* Accent gold color */
   --color-accent-rgb: 212, 168, 106; /* Accent as RGB triplet for rgba() alpha variants */
   --color-accent-hover: #e6c088;   /* Lighter gold for hover states */
-  
+
   /* Text Colors */
   --color-text-primary: #f8f9fa;   /* Primary text (light) */
   --color-text-secondary: #e9ecef; /* Secondary text (slightly darker) */
   --color-text-muted: #999999;     /* Muted text for descriptions/captions */
-  
+  --color-text-inverse: #ffffff;   /* Text on dark surfaces (pure white) */
+  --color-text-disabled: #cccccc;  /* Disabled / unavailable state text */
+  --color-on-accent: #000000;      /* Text on gold accent surfaces */
+
+  /* Semantic state colors */
+  --color-success: #22c55e;        /* In-stock / available state */
+  --color-success-rgb: 34, 197, 94; /* Success as RGB triplet for rgba() alpha variants */
+
   /* Derived colors for backgrounds and borders */
   --color-background: #000000;     /* Pure black background */
   --color-surface: #111111;        /* Slightly lighter surface */
@@ -138,10 +152,10 @@ body {
   overflow-x: hidden;
 }
 
-/* SQUIRE floating button exclusion zone on mobile — prevents the
-   widget's FAB (bottom-right, fixed-position) from overlapping the
-   footer/last-section CTAs when scrolled to the bottom of the page. */
-@media (max-width: 768px) {
+/* SQUIRE floating button exclusion zone — prevents the widget's FAB
+   (bottom-right, fixed-position) from overlapping the footer/last-section
+   CTAs. Applied on tablet & mobile (the viewports where SQUIRE shows the FAB). */
+@media (max-width: 1023.98px) {
   body {
     padding-bottom: 88px;
   }
@@ -326,6 +340,69 @@ html, body {
   max-width: 100%;
 }
 
+/* ============================================================
+ * Layout utility primitives
+ * Compose these to build sections. Each solves a recurring
+ * pattern so component <style> blocks stay focused on visuals.
+ * ============================================================ */
+
+/* SECTION — consistent vertical rhythm.
+ * Pair with .container for horizontal bounds. */
+.section {
+  padding-block: var(--space-2xl);
+}
+
+/* CENTER — bounded width, horizontally centered, with edge padding */
+.center {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* STACK — vertical flex with consistent gap */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.stack--tight { gap: var(--space-sm); }
+.stack--loose { gap: var(--space-lg); }
+
+/* CLUSTER — horizontal flex with gap, wraps */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+/* GRID-AUTO — responsive grid without media queries.
+ * Set --col-min on the element to control min column width. */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--col-min, 16rem), 1fr));
+  gap: var(--space-lg);
+}
+
+/* BUTTON-ROW — paired CTAs that go full-width on mobile.
+ * Replaces .{section}__buttons patterns across Hero/CTA/Services. */
+.button-row {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+@media (max-width: 639.98px) {
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .button-row .btn,
+  .button-row > a.btn {
+    width: 100%;
+  }
+}
+
 /* Section titles */
 .section__title {
   font-family: 'Brachial', var(--font-primary);
@@ -336,9 +413,6 @@ html, body {
   letter-spacing: 0.75px;
   line-height: 1.2;
   text-align: center;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .section__subtitle {
@@ -368,44 +442,15 @@ html, body {
   opacity: 0.9;
 }
 
-/* Mobile-specific container adjustments */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 var(--space-md);
-  }
-  
-  .section__title {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-xs);
-  }
-  
-  .section__subtitle {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-xs);
-  }
-  
-  .section__description {
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-md);
-  }
-}
-
-@media (max-width: 480px) {
+/* Mobile container padding — tighter on phones.
+ * Section title/subtitle/description sizes scale via clamp() in their token
+ * definitions, so they don't need explicit per-breakpoint overrides. */
+@media (max-width: 639.98px) {
   .container {
     padding: 0 var(--space-sm);
   }
-  
-  .section__title {
-    font-size: var(--text-xl);
-  }
-  
-  .section__subtitle {
-    font-size: var(--text-base);
-  }
-  
-  .section__description {
-    font-size: var(--text-sm);
-  }
+  .section__title { margin-bottom: var(--space-xs); }
+  .section__description { margin-bottom: var(--space-md); }
 }
 
 /* Utility classes */

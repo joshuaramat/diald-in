@@ -54,27 +54,24 @@ import { BOOKING_URL } from '../utils/seo';
 
 <style>
   .about {
-    padding: var(--space-2xl) 0;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-text-inverse);
   }
 
   .about__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
     align-items: start;
   }
 
   .about__paragraph {
-    margin-bottom: var(--space-md);
-    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-base);
     line-height: 1.7;
-    color: #ffffff;
   }
 
   .about__section-heading {
-    font-family: var(--font-primary);
     font-size: var(--text-xl);
     color: var(--color-accent);
     margin-bottom: var(--space-md);
@@ -84,16 +81,16 @@ import { BOOKING_URL } from '../utils/seo';
 
   .about__values {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
-    margin-top: var(--space-xl);
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
   }
 
   .about__value {
     text-align: center;
-    padding: var(--space-md);
+    padding: var(--space-sm);
     border-radius: var(--radius-md);
-    transition: transform var(--transition-medium);
+    transition: transform var(--transition-medium), border-color var(--transition-medium);
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
   }
@@ -104,8 +101,8 @@ import { BOOKING_URL } from '../utils/seo';
   }
 
   .about__value-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin: 0 auto var(--space-sm);
     background-color: var(--color-border);
     border-radius: 50%;
@@ -114,26 +111,22 @@ import { BOOKING_URL } from '../utils/seo';
     justify-content: center;
   }
 
-  .about__value-icon svg {
-    color: var(--color-accent);
-  }
+  .about__value-icon svg { color: var(--color-accent); }
 
   .about__value-title {
-    font-family: var(--font-primary);
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     color: var(--color-accent);
     margin-bottom: var(--space-xs);
   }
 
   .about__value-text {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
   }
 
   .about__expertise {
     background-color: var(--color-surface);
-    color: #ffffff;
-    padding: var(--space-lg);
+    padding: var(--space-md);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--color-border);
@@ -142,109 +135,37 @@ import { BOOKING_URL } from '../utils/seo';
   .about__expertise-title {
     color: var(--color-accent);
     margin-bottom: var(--space-sm);
-    font-family: var(--font-heading);
+    font-size: var(--text-lg);
   }
 
   .about__expertise-text {
     margin-bottom: var(--space-md);
     line-height: 1.6;
-    color: #ffffff;
+    font-size: var(--text-sm);
   }
 
-  @media (max-width: 992px) {
-    .about__content {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-    }
-
+  /* Tablet & up: spread values across 3 columns */
+  @media (min-width: 640px) {
+    .about__paragraph { font-size: var(--text-lg); margin-bottom: var(--space-md); }
     .about__values {
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: var(--space-sm);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
     }
+    .about__value { padding: var(--space-md); }
+    .about__value-icon { width: 50px; height: 50px; }
+    .about__value-title { font-size: var(--text-lg); }
+    .about__value-text { font-size: var(--text-sm); }
+    .about__expertise { padding: var(--space-lg); }
+    .about__expertise-text { font-size: var(--text-base); }
   }
 
-  @media (max-width: 768px) {
-    .about {
-      padding: var(--space-xl) 0;
-    }
-    
+  /* Desktop: two-column layout (text/values | expertise card) */
+  @media (min-width: 1024px) {
     .about__content {
-      gap: var(--space-lg);
-      padding: 0 var(--space-md);
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
     }
-
-    .about__paragraph {
-      font-size: var(--text-base);
-      margin-bottom: var(--space-sm);
-    }
-
-    .about__values {
-      grid-template-columns: 1fr;
-      gap: var(--space-sm);
-      margin-top: var(--space-lg);
-    }
-    
-    .about__value {
-      padding: var(--space-sm);
-    }
-    
-    .about__value-icon {
-      width: 40px;
-      height: 40px;
-    }
-    
-    .about__value-title {
-      font-size: var(--text-base);
-    }
-    
-    .about__value-text {
-      font-size: var(--text-xs);
-    }
-
-    .about__expertise {
-      padding: var(--space-md);
-      margin: 0 var(--space-md);
-    }
-    
-    .about__expertise-title {
-      font-size: var(--text-lg);
-    }
-    
-    .about__expertise-text {
-      font-size: var(--text-sm);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .about__content {
-      padding: 0 var(--space-sm);
-    }
-    
-    .about__values {
-      margin-top: var(--space-md);
-    }
-    
-    .about__value {
-      padding: var(--space-xs);
-    }
-    
-    .about__value-icon {
-      width: 36px;
-      height: 36px;
-    }
-    
-    .about__value-title {
-      font-size: var(--text-sm);
-      margin-bottom: 4px;
-    }
-    
-    .about__value-text {
-      font-size: 0.75rem;
-    }
-    
-    .about__expertise {
-      margin: 0 var(--space-sm);
-      padding: var(--space-sm);
-    }
+    .about__values { grid-template-columns: repeat(3, 1fr); }
   }
 </style> 

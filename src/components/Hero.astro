@@ -22,22 +22,20 @@ import { BOOKING_URL } from '../utils/seo';
     </h1>
     <p class="hero__subtitle" aria-describedby="hero-title">Your Destination for Precision Cuts & Expert Grooming</p>
     <p class="hero__description">Experience the perfect blend of traditional barbering craftsmanship and modern styling in our welcoming studio. Where every cut tells a story and every visit builds community.</p>
-    <div class="hero__cta" role="group" aria-label="Primary actions">
+    <div class="button-row hero__cta" role="group" aria-label="Primary actions">
       <Button
         href={BOOKING_URL}
         variant="primary"
         rel="noopener"
         ariaLabel="Book appointment"
         icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>'
-        iconPosition="left"
-        class="hero__cta-button">
+        iconPosition="left">
         Book Appointment
       </Button>
-      <Button 
+      <Button
         href="#shop"
         variant="outline"
-        ariaLabel="Shop DAKRI Hair products - Scroll to products section"
-        class="hero__cta-button">
+        ariaLabel="Shop DAKRI Hair products - Scroll to products section">
         Shop DAKRI Hair
       </Button>
     </div>
@@ -62,51 +60,44 @@ import { BOOKING_URL } from '../utils/seo';
     color: var(--color-text-primary);
     overflow: hidden;
   }
-  
+
   .hero__background {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 1;
-    /* Fallback background in case image doesn't load */
     background-color: var(--color-primary);
   }
-  
+
   .hero__background picture {
     width: 100%;
     height: 100%;
   }
-  
+
   .hero__bg-img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center bottom;
-    /* Override global picture display: block rule */
     display: inline !important;
   }
-  
+
   .hero__overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75));
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
     z-index: 2;
   }
-  
+
   .hero__content {
     position: relative;
     z-index: 3;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md) var(--space-sm);
     width: 100%;
   }
-  
+
   .hero__title {
     margin-bottom: 0;
     display: flex;
@@ -115,265 +106,96 @@ import { BOOKING_URL } from '../utils/seo';
     overflow: hidden;
     line-height: 0;
   }
-  
+
   .hero__title :global(.hero__logo) {
-    max-width: 100%;
+    max-width: 240px;
     height: auto;
-    filter: brightness(1) contrast(1);
     object-fit: contain;
     object-position: center;
-    margin: -8px 0;
+    margin: -6px 0;
     transform: scale(1.05);
     width: 100%;
-    max-width: 280px;
   }
-  
+
   .hero__subtitle {
-    font-size: var(--text-base);
-    margin-bottom: var(--space-md);
-    color: var(--color-text-primary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-sm);
     line-height: 1.5;
-    font-family: 'Brachial', var(--font-primary);
-    font-weight: 400;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     letter-spacing: 0.3px;
     opacity: 0.95;
-    padding: 0 var(--space-sm);
   }
-  
+
   .hero__description {
     font-size: var(--text-sm);
     margin-bottom: var(--space-lg);
-    color: var(--color-text-primary);
     line-height: 1.6;
-    font-family: 'Brachial', var(--font-primary);
     font-weight: 300;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
     letter-spacing: 0.2px;
     opacity: 0.9;
-    padding: 0 var(--space-sm);
+    padding-inline: var(--space-sm);
   }
-  
+
   .hero__cta {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
     justify-content: center;
     margin-bottom: var(--space-lg);
-    width: 100%;
-    max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
   }
-  
-  .hero__cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-family: 'Brachial', var(--font-primary);
-    font-weight: 600;
-    font-size: var(--text-sm);
-    letter-spacing: 0.5px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    width: 100%;
-  }
-  
-  .hero__cta-icon {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-  }
-  
+
   .hero__scroll-indicator {
     position: absolute;
-    bottom: var(--space-lg);
+    bottom: var(--space-md);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     color: var(--color-text-primary);
-    text-decoration: none;
     transition: transform var(--transition-fast);
     z-index: 3;
   }
-  
+
   .hero__scroll-indicator:hover {
     transform: translateX(-50%) translateY(-5px);
   }
-  
+
   .hero__scroll-text {
     font-size: var(--text-xs);
     margin-bottom: var(--space-xs);
-    font-family: 'Brachial', var(--font-primary);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     opacity: 0.8;
   }
-  
+
   .hero__scroll-icon {
     animation: bounce 2s infinite;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
-  
+
   @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-10px);
-    }
-    60% {
-      transform: translateY(-5px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
   }
 
-  /* Mobile-specific background positioning */
-  @media (max-width: 480px) {
-    .hero__bg-img {
-    height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
-    /* Override global picture display: block rule */
-    display: inline !important;
-  }
-    
-    .hero__overlay {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
-    }
-    
-    .hero__content {
-      padding: var(--space-md) var(--space-sm);
-    }
-    
-    .hero__title :global(.hero__logo) {
-      max-width: 240px;
-      margin: -6px 0;
-    }
-    
-    .hero__subtitle {
-      font-size: var(--text-sm);
-      padding: 0;
-      margin-bottom: var(--space-sm);
-    }
-    
-    .hero__cta {
-      max-width: 260px;
-      gap: var(--space-xs);
-    }
-    
-    .hero__cta-button {
-      padding: 0.625rem 1.25rem;
-      font-size: 0.875rem;
-    }
-    
-    .hero__cta-icon {
-      width: 16px;
-      height: 16px;
-    }
-    
-    .hero__scroll-indicator {
-      bottom: var(--space-md);
-    }
-    
-    .hero__scroll-text {
-      font-size: 0.7rem;
-    }
-    
-    .hero__scroll-icon {
-      width: 18px;
-      height: 18px;
-    }
+  /* Tablet & up */
+  @media (min-width: 640px) {
+    .hero__bg-img { object-position: center top; }
+    .hero__content { padding: var(--space-lg) var(--space-md); }
+    .hero__title :global(.hero__logo) { max-width: 320px; margin: -8px 0; }
+    .hero__subtitle { font-size: var(--text-lg); }
+    .hero__scroll-icon { width: 20px; height: 20px; }
   }
 
-  /* Tablet breakpoint */
-  @media (min-width: 481px) and (max-width: 768px) {
-    .hero__bg-img {
-      object-position: center top; /* Show the top center of the image */
-    }
-    
-    .hero__title :global(.hero__logo) {
-      max-width: 320px;
-      margin: -8px 0;
-      transform: scale(1.05);
-    }
-    
-    .hero__subtitle {
-      font-size: var(--text-lg);
-      max-width: 90%;
-      padding: 0 var(--space-sm);
-    }
-    
-    .hero__cta {
-      flex-direction: row;
-      gap: var(--space-sm);
-      max-width: 100%;
-      width: 100%;
-    }
-    
-    .hero__cta-button {
-      flex: 1;
-      max-width: 200px;
-    }
-  }
-
-  /* Desktop breakpoint */
-  @media (min-width: 769px) {
-    .hero__content {
-      padding: var(--space-xl) var(--space-md);
-    }
-    
-    .hero__title :global(.hero__logo) {
-      max-width: 500px;
-      margin: -10px 0;
-      transform: scale(1.1);
-    }
-    
-    .hero__subtitle {
-      font-size: var(--text-xl);
-      max-width: 650px;
-      letter-spacing: 0.5px;
-      line-height: 1.6;
-    }
-    
-    .hero__cta {
-      flex-direction: row;
-      gap: var(--space-md);
-      max-width: none;
-      width: auto;
-    }
-    
-    .hero__cta-button {
-      width: auto;
-      padding: 0.875rem 1.75rem;
-      font-size: 1rem;
-    }
-    
-    .hero__cta-icon {
-      width: 24px;
-      height: 24px;
-    }
-    
-    .hero__scroll-indicator {
-      bottom: var(--space-xl);
-    }
-    
-    .hero__scroll-text {
-      font-size: var(--text-sm);
-    }
-    
-    .hero__scroll-icon {
-      width: 24px;
-      height: 24px;
-    }
+  /* Desktop & up */
+  @media (min-width: 1024px) {
+    .hero__content { padding: var(--space-xl) var(--space-md); }
+    .hero__title :global(.hero__logo) { max-width: 500px; margin: -10px 0; transform: scale(1.1); }
+    .hero__subtitle { font-size: var(--text-xl); max-width: 650px; margin-inline: auto; line-height: 1.6; }
+    .hero__cta { gap: var(--space-md); }
+    .hero__scroll-indicator { bottom: var(--space-xl); }
+    .hero__scroll-text { font-size: var(--text-sm); }
+    .hero__scroll-icon { width: 24px; height: 24px; }
   }
 </style> 

@@ -90,55 +90,47 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .footer {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-text-inverse);
     padding: var(--space-xl) 0 var(--space-lg);
-    font-family: 'Brachial', sans-serif;
+    letter-spacing: 0.3px;
   }
-  
+
   .footer__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-lg);
     margin-bottom: var(--space-xl);
   }
-  
-  .footer__logo {
-    margin-bottom: var(--space-xs);
-  }
-  
+
+  .footer__logo { margin-bottom: var(--space-xs); }
+
   .footer__tagline {
     color: var(--color-accent);
     font-weight: 600;
     margin-bottom: var(--space-xs);
-    font-family: 'Brachial', sans-serif;
     letter-spacing: 0.5px;
   }
-  
+
   .footer__mission {
-    color: #ffffff;
     font-weight: 500;
     margin-bottom: var(--space-sm);
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.3px;
     font-size: var(--text-sm);
   }
-  
+
   .footer__description {
     color: var(--color-text-muted);
     margin-bottom: var(--space-md);
     font-size: var(--text-sm);
     line-height: 1.6;
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.3px;
   }
-  
+
   .footer__social {
     display: flex;
     gap: var(--space-sm);
     margin-top: var(--space-md);
   }
-  
+
   .footer__social-link {
     display: flex;
     align-items: center;
@@ -147,84 +139,67 @@ const currentYear = new Date().getFullYear();
     height: 40px;
     border-radius: 50%;
     background-color: var(--color-border);
-    color: #ffffff;
+    color: var(--color-text-inverse);
     transition: all var(--transition-fast);
   }
-  
+
   .footer__social-link:hover {
     background-color: var(--color-accent);
-    color: #000000;
+    color: var(--color-on-accent);
     transform: translateY(-3px);
   }
-  
+
   .footer__heading {
-    font-family: 'Brachial', sans-serif;
     font-size: var(--text-lg);
     margin-bottom: var(--space-md);
     color: var(--color-accent);
     letter-spacing: 0.75px;
     font-weight: 600;
   }
-  
+
   .footer__heading--centered {
     text-align: center;
     margin-top: var(--space-xl);
   }
-  
+
   .footer__subheading {
-    font-family: 'Brachial', sans-serif;
     font-size: var(--text-base);
     margin-bottom: var(--space-xs);
     color: var(--color-accent);
     letter-spacing: 0.5px;
     font-weight: 600;
   }
-  
+
   .footer__links {
     list-style: none;
-    padding: 0;
   }
-  
-  .footer__links li {
-    margin-bottom: var(--space-xs);
-  }
-  
+
+  .footer__links li { margin-bottom: var(--space-xs); }
+
   .footer__link {
-    color: #ffffff;
-    text-decoration: none;
+    color: var(--color-text-inverse);
     transition: color var(--transition-fast);
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.3px;
   }
-  
+
   .footer__link:hover {
     color: var(--color-accent);
     text-decoration: none;
   }
-  
+
   .footer__address {
     font-style: normal;
     margin-bottom: var(--space-md);
-    font-family: 'Brachial', sans-serif;
   }
-  
-  .footer__address p {
-    margin-bottom: var(--space-xs);
-    color: #ffffff;
-    letter-spacing: 0.3px;
-  }
-  
+
+  .footer__address p { margin-bottom: var(--space-xs); }
+
   .footer__hours p {
     color: var(--color-text-muted);
     line-height: 1.7;
     margin-bottom: var(--space-md);
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.3px;
   }
-  
-  .footer__cta {
-    margin-top: var(--space-md);
-  }
+
+  .footer__cta { margin-top: var(--space-md); }
 
   .footer__shop {
     border-top: 1px solid var(--color-border);
@@ -235,46 +210,29 @@ const currentYear = new Date().getFullYear();
     align-items: center;
     text-align: center;
   }
-  
-  .footer__shop-tagline {
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
-    max-width: 500px;
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.3px;
-  }
-  
-  .footer__shop-brands {
-    margin-bottom: var(--space-md);
-  }
-  
-  .footer__shop-brand {
-    font-weight: 600;
-    margin-right: var(--space-xs);
-  }
-  
-  .footer__shop-separator {
-    margin-right: var(--space-xs);
-  }
-  
-  .footer__shop-description {
-    color: var(--color-text-muted);
-  }
-  
-  .footer__shop-cta {
-    margin-top: var(--space-xs);
-  }
-  
+
+  .footer__shop-tagline,
+  .footer__shop-description,
   .footer__shop-description-text {
     color: var(--color-text-muted);
+  }
+
+  .footer__shop-tagline {
+    margin-bottom: var(--space-md);
+    max-width: 500px;
+  }
+
+  .footer__shop-brands { margin-bottom: var(--space-md); }
+  .footer__shop-brand { font-weight: 600; margin-right: var(--space-xs); }
+  .footer__shop-separator { margin-right: var(--space-xs); }
+  .footer__shop-cta { margin-top: var(--space-xs); }
+
+  .footer__shop-description-text {
     font-size: var(--text-sm);
     margin-bottom: var(--space-sm);
-    text-align: center;
     line-height: 1.5;
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.3px;
   }
-  
+
   .footer__bottom {
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
@@ -284,31 +242,25 @@ const currentYear = new Date().getFullYear();
     flex-wrap: wrap;
     gap: var(--space-md);
   }
-  
+
   .footer__copyright {
     color: var(--color-text-muted);
     font-size: var(--text-sm);
-    font-family: 'Brachial', sans-serif;
-    letter-spacing: 0.3px;
   }
-  
+
   .footer__legal {
     display: flex;
     gap: var(--space-md);
   }
-  
-  .footer__link--small {
-    font-size: var(--text-sm);
-  }
-  
-  @media (max-width: 768px) {
+
+  .footer__link--small { font-size: var(--text-sm); }
+
+  /* Mobile: stack bottom row vertically */
+  @media (max-width: 639.98px) {
     .footer__bottom {
       flex-direction: column;
       text-align: center;
     }
-    
-    .footer__legal {
-      justify-content: center;
-    }
+    .footer__legal { justify-content: center; }
   }
 </style> 

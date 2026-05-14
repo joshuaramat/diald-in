@@ -68,202 +68,120 @@ const productsStructuredData = featuredProducts.map(product =>
 
 <style>
   .shop {
-    padding: var(--space-xl) 0;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-primary) 100%);
+    color: var(--color-text-inverse);
   }
-  
+
   .shop__header {
     text-align: center;
     margin-bottom: var(--space-xl);
-    padding: 0 var(--space-md);
   }
-  
+
   .shop__live-indicator {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    background: rgba(var(--color-success-rgb), 0.1);
+    border: 1px solid rgba(var(--color-success-rgb), 0.3);
     border-radius: 20px;
     padding: var(--space-xs) var(--space-md);
     font-size: var(--text-sm);
-    color: #22c55e;
+    color: var(--color-success);
     margin-top: var(--space-md);
     font-weight: 500;
   }
-  
+
   .shop__live-dot {
     width: 8px;
     height: 8px;
-    background-color: #22c55e;
+    background-color: var(--color-success);
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
-  
+
   @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(var(--color-success-rgb), 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(var(--color-success-rgb), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--color-success-rgb), 0); }
   }
-  
+
   .shop__products {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-lg);
     margin-bottom: var(--space-xl);
-    padding: 0 var(--space-md);
   }
-  
+
   .shop__cta {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #c49c5a 100%);
-    border-radius: 16px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    border-radius: var(--radius-lg);
     padding: var(--space-lg);
     text-align: center;
     position: relative;
     overflow: hidden;
-    margin: 0 var(--space-md);
   }
-  
+
   .shop__cta::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
     opacity: 0.3;
   }
-  
+
   .shop__cta-content {
     position: relative;
     z-index: 1;
   }
-  
+
   .shop__cta-title {
-    font-family: var(--font-primary);
     font-size: var(--text-lg);
     font-weight: 700;
-    color: #000000;
+    color: var(--color-on-accent);
     margin-bottom: var(--space-sm);
     letter-spacing: 0.5px;
     line-height: 1.3;
   }
-  
+
   .shop__cta-subtitle {
-    font-family: var(--font-primary);
     font-size: var(--text-base);
     font-weight: 600;
-    color: #000000;
+    color: var(--color-on-accent);
     margin-bottom: var(--space-xs);
     letter-spacing: 0.3px;
     opacity: 0.8;
   }
-  
+
   .shop__cta-description {
-    color: #333333;
+    color: var(--color-on-accent);
+    opacity: 0.7;
     font-size: var(--text-sm);
     margin-bottom: var(--space-md);
     line-height: 1.5;
   }
-  
-  /* Button styling now handled by main.css .btn-dark variant */
 
-  /* Tablet breakpoint */
+  /* Tablet & up */
   @media (min-width: 640px) {
-    .shop {
-      padding: var(--space-2xl) 0;
-    }
-    
-    .shop__header {
-      margin-bottom: var(--space-2xl);
-      padding: 0 var(--space-lg);
-    }
-    
-    .shop__products {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-xl);
-      padding: 0 var(--space-lg);
-    }
-    
-    .shop__cta {
-      padding: var(--space-xl);
-      margin: 0 var(--space-lg);
-      border-radius: 20px;
-    }
-    
-    .shop__cta-title {
-      font-size: var(--text-xl);
-      margin-bottom: var(--space-md);
-    }
-    
-    .shop__cta-subtitle {
-      font-size: var(--text-base);
-      margin-bottom: var(--space-lg);
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .shop__cta-description {
-      font-size: var(--text-base);
-      margin-bottom: var(--space-lg);
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    /* Button responsive styles now handled by main.css */
+    .shop__header { margin-bottom: var(--space-2xl); }
+    .shop__products { grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); }
+    .shop__cta { padding: var(--space-xl); border-radius: var(--radius-lg); }
+    .shop__cta-title { font-size: var(--text-xl); margin-bottom: var(--space-md); }
+    .shop__cta-subtitle,
+    .shop__cta-description { max-width: 500px; margin-inline: auto; }
+    .shop__cta-subtitle { font-size: var(--text-base); margin-bottom: var(--space-lg); }
+    .shop__cta-description { font-size: var(--text-base); margin-bottom: var(--space-lg); }
   }
 
-  /* Desktop breakpoint */
+  /* Desktop */
   @media (min-width: 1024px) {
-    .shop__header {
-      padding: 0;
-    }
-    
     .shop__products {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       grid-auto-rows: 1fr;
       gap: var(--space-2xl);
-      padding: 0;
     }
-    
-    .shop__cta {
-      padding: var(--space-2xl);
-      margin: 0;
-    }
-    
-    .shop__cta-title {
-      font-size: var(--text-2xl);
-    }
-    
-    .shop__cta-subtitle {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-xl);
-      max-width: 600px;
-    }
-    
-    .shop__cta-description {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-xl);
-      max-width: 600px;
-    }
-    
-    /* Button desktop styles now handled by main.css */
-  }
-
-  /* Large desktop breakpoint */
-  @media (min-width: 1280px) {
-    .shop__products {
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    }
+    .shop__cta { padding: var(--space-2xl); }
+    .shop__cta-title { font-size: var(--text-2xl); }
+    .shop__cta-subtitle,
+    .shop__cta-description { font-size: var(--text-lg); max-width: 600px; margin-bottom: var(--space-xl); }
   }
 </style> 

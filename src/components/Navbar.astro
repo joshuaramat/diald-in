@@ -15,7 +15,7 @@ const { isDark = false, isSticky = false } = Astro.props;
   <div class="container">
     <nav class="navbar">
       <a href="/" class="navbar__logo" aria-label="Diald In Barber Studio - Home">
-        <Logo variant="white" width={192} height={48} priority={true} minWidth={160} />
+        <Logo variant="white" width={160} height={40} priority={true} minWidth={140} />
       </a>
       
       <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
@@ -58,7 +58,7 @@ const { isDark = false, isSticky = false } = Astro.props;
     if (menuLinks.length > 0 && menu) {
       menuLinks.forEach(link => {
         link.addEventListener('click', () => {
-          if (window.innerWidth <= 768) {
+          if (window.innerWidth < 1024) {
             menu.classList.remove('navbar__menu--active');
             if (toggle) {
               toggle.setAttribute('aria-expanded', 'false');
@@ -96,145 +96,99 @@ const { isDark = false, isSticky = false } = Astro.props;
     right: 0;
     z-index: 100;
     transition: background-color var(--transition-medium), box-shadow var(--transition-medium);
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Brachial', sans-serif;
-    padding: 0.5rem 0;
+    background-color: var(--color-background);
+    color: var(--color-text-inverse);
+    padding: 0.375rem 0;
   }
-  
-  .header--sticky {
-    position: fixed;
-  }
-  
+
+  .header--sticky { position: fixed; }
+
   .header--sticky.is-sticky {
-    background-color: #000000;
+    background-color: var(--color-background);
     box-shadow: var(--shadow-md);
   }
-  
-  .header--dark {
-    color: #ffffff;
-  }
-  
+
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.25rem 0;
     position: relative;
   }
-  
+
   .navbar__logo {
     display: flex;
     align-items: center;
-    text-decoration: none;
-    margin-right: 2.5rem;
-    min-width: 200px; /* Minimum logo container width */
+    min-width: 140px;
   }
-  
-  .header--dark .navbar__logo {
-    color: #ffffff;
-  }
-  
-  .navbar__logo-text {
-    display: inline-block;
-    font-family: 'Brachial', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  
-  .navbar__logo-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+
   .navbar__menu {
     display: flex;
-    gap: 2rem;  /* Increased for better spacing */
+    gap: 1.5rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
     align-items: center;
-    font-family: 'Brachial', sans-serif;
   }
-  
+
   .navbar__link {
-    color: #ffffff;
-    text-decoration: none;
+    color: var(--color-text-inverse);
     font-weight: 500;
-    transition: all var(--transition-fast);
-    padding: 0.75rem 0.5rem;  /* Increased vertical padding */
+    transition: color var(--transition-fast);
+    padding: 0.5rem;
     display: inline-block;
     position: relative;
-    font-family: 'Brachial', sans-serif;
     letter-spacing: 0.75px;
-    font-size: 1.05rem;  /* Slightly increased font size */
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-size: var(--text-base);
   }
-  
+
   .navbar__link::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0.5rem;  /* Adjust position to align with text */
+    bottom: 0.25rem;
     left: 0.5rem;
     background-color: var(--color-accent);
     transition: width var(--transition-medium);
   }
-  
-  .navbar__link:hover::after, 
-  .navbar__link:focus::after {
-    width: calc(100% - 1rem);
-  }
-  
-  .navbar__link:hover, 
+
+  .navbar__link:hover::after,
+  .navbar__link:focus::after { width: calc(100% - 1rem); }
+
+  .navbar__link:hover,
   .navbar__link:focus {
     color: var(--color-accent);
     text-decoration: none;
   }
-  
-  .navbar__cta-wrapper {
-    margin-left: 1.25rem;
-  }
-  
+
+  .navbar__cta-wrapper { margin-left: var(--space-md); }
+
   .navbar__link--cta {
     background-color: var(--color-accent);
-    color: #000000;
-    padding: 0.65rem 1.25rem;  /* Reduced padding for smaller button */
+    color: var(--color-on-accent);
+    padding: 0.5rem 1rem;
     border-radius: var(--radius-md);
     font-weight: 600;
     transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;  /* Center contents */
-    gap: 0.5rem;  /* Reduced gap between icon and text */
-    font-family: 'Brachial', sans-serif;
-    text-align: center;  /* Ensure text is centered */
-    white-space: nowrap;  /* Prevent wrapping */
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    white-space: nowrap;
     letter-spacing: 0.75px;
   }
-  
-  .navbar__link--cta::after {
-    display: none;
-  }
-  
+
+  .navbar__link--cta::after { display: none; }
+
   .navbar__link--cta:hover,
   .navbar__link--cta:focus {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--color-text-inverse);
+    color: var(--color-on-accent);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
 
-  .navbar__cta-icon {
-    flex-shrink: 0;
-  }
-  
+  .navbar__cta-icon { flex-shrink: 0; }
+
   .navbar__toggle {
     display: none;
     background: none;
@@ -243,64 +197,37 @@ const { isDark = false, isSticky = false } = Astro.props;
     width: 2rem;
     height: 2rem;
     position: relative;
-    font-family: 'Brachial', sans-serif;
   }
-  
+
   .navbar__toggle-icon,
   .navbar__toggle-icon::before,
   .navbar__toggle-icon::after {
     display: block;
-    background-color: #ffffff;
+    background-color: var(--color-text-inverse);
     height: 2px;
     width: 100%;
     position: absolute;
     left: 0;
     transition: transform var(--transition-medium);
   }
-  
+
   .navbar__toggle-icon {
     top: 50%;
     transform: translateY(-50%);
   }
-  
+
   .navbar__toggle-icon::before,
-  .navbar__toggle-icon::after {
-    content: "";
-  }
-  
-  .navbar__toggle-icon::before {
-    top: -8px;
-  }
-  
-  .navbar__toggle-icon::after {
-    bottom: -8px;
-  }
-  
-  @media (max-width: 992px) {
-    .navbar__menu {
-      gap: 1.5rem;  /* Adjusted for medium screens */
-    }
-    
-    .navbar__link {
-      font-size: 1rem;
-      padding: 0.75rem 0.35rem;  /* Smaller horizontal padding */
-    }
-    
-    .navbar__logo {
-      margin-right: 1.5rem;  /* Reduced margin */
-    }
-  }
-  
-  @media (max-width: 768px) {
+  .navbar__toggle-icon::after { content: ""; }
+  .navbar__toggle-icon::before { top: -8px; }
+  .navbar__toggle-icon::after { bottom: -8px; }
+
+  /* Mobile (<1024px): hamburger menu + slide-out drawer */
+  @media (max-width: 1023.98px) {
     .navbar__toggle {
       display: block;
       z-index: 110;
     }
-    
-    .navbar__logo {
-      min-width: 160px; /* Smaller min-width for mobile */
-    }
-    
+
     .navbar__menu {
       position: fixed;
       top: 0;
@@ -308,65 +235,45 @@ const { isDark = false, isSticky = false } = Astro.props;
       bottom: 0;
       width: 75%;
       max-width: 320px;
-      background-color: #000000;
-      color: #ffffff;
+      background-color: var(--color-background);
+      color: var(--color-text-inverse);
       flex-direction: column;
       padding: 5rem var(--space-lg) var(--space-lg);
       transform: translateX(100%);
       transition: transform var(--transition-medium);
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
       z-index: 100;
-      gap: 1.25rem;  /* Increased for mobile */
+      gap: var(--space-md);
+      align-items: stretch;
     }
-    
-    .navbar__menu--active {
-      transform: translateX(0);
-    }
-    
+
+    .navbar__menu--active { transform: translateX(0); }
+
     .navbar__link {
       display: block;
       width: 100%;
       padding: 0.75rem 0;
-      font-size: 1.1rem;  /* Slightly larger for mobile */
+      font-size: var(--text-lg);
       text-align: left;
     }
-    
-    .navbar__link::after {
-      left: 0;
-      bottom: 0.35rem;
-    }
-    
-    .navbar__link:hover::after, 
-    .navbar__link:focus::after {
-      width: 100%;
-    }
-    
+
+    .navbar__link::after { left: 0; bottom: 0.35rem; }
+    .navbar__link:hover::after,
+    .navbar__link:focus::after { width: 100%; }
+
     .navbar__cta-wrapper {
       margin-left: 0;
-      margin-top: 1.5rem;
+      margin-top: var(--space-md);
       width: 100%;
     }
-    
+
     .navbar__link--cta {
-      text-align: center;
-      display: flex;
-      justify-content: center;
       padding: 0.75rem 1.25rem;
       width: 100%;
     }
-    
-    [aria-expanded="true"] .navbar__toggle-icon {
-      background-color: transparent;
-    }
-    
-    [aria-expanded="true"] .navbar__toggle-icon::before {
-      transform: rotate(45deg);
-      top: 0;
-    }
-    
-    [aria-expanded="true"] .navbar__toggle-icon::after {
-      transform: rotate(-45deg);
-      bottom: 0;
-    }
+
+    [aria-expanded="true"] .navbar__toggle-icon { background-color: transparent; }
+    [aria-expanded="true"] .navbar__toggle-icon::before { transform: rotate(45deg); top: 0; }
+    [aria-expanded="true"] .navbar__toggle-icon::after { transform: rotate(-45deg); bottom: 0; }
   }
 </style> 
