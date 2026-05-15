@@ -77,7 +77,10 @@ import { BARBERS } from '../data/barbers';
           
           <a href={BOOKING_URL} class="btn btn-primary booking__cta" rel="noopener">Book Appointment</a>
 
-          <p class="booking__card-footer">Powered by <img src="https://placehold.co/80x20/ffffff/000000?text=Squire" alt="Squire logo" width="80" height="20" /></p>
+          <p class="booking__card-footer">
+            Powered by
+            <span class="booking__squire-wordmark" aria-label="Squire">Squire</span>
+          </p>
         </div>
       </div>
     </div>
@@ -233,7 +236,7 @@ import { BARBERS } from '../data/barbers';
     background-color: rgba(255, 255, 255, 0.02);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s var(--easing-smooth);
     text-align: center;
     cursor: pointer;
     position: relative;
@@ -340,6 +343,13 @@ import { BARBERS } from '../data/barbers';
     align-items: center;
     justify-content: center;
     gap: var(--space-xs);
+  }
+
+  .booking__squire-wordmark {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-text-primary);
+    font-size: var(--text-sm);
   }
 
   /* Tablet & up */

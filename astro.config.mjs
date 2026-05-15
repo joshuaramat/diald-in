@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,7 +9,7 @@ export default defineConfig({
   output: 'static',
   
   // Add React integration
-  integrations: [react()],
+  integrations: [react(), sitemap()],
   
   // Set the site URL for production
   site: 'https://dialdinbarberstudio.com',
@@ -23,10 +24,6 @@ export default defineConfig({
       {
         protocol: 'https',
         hostname: '*.dialdinbarberstudio.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
       },
     ],
   },

@@ -1,8 +1,9 @@
+import type { ProductStructuredData } from '../utils/seo';
+
 /**
  * DAKRI Hair Featured Products
- * 
+ *
  * Real product data from dakrihair.com for display on Diald In website.
- * This provides a simple, reliable solution without complex scraping.
  * Data manually curated from actual DAKRI Hair product pages.
  */
 
@@ -88,7 +89,7 @@ export function getFeaturedProducts(count = 3): DAKRIProduct[] {
 /**
  * Generate structured data for SEO
  */
-export function generateProductStructuredData(product: DAKRIProduct): any {
+export function generateProductStructuredData(product: DAKRIProduct): ProductStructuredData {
   return {
     "@context": "https://schema.org/",
     "@type": "Product",

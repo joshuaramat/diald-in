@@ -1,5 +1,5 @@
 ---
-import { BOOKING_URL, SHOP_URL } from '../utils/seo';
+import { BOOKING_URL } from '../utils/seo';
 import Logo from './Logo.astro';
 
 // Navbar component
@@ -40,11 +40,15 @@ const { isDark = false, isSticky = false } = Astro.props;
 </header>
 
 <script>
-  // Mobile menu toggle logic
+  // Must match @media (max-width: 1023.98px) in this component's <style>
+  const DESKTOP_BREAKPOINT = 1024;
+  // Scroll distance before the sticky header gains its background shadow
+  const STICKY_THRESHOLD = 80;
+
   document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.navbar__toggle');
     const menu = document.querySelector('.navbar__menu');
-    
+
     if (toggle && menu) {
       toggle.addEventListener('click', () => {
         menu.classList.toggle('navbar__menu--active');
@@ -52,38 +56,28 @@ const { isDark = false, isSticky = false } = Astro.props;
         toggle.setAttribute('aria-expanded', (!expanded).toString());
       });
     }
-    
-    // Close menu when clicking on links
+
+    // Close menu when clicking links on mobile
     const menuLinks = document.querySelectorAll('.navbar__link');
     if (menuLinks.length > 0 && menu) {
       menuLinks.forEach(link => {
         link.addEventListener('click', () => {
-          if (window.innerWidth < 1024) {
+          if (window.innerWidth < DESKTOP_BREAKPOINT) {
             menu.classList.remove('navbar__menu--active');
-            if (toggle) {
-              toggle.setAttribute('aria-expanded', 'false');
-            }
+            toggle?.setAttribute('aria-expanded', 'false');
           }
         });
       });
     }
-    
-    // Sticky header logic
+
+    // Sticky header shadow
     const header = document.querySelector('.header--sticky');
     if (header) {
-      const addStickyClass = () => {
-        if (window.scrollY > 80) {
-          header.classList.add('is-sticky');
-        } else {
-          header.classList.remove('is-sticky');
-        }
+      const updateSticky = () => {
+        header.classList.toggle('is-sticky', window.scrollY > STICKY_THRESHOLD);
       };
-      
-      // Check on initial load
-      addStickyClass();
-      
-      // Check on scroll
-      window.addEventListener('scroll', addStickyClass);
+      updateSticky();
+      window.addEventListener('scroll', updateSticky);
     }
   });
 </script>
