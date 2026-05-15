@@ -2,6 +2,25 @@
  * SEO utilities for Diald In Barber Studio
  */
 
+export interface ProductStructuredData {
+  "@context": "https://schema.org/";
+  "@type": "Product";
+  name: string;
+  description: string;
+  image: string;
+  offers: {
+    "@type": "Offer";
+    url: string;
+    priceCurrency: string;
+    price: string;
+    availability: string;
+  };
+  brand: {
+    "@type": "Brand";
+    name: string;
+  };
+}
+
 export interface SEOProps {
   title?: string;
   description?: string;
@@ -81,14 +100,6 @@ export const SERVICES = [
   }
 ];
 
-// Review aggregation data - ARCHIVED for future API integration
-// export const REVIEW_AGGREGATE = {
-//   ratingValue: "4.9",
-//   reviewCount: "124",
-//   bestRating: "5",
-//   worstRating: "1"
-// };
-
 function getPageTitle(title?: string, section?: string): string {
   if (!title && !section) return DEFAULT_TITLE;
   if (section) return `${section} | ${DEFAULT_TITLE}`;
@@ -137,15 +148,6 @@ export function generateSEOMetadata({
     "url": BOOKING_URL
   }));
 
-  // Generate review aggregation for JSON-LD - ARCHIVED for future API integration
-  // const reviewAggregate = {
-  //   "@type": "AggregateRating",
-  //   "ratingValue": REVIEW_AGGREGATE.ratingValue,
-  //   "reviewCount": REVIEW_AGGREGATE.reviewCount,
-  //   "bestRating": REVIEW_AGGREGATE.bestRating,
-  //   "worstRating": REVIEW_AGGREGATE.worstRating
-  // };
-  
   return {
     title: fullTitle,
     meta: [
@@ -239,27 +241,12 @@ export function generateSEOMetadata({
       "knowsAbout": [
         "Men's haircuts",
         "Beard grooming",
-        "Fade haircuts", 
+        "Fade haircuts",
         "Classic cuts",
         "Hair styling",
         "Barbering techniques",
         "Men's grooming"
       ]
-      // ARCHIVED: Review and rating data for future API integration
-      // "aggregateRating": reviewAggregate,
-      // "review": {
-      //   "@type": "Review",
-      //   "reviewRating": {
-      //     "@type": "Rating",
-      //     "ratingValue": "5",
-      //     "bestRating": "5"
-      //   },
-      //   "author": {
-      //     "@type": "Person",
-      //     "name": "James T."
-      //   },
-      //   "reviewBody": "Best barbershop in town! The attention to detail is amazing and they always make sure I leave looking my best. Haven't found anyone who can fade like these guys."
-      // }
     }
   };
 } 
