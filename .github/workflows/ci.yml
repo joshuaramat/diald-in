@@ -28,4 +28,4 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          PUBLIC_SQUIRE_BRAND_ID: ${{ secrets.PUBLIC_SQUIRE_BRAND_ID }}
+          PUBLIC_SQUIRE_BRAND_ID: ${{ vars.PUBLIC_SQUIRE_BRAND_ID }}
